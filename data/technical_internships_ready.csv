@@ -1,0 +1,389 @@
+title,location,start_salary,max_salary,skills,type,skills_clean
+Software Development And Testing Automation (Multi Technology),Indore,7500.0,7500.0,C Programming C Programming CSS Data Analytics Database Testing Data Science Data Structures HTML Java JavaScript Machine Learning Nodejs PHP Python ReactJS R Programming,internship,c programming c programming css data analytics database testing data science data structures html java javascript machine learning nodejs php python reactjs r programming
+Data Analytics,Work from home,4100.0,8200.0,Data Analytics Data Science MongoDB MSExcel Power BI Python SQL Tableau,internship,data analytics data science mongodb msexcel power bi python sql tableau
+iOS App Development,Chandigarh,20000.0,40000.0,"Git iOS REST API Swift UI, UX Design",internship,"git ios rest api swift ui, ux design"
+Web Development,Bhopal,3000.0,5000.0,CSS HTML JavaScript PHP WordPress,internship,css html javascript php wordpress
+Mobile App Development,Vijayawada,20000.0,20000.0,Flutter Kotlin React Native,internship,flutter kotlin react native
+Web Development,Work from home,3000.0,3000.0,Bootstrap CSS HTML JavaScript jQuery,internship,bootstrap css html javascript jquery
+Full Stack Development,Work from home,5000.0,5000.0,JavaScript Nodejs ReactJS,internship,javascript nodejs reactjs
+Android App Development,Noida,4000.0,8000.0,Android Flutter Java Kotlin Xamarin,internship,android flutter java kotlin xamarin
+SQL DEVELOPER,Work from home,1000.0,1000.0,SQL,internship,sql
+Cyber Security,Work from home,1000.0,1000.0,Ethical Hacking,internship,ethical hacking
+Data Science,Work from home,1000.0,1000.0,Data Science Python,internship,data science python
+Web Development,Work from home,5000.0,5000.0,Bootstrap CSS JavaScript MySQL PHP WordPress,internship,bootstrap css javascript mysql php wordpress
+Android App Development,Work from home,2000.0,2000.0,Android APIs Firebase Java Kotlin MySQL REST API XML,internship,android apis firebase java kotlin mysql rest api xml
+Generative AI (AI Agents),Work from home,8000.0,8000.0,Flutter HTMLCSS JavaScript Nodejs Python React REST API,internship,flutter htmlcss javascript nodejs python react rest api
+Data Analyst,Delhi,8000.0,8000.0,MSExcel Power BI SQL,internship,msexcel power bi sql
+Web Development,Bhopal,3000.0,5000.0,Bootstrap HTMLCSS JavaScript MySQL PHP WordPress,internship,bootstrap htmlcss javascript mysql php wordpress
+Artificial Intelligence (AI),Work from home,25000.0,25000.0,Artificial Intelligence Data Science Deep Learning Machine Learning Natural Language Processing NLP Python,internship,artificial intelligence data science deep learning machine learning natural language processing nlp python
+Software Development Engineering (Web),Work from home,5000.0,5000.0,Artificial Intelligence Deep Learning Django HTMLCSS JavaScript Machine Learning MySQL Natural Language Processing NLP Neural Networks Python React,internship,artificial intelligence deep learning django htmlcss javascript machine learning mysql natural language processing nlp neural networks python react
+Full Stack Development,Work from home,4000.0,4000.0,CSS HTML JavaScript MongoDB Nodejs ReactJS,internship,css html javascript mongodb nodejs reactjs
+Full Stack Development,Noida,10000.0,10000.0,CSS JavaScript Nodejs Python,internship,css javascript nodejs python
+Embedded Systems,Chennai,2000.0,5000.0,Arduino C Programming Embedded Systems PCB Design Raspberry Pi,internship,arduino c programming embedded systems pcb design raspberry pi
+Embedded Systems,Gurgaon,25000.0,25000.0,Embedded Systems Internet of Things IoT Python,internship,embedded systems internet of things iot python
+Full Stack Development,Bangalore,15000.0,15000.0,Expressjs MongoDB Nextjs Nodejs React Tailwind CSS,internship,expressjs mongodb nextjs nodejs react tailwind css
+Full Stack Development,Work from home,1000.0,1000.0,AngularJS CSS HTML JavaScript Nodejs ReactJS,internship,angularjs css html javascript nodejs reactjs
+Java Development,Work from home,1000.0,1000.0,Java,internship,java
+Machine Learning,Work from home,1000.0,1000.0,Machine Learning Python,internship,machine learning python
+Python Development,Work from home,1000.0,1000.0,Python,internship,python
+Mobile App Development,Delhi,5000.0,12000.0,Android Flutter iOS Nodejs ReactJS React Native REST API,internship,android flutter ios nodejs reactjs react native rest api
+AWS DevOps Engineer,Bangalore,10000.0,20000.0,Amazon Web Services AWS Docker Kubernetes,internship,amazon web services aws docker kubernetes
+Full Stack Development,Noida,10000.0,10000.0,JavaScript LARAVEL PHP Python,internship,javascript laravel php python
+iOS App Development,Work from home,3000.0,3000.0,iOS Objective C REST API Stripe Payment API Swift Xcode,internship,ios objective c rest api stripe payment api swift xcode
+Full Stack Development,Bangalore,3000.0,3000.0,AngularJS Bubbleio Java MongoDB Nodejs React ReactJS,internship,angularjs bubbleio java mongodb nodejs react reactjs
+Mobile App Development,Surat,10000.0,10000.0,Dart Firebase Flutter Java,internship,dart firebase flutter java
+Full Stack Development,"Ahmedabad, Vadodara",10000.0,10000.0,AngularJS JavaScript MongoDB Nodejs PostgreSQL Python ReactJS,internship,angularjs javascript mongodb nodejs postgresql python reactjs
+Embedded Systems,Mumbai,6000.0,6000.0,C Programming,internship,c programming
+Web Development,Pune,10000.0,15000.0,CSS HTML JavaScript Nodejs ReactJS WordPress,internship,css html javascript nodejs reactjs wordpress
+DevOps Engineering,Jaipur,5000.0,5000.0,Amazon Web Services AWS Ansible Cloud Computing DevOps Docker Git Google Cloud Computing Jenkins Kubernetes Microsoft Azure Terraform,internship,amazon web services aws ansible cloud computing devops docker git google cloud computing jenkins kubernetes microsoft azure terraform
+Python Development,Gurgaon,10000.0,15000.0,Django FastAPI PostgreSQL Python REST API Stripe Payment API,internship,django fastapi postgresql python rest api stripe payment api
+Artificial Intelligence (AI),Work from home,15000.0,15000.0,Deep Learning Natural Language Processing NLP Python,internship,deep learning natural language processing nlp python
+Full Stack Development,Kolkata,4000.0,4000.0,Nodejs PHP Python ReactJS,internship,nodejs php python reactjs
+UI/UX Web Development,Work from home,5000.0,10000.0,"Adobe Photoshop Bootstrap HTMLCSS JavaScript Responsive Design Sketch UI, UX Design",internship,"adobe photoshop bootstrap htmlcss javascript responsive design sketch ui, ux design"
+Software Testing,Work from home,10000.0,10000.0,Java,internship,java
+Software Testing,Work from home,5000.0,8000.0,Database Testing GUI Testing Manual Testing Software Testing,internship,database testing gui testing manual testing software testing
+Software Development,Bangalore,10000.0,20000.0,Nextjs ReactJS,internship,nextjs reactjs
+Software Development,Bangalore,10000.0,20000.0,FastAPI Python,internship,fastapi python
+iOS App Development,Work from home,10000.0,10000.0,iOS Objective C REST API Swift Xcode,internship,ios objective c rest api swift xcode
+Mobile App Development,Pune,12000.0,12000.0,Android Firebase iOS Java Kotlin REST API Swift,internship,android firebase ios java kotlin rest api swift
+Cyber Security,Pune,2000.0,12000.0,Ethical Hacking Linux Python Web Application Security,internship,ethical hacking linux python web application security
+Web Development,Work from home,12000.0,12000.0,Blogging Creative Writing English Proficiency Spoken English Proficiency Written,internship,blogging creative writing english proficiency spoken english proficiency written
+Backend Development,Work from home,6000.0,6000.0,JavaScript MongoDB Nodejs REST API,internship,javascript mongodb nodejs rest api
+Data Analytics,Work from home,5000.0,10000.0,Data Analysis Power BI SQL Tableau,internship,data analysis power bi sql tableau
+Mobile App Development,Work from home,15000.0,20000.0,React Native,internship,react native
+Artificial Intelligence (AI),Work from home,5000.0,5000.0,Artificial Intelligence MSPowerPoint,internship,artificial intelligence mspowerpoint
+Full Stack Development,Work from home,10000.0,50000.0,Artificial Intelligence Machine Learning Neural Networks React,internship,artificial intelligence machine learning neural networks react
+Data Analytics,Work from home,1000.0,1000.0,Data Science MSExcel Python,internship,data science msexcel python
+Full Stack Development,Work from home,1000.0,1000.0,MongoDB Nodejs ReactJS,internship,mongodb nodejs reactjs
+Backend Development,Work from home,1000.0,1000.0,Java MongoDB Nodejs REST API,internship,java mongodb nodejs rest api
+Software Development,Work from home,10000.0,15000.0,CSS HTML JavaScript Nodejs PostgreSQL ReactJS REST API,internship,css html javascript nodejs postgresql reactjs rest api
+Web Development,Nagpur,4000.0,7000.0,CodeIgniter CSS HTML JavaScript MySQL PHP,internship,codeigniter css html javascript mysql php
+Artificial Intelligence (AI),Chandigarh,8000.0,8000.0,Artificial Intelligence Data Science Machine Learning MSExcel Natural Language Processing NLP Power BI,internship,artificial intelligence data science machine learning msexcel natural language processing nlp power bi
+Computer Vision,Work from home,12500.0,12500.0,C Programming Computer Vision Deep Learning OpenCV Python,internship,c programming computer vision deep learning opencv python
+Software Development,Delhi,5000.0,12000.0,C Programming Python,internship,c programming python
+Full Stack Development,Work from home,15000.0,15000.0,AngularJS Bubbleio CSS HTML JavaScript MongoDB MySQL Nodejs PHP Python ReactJS,internship,angularjs bubbleio css html javascript mongodb mysql nodejs php python reactjs
+Web Development,Work from home,12000.0,18000.0,Bootstrap CSS HTML JavaScript jQuery MySQL Nodejs PHP ReactJS WordPress,internship,bootstrap css html javascript jquery mysql nodejs php reactjs wordpress
+Software Development,Work from home,12000.0,18000.0,NET C Programming CSS HTML Java JavaScript MySQL Nodejs Python ReactJS,internship,net c programming css html java javascript mysql nodejs python reactjs
+Artificial Intelligence (AI),Work from home,1640.0,1640.0,Artificial Intelligence Data Science Deep Learning,internship,artificial intelligence data science deep learning
+Business Intelligence - Power BI,Mumbai,15000.0,15000.0,Power BI,internship,power bi
+AWS DevOps Engineer,Noida,5000.0,10000.0,Amazon Web Services AWS DevOps,internship,amazon web services aws devops
+Internet Of Things (IoT),Patna,7000.0,7000.0,Arduino ARM Microcontroller C Programming Embedded Systems Internet of Things IoT,internship,arduino arm microcontroller c programming embedded systems internet of things iot
+Backend Development,Gandhinagar,25000.0,25000.0,Amazon Web Services AWS DevOps Django Git Google Cloud Computing REST API SQL,internship,amazon web services aws devops django git google cloud computing rest api sql
+Internet Of Things (IoT),Work from home,3000.0,3000.0,Arduino ARM Microcontroller C Programming C Programming Embedded Systems Internet of Things IoT Python Raspberry Pi,internship,arduino arm microcontroller c programming c programming embedded systems internet of things iot python raspberry pi
+AWS DevOps Engineer,Work from home,3000.0,3000.0,Amazon Web Services AWS DevOps HTMLCSS Internet of Things IoT JavaScript MongoDB Performance Management System Python React,internship,amazon web services aws devops htmlcss internet of things iot javascript mongodb performance management system python react
+Full Stack Development,Work from home,6000.0,6000.0,AngularJS CSS DevOps Flutter HTML JavaScript MongoDB MySQL Nodejs PHP Python ReactJS WordPress,internship,angularjs css devops flutter html javascript mongodb mysql nodejs php python reactjs wordpress
+Artificial Intelligence (AI),Work from home,1000.0,1000.0,Artificial Intelligence Computer Vision Deep Learning Machine Learning Natural Language Processing NLP Python,internship,artificial intelligence computer vision deep learning machine learning natural language processing nlp python
+Cloud Computing,Work from home,15000.0,15000.0,Amazon Web Server AWS Amazon Web Services AWS Cloud Computing Google Cloud Computing Microsoft Azure Python,internship,amazon web server aws amazon web services aws cloud computing google cloud computing microsoft azure python
+Full Stack Development,Bangalore,9000.0,15000.0,Expressjs Flask PostgreSQL Python ReactJS,internship,expressjs flask postgresql python reactjs
+Backend Development,Bangalore,9000.0,15000.0,Expressjs PostgreSQL Python REST API,internship,expressjs postgresql python rest api
+Backend Development,Mumbai,5000.0,12000.0,Expressjs Google Cloud Computing MongoDB Nodejs REST API,internship,expressjs google cloud computing mongodb nodejs rest api
+iOS App Development,Pune,8000.0,8000.0,iOS Objective C REST API Swift Xcode,internship,ios objective c rest api swift xcode
+Cyber Security,Mira Bhayandar,2000.0,2000.0,Cybersecurity,internship,cybersecurity
+Full Stack Development,"Faridabad, Delhi, Ghaziabad, Gurgaon, Noida",20000.0,30000.0,Algorithms Amazon Web Services AWS APIs CSS Data Structures Expressjs GitHub HTML JavaScript MongoDB Nextjs Nodejs Postman Redis TypeScript,internship,algorithms amazon web services aws apis css data structures expressjs github html javascript mongodb nextjs nodejs postman redis typescript
+Artificial Intelligence (AI),Work from home,10000.0,10000.0,Deep Learning Machine Learning Natural Language Processing NLP Python,internship,deep learning machine learning natural language processing nlp python
+Web Development,Work from home,5000.0,8000.0,"Bootstrap Content Writing CSS Email Marketing English Proficiency Written Facebook Marketing HTML Instagram Marketing JavaScript jQuery Marketing Campaigns MSExcel MSOffice MySQL Nodejs PHP ReactJS Search Engine Marketing SEM UI, UX Design WordPress",internship,"bootstrap content writing css email marketing english proficiency written facebook marketing html instagram marketing javascript jquery marketing campaigns msexcel msoffice mysql nodejs php reactjs search engine marketing sem ui, ux design wordpress"
+Backend Development,Gwalior,8000.0,8000.0,C Programming Java Python,internship,c programming java python
+Android App Development,Vadodara,2000.0,2000.0,Adobe Illustrator Android Java,internship,adobe illustrator android java
+Android App Development,Work from home,3000.0,3000.0,Android Java Kotlin,internship,android java kotlin
+Web Development,Delhi,7000.0,7000.0,CSS HTML WordPress,internship,css html wordpress
+Web Development,Noida,8000.0,8000.0,CSS HTML JavaScript MEANMERN Stack MySQL Nextjs Nodejs ReactJS TypeScript,internship,css html javascript meanmern stack mysql nextjs nodejs reactjs typescript
+Software Testing,Delhi,10000.0,10000.0,Database Testing GUI Testing JavaScript Manual Testing Python Selenium Software Testing,internship,database testing gui testing javascript manual testing python selenium software testing
+Software Development,"Pimpri-Chinchwad, Marunji, Wakad",10000.0,15000.0,NET APIs C Programming CSS HTML Java JavaScript MySQL Nodejs Python ReactJS,internship,net apis c programming css html java javascript mysql nodejs python reactjs
+Java Full Stack Developer,"Pimpri-Chinchwad, Marunji, Wakad",10000.0,15000.0,AngularJS CSS Hibernate Java HTML Java JavaScript MongoDB MySQL Python ReactJS,internship,angularjs css hibernate java html java javascript mongodb mysql python reactjs
+Artificial Intelligence (AI),Work from home,25000.0,25000.0,Artificial Intelligence Neural Networks Python,internship,artificial intelligence neural networks python
+Mobile App Development,Work from home,5000.0,10000.0,Android Firebase Flutter iOS Java Kotlin Nodejs ReactJS React Native REST API,internship,android firebase flutter ios java kotlin nodejs reactjs react native rest api
+Software Development,Ahmedabad,5000.0,10000.0,Java,internship,java
+Artificial Intelligence (AI),Gurgaon,6000.0,12000.0,Data Structures Python,internship,data structures python
+Backend Development,Gurgaon,6000.0,12000.0,MySQL Nodejs REST API,internship,mysql nodejs rest api
+Data Science,Work from home,20000.0,20000.0,Data Science Data Structures Linux Natural Language Processing NLP Python,internship,data science data structures linux natural language processing nlp python
+Full Stack Development,Work from home,6000.0,8000.0,AngularJS Bootstrap Bubbleio CSS Flask HTML HTMLCSS JavaScript MongoDB MySQL Nodejs PHP Python React ReactJS React Native,internship,angularjs bootstrap bubbleio css flask html htmlcss javascript mongodb mysql nodejs php python react reactjs react native
+Mobile App Development,Work from home,1500.0,2500.0,Flutter Nodejs React Native REST API,internship,flutter nodejs react native rest api
+Software Development Engineering (Web),Work from home,2500.0,5000.0,CSS Expressjs HTML JavaScript MongoDB MySQL Nextjs Nodejs SQL Tailwind CSS,internship,css expressjs html javascript mongodb mysql nextjs nodejs sql tailwind css
+Data Science,Work from home,2000.0,2000.0,Data Science,internship,data science
+Data Analytics,Work from home,2000.0,2000.0,Data Analysis,internship,data analysis
+Web Development,Work from home,7500.0,7500.0,CSS HTML JavaScript Nodejs ReactJS WordPress,internship,css html javascript nodejs reactjs wordpress
+Full Stack Development,"Pimpri-Chinchwad, Marunji, Wakad",10000.0,15000.0,AngularJS Bubbleio CSS HTML Java JavaScript MongoDB MySQL Nodejs Python ReactJS,internship,angularjs bubbleio css html java javascript mongodb mysql nodejs python reactjs
+Full Stack Development,Work from home,1000.0,1000.0,Bootstrap CSS HTML JavaScript Manual Testing MySQL PHP WordPress,internship,bootstrap css html javascript manual testing mysql php wordpress
+Web Development,Work from home,10000.0,10000.0,"NET Bootstrap CSS HTML HTMLCSS JavaScript jQuery MySQL Nodejs PHP Python ReactJS UI, UX Design WordPress",internship,"net bootstrap css html htmlcss javascript jquery mysql nodejs php python reactjs ui, ux design wordpress"
+Web Development,Work from home,10000.0,10000.0,AJAX HTML JavaScript jQuery LARAVEL PHP WordPress Yii,internship,ajax html javascript jquery laravel php wordpress yii
+Software Testing,Work from home,6000.0,6000.0,Manual Testing Software Testing,internship,manual testing software testing
+Backend Development,Pune,5000.0,5000.0,Django Expressjs HTML Java MongoDB MySQL Nodejs PHP Python REST API,internship,django expressjs html java mongodb mysql nodejs php python rest api
+Blockchain Development,Pune,5000.0,5000.0,Blockchain C Programming Ethereum Hyperledger Java JavaScript Python,internship,blockchain c programming ethereum hyperledger java javascript python
+Full Stack Development,Work from home,15000.0,15000.0,Docker JavaScript Linux MySQL Nodejs ReactJS Redux Shell Scripting User Interface UI Development Wireframing,internship,docker javascript linux mysql nodejs reactjs redux shell scripting user interface ui development wireframing
+Mobile App Development,Work from home,3000.0,6000.0,React Native,internship,react native
+Software Development,Bangalore,20000.0,20000.0,Amazon Web Services AWS Golang Java MySQL Nodejs Python REST API,internship,amazon web services aws golang java mysql nodejs python rest api
+Data Science,Work from home,1000.0,1000.0,Data Science,internship,data science
+Python Development,Indore,5000.0,5000.0,HTML Problem Solving Python REST API,internship,html problem solving python rest api
+Python Development,Work from home,8000.0,8000.0,Django Machine Learning Python REST API,internship,django machine learning python rest api
+Big Data,Bangalore,10000.0,10000.0,Amazon Web Services AWS Hadoop Terraform,internship,amazon web services aws hadoop terraform
+Android App Development,Delhi,15000.0,20000.0,Flutter React Native,internship,flutter react native
+Python Development,Work from home,4000.0,4000.0,Blender 3D Data Structures Django Flask Machine Learning Python REST API,internship,blender 3d data structures django flask machine learning python rest api
+Artificial Intelligence (AI),Work from home,8000.0,15000.0,Artificial Intelligence Content Writing Data Science Data Structures Deep Learning English Proficiency Written FastAPI Machine Learning Natural Language Processing NLP Neural Networks Python ReactJS Research and Analytics Tailwind CSS TypeScript,internship,artificial intelligence content writing data science data structures deep learning english proficiency written fastapi machine learning natural language processing nlp neural networks python reactjs research and analytics tailwind css typescript
+AWS DevOps Engineer,"Thane, Navi Mumbai, Dombivli, Kalyan, Mumbai",15000.0,15000.0,Amazon Web Server AWS CICD DevOps Docker Git Jenkins Kubernetes Terraform,internship,amazon web server aws cicd devops docker git jenkins kubernetes terraform
+Big Data,Mumbai,15000.0,15000.0,Python SQL,internship,python sql
+Artificial Intelligence (AI),Chennai,10000.0,10000.0,Artificial Intelligence Deep Learning Machine Learning Natural Language Processing NLP Python,internship,artificial intelligence deep learning machine learning natural language processing nlp python
+Backend Development,Work from home,15000.0,15000.0,Django JavaScript MySQL Python,internship,django javascript mysql python
+Android App Development,Work from home,15000.0,22000.0,JavaScript React Native Redux REST API,internship,javascript react native redux rest api
+App Full Stack Development (AFD),Work from home,1000.0,1000.0,APIs Database Testing HTMLCSS JavaScript,internship,apis database testing htmlcss javascript
+Artificial Intelligence Development (AID),Work from home,1000.0,1000.0,APIs Database Testing Python,internship,apis database testing python
+Python Development,Work from home,10000.0,10000.0,Amazon Web Services AWS Django FastAPI Flask Google Cloud Computing MongoDB PostgreSQL Python,internship,amazon web services aws django fastapi flask google cloud computing mongodb postgresql python
+Web Development,Gurgaon,8000.0,18000.0,PHP,internship,php
+Python Development,Gurgaon,6000.0,10000.0,Python,internship,python
+iOS App Development,Gurugaon,10000.0,14000.0,iOS Objective C REST API Swift Xcode,internship,ios objective c rest api swift xcode
+iOS App Development,Work from home,3000.0,10000.0,iOS REST API Swift,internship,ios rest api swift
+Data Analytics,Work from home,20000.0,20000.0,Data Analytics MSExcel SQL,internship,data analytics msexcel sql
+Full Stack Development,Work from home,20000.0,20000.0,Java React Native,internship,java react native
+Machine Learning,Work from home,1000.0,1000.0,Machine Learning,internship,machine learning
+Web Development,Gurgaon,8000.0,10000.0,CSS HTML JavaScript MySQL Nodejs ReactJS,internship,css html javascript mysql nodejs reactjs
+Full Stack Development,Work from home,15000.0,20000.0,Amazon Web Services AWS JavaScript MongoDB Nodejs ReactJS TypeScript,internship,amazon web services aws javascript mongodb nodejs reactjs typescript
+Software Development,Work from home,8200.0,32800.0,Python,internship,python
+Android App Development,Dehradun,5000.0,5000.0,Android Firebase Java Kotlin REST API XML,internship,android firebase java kotlin rest api xml
+Artificial Intelligence (AI),Work from home,6000.0,6000.0,Artificial Intelligence Computer Vision Data Science Data Structures Deep Learning Django Flask Image Processing Machine Learning Microsoft Azure Neural Networks OpenCV Python,internship,artificial intelligence computer vision data science data structures deep learning django flask image processing machine learning microsoft azure neural networks opencv python
+Embedded Systems,Work from home,3000.0,3000.0,Arduino ARM Microcontroller C Programming Circuit Design C Programming Embedded Systems Internet of Things IoT Machine Learning Python Raspberry Pi,internship,arduino arm microcontroller c programming circuit design c programming embedded systems internet of things iot machine learning python raspberry pi
+Web Development Tutoring (English And Tamil),Chennai,2000.0,2000.0,CSS HTML HTMLCSS JavaScript Teaching,internship,css html htmlcss javascript teaching
+Software Development,Work from home,10000.0,10000.0,C Programming Python,internship,c programming python
+Full Stack Development,Work from home,7500.0,7500.0,Bubbleio CMS CSS HTML JavaScript MySQL Nextjs Nodejs OAuth ReactJS REST API TypeScript,internship,bubbleio cms css html javascript mysql nextjs nodejs oauth reactjs rest api typescript
+Web Development & E-Commerce Inventory Management,Bangalore,10000.0,10000.0,Advanced Excel CSS HTML MSExcel,internship,advanced excel css html msexcel
+Data Analytics,Gurgaon,18000.0,25000.0,Data Analytics Power BI SQL Tableau,internship,data analytics power bi sql tableau
+Cyber Security,Work from home,5000.0,5000.0,Ethical Hacking,internship,ethical hacking
+Python Development,Bangalore,25000.0,40000.0,Algorithms Cloud Computing CSS Django Flask HTML Machine Learning Python REST API,internship,algorithms cloud computing css django flask html machine learning python rest api
+Python Development,Work from home,7000.0,7000.0,Django Machine Learning Python REST API,internship,django machine learning python rest api
+Full Stack Developer,Work from home,10000.0,10000.0,Bot Development Django Fast API Nextjs PostgreSQL Restful APIs ViteReact,internship,bot development django fast api nextjs postgresql restful apis vitereact
+Full Stack Development,Work from home,10000.0,15000.0,CSS Expressjs HTML MongoDB MySQL Nextjs Nodejs PostgreSQL ReactJS,internship,css expressjs html mongodb mysql nextjs nodejs postgresql reactjs
+Algorithmic Trading Software Development & Testing,"Mysuru, Bangalore, Hyderabad, Andra, Karnataka",2000.0,2000.0,Java Python Software Testing Wireframing,internship,java python software testing wireframing
+Android App Development,Chandigarh,20000.0,40000.0,FastAPI Firebase Git GitHub JSON Kotlin Python REST API,internship,fastapi firebase git github json kotlin python rest api
+Artificial Intelligence (AI),"Chennai, Tamil Nadu",5000.0,5000.0,Artificial Intelligence Data Structures Deep Learning Machine Learning Python,internship,artificial intelligence data structures deep learning machine learning python
+Web Development,Bhubaneswar,2000.0,2000.0,Bootstrap CSS HTML JavaScript jQuery MySQL Nodejs PHP ReactJS WordPress,internship,bootstrap css html javascript jquery mysql nodejs php reactjs wordpress
+Web Development,Work from home,5000.0,5000.0,CSS JavaScript Nodejs ReactJS,internship,css javascript nodejs reactjs
+Full Stack Development,Work from home,22960.0,22960.0,CSS HTML JavaScript MongoDB Nodejs ReactJS,internship,css html javascript mongodb nodejs reactjs
+Full Stack Development,Work from home,10000.0,10000.0,JavaScript Nodejs,internship,javascript nodejs
+Software Development,Work from home,10000.0,10000.0,JavaScript,internship,javascript
+Backend Development,Work from home,12500.0,12500.0,MySQL PHP REST API,internship,mysql php rest api
+Machine Learning,Work from home,10000.0,10000.0,Deep Learning Machine Learning Mathematics Neural Networks Python,internship,deep learning machine learning mathematics neural networks python
+Software Development Marketing Internship,Chandigarh,15000.0,25000.0,HTML JavaScript Python,internship,html javascript python
+Software Development,Work from home,5000.0,12000.0,C Programming,internship,c programming
+Software Development,Bangalore,20000.0,30000.0,Amazon Web Server AWS CSS HTML JavaScript Linux MySQL Nodejs ReactJS REST API TypeScript,internship,amazon web server aws css html javascript linux mysql nodejs reactjs rest api typescript
+Full Stack Development,Bangalore,10000.0,10000.0,Git JavaScript React ReactJS REST API,internship,git javascript react reactjs rest api
+Software Development,Bhopal,2000.0,2000.0,Java PHP,internship,java php
+Business Intelligence,Work from home,2000.0,2000.0,Business Research,internship,business research
+Web Development,Work from home,5000.0,5000.0,CSS HTML JavaScript,internship,css html javascript
+Full Stack Development,Work from home,5000.0,5000.0,CodeIgniter CSS HTML JavaScript MySQL PHP ReactJS,internship,codeigniter css html javascript mysql php reactjs
+Full Stack Development,Gurgaon,15000.0,20000.0,AngularJS Firebase Hibernate Java JavaScript MongoDB MySQL PostgreSQL,internship,angularjs firebase hibernate java javascript mongodb mysql postgresql
+Embedded Systems,Delhi,5000.0,8000.0,Arduino ARM Microcontroller C Programming C Programming Embedded Systems PCB Design,internship,arduino arm microcontroller c programming c programming embedded systems pcb design
+Data Analytics,"Faridabad, Delhi, Ghaziabad, Gurgaon, Greater Noida, Thane, Mumbai, Noida",10000.0,10000.0,Data Analytics Data Science Google Suite G Suite MSExcel Power BI Python,internship,data analytics data science google suite g suite msexcel power bi python
+Artificial Intelligence (AI),Work from home,10000.0,10000.0,Data Science Deep Learning Machine Learning Natural Language Processing NLP,internship,data science deep learning machine learning natural language processing nlp
+Web Development,Mohali,10000.0,10000.0,Data Structures HTML Java JavaScript MySQL Nodejs ReactJS,internship,data structures html java javascript mysql nodejs reactjs
+Software Testing,"Chandigarh, Mohali",10000.0,10000.0,Manual Testing Software Testing,internship,manual testing software testing
+Artificial Intelligence (AI),Bhopal,2000.0,10000.0,Artificial Intelligence Machine Learning,internship,artificial intelligence machine learning
+Mobile App Development,Jaipur,7000.0,8000.0,Android ReactJS React Native,internship,android reactjs react native
+Android App Development,Navi Mumbai,10000.0,10000.0,Android Flutter,internship,android flutter
+Software Development,Work from home,10000.0,10000.0,Amazon Web Services AWS Nextjs Python,internship,amazon web services aws nextjs python
+Full Stack Development,Work from home,10000.0,10000.0,AngularJS Bubbleio CSS HTML JavaScript MongoDB MySQL Nodejs PHP Python ReactJS,internship,angularjs bubbleio css html javascript mongodb mysql nodejs php python reactjs
+Software Development,Ahmedabad,10000.0,10000.0,Android iOS Java JavaScript Nodejs ReactJS,internship,android ios java javascript nodejs reactjs
+Full Stack Development,Bangalore,15000.0,18000.0,CSS Expressjs HTML JavaScript Linux MongoDB Nextjs Nodejs Python ReactJS React Native,internship,css expressjs html javascript linux mongodb nextjs nodejs python reactjs react native
+Web Development,Gurgaon,10000.0,10000.0,HTML MySQL PHP WordPress,internship,html mysql php wordpress
+Blockchain Development,Work from home,10000.0,10000.0,Blockchain Rust,internship,blockchain rust
+Software Development,Work from home,1000.0,1000.0,"CSS HTML Java JavaScript MySQL PHP Python UI, UX Design",internship,"css html java javascript mysql php python ui, ux design"
+Blockchain Development,Work from home,6000.0,6000.0,Amazon Web Services AWS Blockchain C Programming Ethereum Hyperledger Internet of Things IoT Python,internship,amazon web services aws blockchain c programming ethereum hyperledger internet of things iot python
+Artificial Intelligence (AI),Work from home,3000.0,5000.0,Artificial Intelligence Python,internship,artificial intelligence python
+AWS DevOps Engineer,Gurgaon,18000.0,25000.0,Amazon Web Services AWS Google Cloud Computing,internship,amazon web services aws google cloud computing
+Cyber Security Instructor,Work from home,25000.0,25000.0,Computer Networking Ethical Hacking Web Application Security,internship,computer networking ethical hacking web application security
+Software Testing Instructor,Work from home,25000.0,25000.0,GUI Testing Manual Testing Software Testing,internship,gui testing manual testing software testing
+Unity3D Artificial Intelligence (AI) Engineer,"Chandigarh, Delhi, Gurgaon",6000.0,15000.0,React Unity 3D Xcode,internship,react unity 3d xcode
+Cloud Computing Instructor,Work from home,25000.0,25000.0,Cloud Computing Microsoft Azure,internship,cloud computing microsoft azure
+Machine Learning,Work from home,15000.0,15000.0,Data Science Deep Learning Machine Learning Python,internship,data science deep learning machine learning python
+Artificial Intelligence (AI),Work from home,5000.0,12000.0,Artificial Intelligence Deep Learning Machine Learning Natural Language Processing NLP Neural Networks Python,internship,artificial intelligence deep learning machine learning natural language processing nlp neural networks python
+Artificial Intelligence (AI),Work from home,5000.0,5000.0,Artificial Intelligence Data Science Data Structures Deep Learning Machine Learning Natural Language Processing NLP Neural Networks Python,internship,artificial intelligence data science data structures deep learning machine learning natural language processing nlp neural networks python
+Web Development,"Ulhasnagar, Karjat, Dombivli, Kalyan, Badlapur, Ambernath",5000.0,7000.0,Bootstrap CSS HTML JavaScript jQuery MySQL Nodejs PHP ReactJS WordPress,internship,bootstrap css html javascript jquery mysql nodejs php reactjs wordpress
+Mobile App Development,"Faridabad, Delhi, Noida",20000.0,30000.0,Android Firebase iOS Kotlin REST API Swift,internship,android firebase ios kotlin rest api swift
+Full Stack Development,Mumbai,5000.0,5000.0,AngularJS CSS HTML JavaScript MongoDB MySQL Nodejs Python ReactJS,internship,angularjs css html javascript mongodb mysql nodejs python reactjs
+Artificial Intelligence (AI),Work from home,5000.0,5000.0,Artificial Intelligence Data Structures Deep Learning Machine Learning Natural Language Processing NLP Neural Networks Python,internship,artificial intelligence data structures deep learning machine learning natural language processing nlp neural networks python
+Full Stack Web Developer,Work from home,10000.0,10000.0,DjangoFastAPI PostgreSQL React ViteReact,internship,djangofastapi postgresql react vitereact
+Python Development,Work from home,10000.0,15000.0,Django PostgreSQL Python REST API,internship,django postgresql python rest api
+Android App Development,Work from home,5000.0,5000.0,Android Firebase Java Kotlin Nodejs ReactJS React Native REST API SQL XML,internship,android firebase java kotlin nodejs reactjs react native rest api sql xml
+Full Stack Development,Work from home,5000.0,15000.0,CSS HTML JavaScript MongoDB Nextjs Nodejs ReactJS,internship,css html javascript mongodb nextjs nodejs reactjs
+Web Development,Work from home,6000.0,8000.0,CSS Git HTML Java JavaScript MySQL Nodejs ReactJS,internship,css git html java javascript mysql nodejs reactjs
+Full Stack Development,Mumbai,12000.0,14000.0,Amazon Web Services AWS Expressjs JavaScript MEANMERN Stack MongoDB Nextjs Nodejs ReactJS Redux,internship,amazon web services aws expressjs javascript meanmern stack mongodb nextjs nodejs reactjs redux
+Web Development,Work from home,4000.0,4000.0,Bootstrap CSS HTML JavaScript MySQL PHP ReactJS WordPress,internship,bootstrap css html javascript mysql php reactjs wordpress
+Machine Learning,Work from home,15000.0,15000.0,Artificial Intelligence Computer Vision Machine Learning Natural Language Processing NLP Python,internship,artificial intelligence computer vision machine learning natural language processing nlp python
+Web Development,Work from home,15000.0,15000.0,Firebase JavaScript Nodejs ReactJS,internship,firebase javascript nodejs reactjs
+Java Development,Gurgaon,45000.0,45000.0,Java User Interface UI Development,internship,java user interface ui development
+Python Development,"Faridabad, Delhi, Noida, Gurgaon",15000.0,25000.0,Algorithms Amazon Web Services AWS APIs CSS Data Structures Django Flask Git HTML MongoDB Python Redis Selenium,internship,algorithms amazon web services aws apis css data structures django flask git html mongodb python redis selenium
+Web Development,Work from home,3000.0,6000.0,Bootstrap HTML JavaScript Nodejs PHP ReactJS WordPress,internship,bootstrap html javascript nodejs php reactjs wordpress
+Full Stack Development,Work from home,15000.0,15000.0,CSS JavaScript jQuery MySQL Nodejs PHP ReactJS WordPress,internship,css javascript jquery mysql nodejs php reactjs wordpress
+Software Development Engineering (Web),Work from home,15000.0,25000.0,AngularJS CSS JavaScript jQuery Python,internship,angularjs css javascript jquery python
+Teaching Assistant (Data Science),Gurgaon,18000.0,18000.0,Data Science MSExcel MySQL Power BI Python Tableau,internship,data science msexcel mysql power bi python tableau
+Artificial Intelligence (AI),Work from home,30000.0,30000.0,Artificial Intelligence Data Science Machine Learning Natural Language Processing NLP PostgreSQL Python,internship,artificial intelligence data science machine learning natural language processing nlp postgresql python
+Software Development,Indore,15000.0,15000.0,Django Python,internship,django python
+Teaching Assistant - Full Stack Development (MERN),Gurgaon,18000.0,18000.0,HTMLCSS MEANMERN Stack MongoDB MySQL Nodejs ReactJS Tailwind CSS Teaching,internship,htmlcss meanmern stack mongodb mysql nodejs reactjs tailwind css teaching
+Web Development,Work from home,10000.0,10000.0,Bootstrap CSS HTML JavaScript jQuery MySQL Nodejs PHP ReactJS WordPress,internship,bootstrap css html javascript jquery mysql nodejs php reactjs wordpress
+Web Development,Uttar Pradesh,10000.0,10000.0,Expressjs Git JavaScript MongoDB Nodejs ReactJS,internship,expressjs git javascript mongodb nodejs reactjs
+Software Development,Pune,8000.0,15000.0,CSS HTML JavaScript ReactJS TypeScript,internship,css html javascript reactjs typescript
+iOS App Development,Bangalore,25000.0,25000.0,iOS Objective C REST API Swift Xcode,internship,ios objective c rest api swift xcode
+Android App Development,Work from home,4000.0,7000.0,Android,internship,android
+Web Development,Nagpur,5000.0,5000.0,CSS HTML JavaScript WordPress,internship,css html javascript wordpress
+Cyber Security,Kolkata,10000.0,10000.0,Computer Networking Ethical Hacking Linux Python VAPT Web Application Security,internship,computer networking ethical hacking linux python vapt web application security
+Internet Of Things (IoT),Work from home,7000.0,7000.0,Arduino C Programming C Programming Internet of Things IoT,internship,arduino c programming c programming internet of things iot
+Artificial Intelligence (AI),Work from home,10000.0,10000.0,Artificial Intelligence Machine Learning Natural Language Processing NLP,internship,artificial intelligence machine learning natural language processing nlp
+Full Stack Development,Mumbai,5000.0,8000.0,Flutter Python REST API,internship,flutter python rest api
+Backend Development,Work from home,10000.0,10000.0,FastAPI Nodejs Python REST API Selenium SQL,internship,fastapi nodejs python rest api selenium sql
+iOS App Development,Mumbai,10000.0,20000.0,iOS Objective C REST API Swift Xcode,internship,ios objective c rest api swift xcode
+Artificial Intelligence (AI),Work from home,12500.0,12500.0,Artificial Intelligence Data Science Data Structures Deep Learning Machine Learning Natural Language Processing NLP Neural Networks Python,internship,artificial intelligence data science data structures deep learning machine learning natural language processing nlp neural networks python
+Full Stack Development,Work from home,10000.0,15000.0,Amazon Web Services AWS Android iOS JavaScript MongoDB Nodejs Postman ReactJS React Native REST API,internship,amazon web services aws android ios javascript mongodb nodejs postman reactjs react native rest api
+Software Development,Kolkata,5000.0,5000.0,Amazon Web Services AWS Expressjs Flutter HTMLCSS JavaScript MongoDB Nodejs,internship,amazon web services aws expressjs flutter htmlcss javascript mongodb nodejs
+Full Stack Development,"Delhi, Noida",10000.0,12000.0,CSS HTML JavaScript Nodejs ReactJS,internship,css html javascript nodejs reactjs
+Blockchain Development,Work from home,1000.0,1000.0,Blockchain Ethereum Hyperledger JavaScript Nodejs ReactJS,internship,blockchain ethereum hyperledger javascript nodejs reactjs
+Data Analytics,Work from home,8000.0,8000.0,Data Analytics MSExcel Python SQL,internship,data analytics msexcel python sql
+Android App Development,Work from home,15000.0,35000.0,Android Firebase Java Kotlin REST API XML,internship,android firebase java kotlin rest api xml
+Python-Django Development (Full Stack),Work from home,10000.0,10000.0,Amazon Web Server AWS Django Python WordPress,internship,amazon web server aws django python wordpress
+Internet Of Things (IoT),"Pune, Narhe",3000.0,3000.0,Arduino ARM Microcontroller C Programming C Programming Embedded Systems Internet of Things IoT Python Raspberry Pi,internship,arduino arm microcontroller c programming c programming embedded systems internet of things iot python raspberry pi
+Artificial Intelligence (AI),Work from home,1000.0,1000.0,Artificial Intelligence Deep Learning Machine Learning Natural Language Processing NLP Neural Networks Python,internship,artificial intelligence deep learning machine learning natural language processing nlp neural networks python
+Full Stack Development,Work from home,8000.0,8000.0,Amazon Web Services AWS Android MEANMERN Stack React Native REST API,internship,amazon web services aws android meanmern stack react native rest api
+Software Development Engineering (Web),Work from home,10000.0,10000.0,JavaScript Nextjs React ReactJS REST API,internship,javascript nextjs react reactjs rest api
+Machine Learning,Work from home,1000.0,1000.0,Deep Learning Flask HTMLCSS JavaScript Machine Learning Python SQL SQLite,internship,deep learning flask htmlcss javascript machine learning python sql sqlite
+Android App Development,Work from home,1000.0,1000.0,Android Firebase Flutter Java Kotlin MS SQL Server REST API Unity Engine XML,internship,android firebase flutter java kotlin ms sql server rest api unity engine xml
+Web Development,Work from home,1000.0,1000.0,Blockchain Bootstrap CSS Digital Marketing Ethereum HTML JavaScript MEANMERN Stack MongoDB MySQL Nodejs Postman React Solidity,internship,blockchain bootstrap css digital marketing ethereum html javascript meanmern stack mongodb mysql nodejs postman react solidity
+Full Stack Development,Work from home,10000.0,15000.0,Expressjs Git MEANMERN Stack MongoDB Nodejs React Redux,internship,expressjs git meanmern stack mongodb nodejs react redux
+Android App Development,Kolkata,10000.0,10000.0,Android Firebase Kotlin REST API XML,internship,android firebase kotlin rest api xml
+Data Science,Delhi,15000.0,20000.0,Machine Learning Python Statistical Modeling,internship,machine learning python statistical modeling
+Full Stack Development,Mumbai,12500.0,25000.0,CSS Expressjs HTML JavaScript MySQL Nodejs ReactJS Vue Js,internship,css expressjs html javascript mysql nodejs reactjs vue js
+Web Development,Varanasi,5000.0,10000.0,Adobe After Effects Adobe Creative Suite Adobe Illustrator Adobe Indesign Adobe Photoshop Bootstrap CorelDRAW CSS HTML JavaScript jQuery MySQL Nodejs PHP ReactJS Video Editing WordPress,internship,adobe after effects adobe creative suite adobe illustrator adobe indesign adobe photoshop bootstrap coreldraw css html javascript jquery mysql nodejs php reactjs video editing wordpress
+Full Stack Development,Gurgaon,20000.0,20000.0,Django NoSQL PostgreSQL Python React ReactJS,internship,django nosql postgresql python react reactjs
+Generative AI Engineer,Work from home,5000.0,5000.0,Algorithms Artificial Intelligence Data Science HTML Machine Learning MongoDB Neural Networks Nodejs,internship,algorithms artificial intelligence data science html machine learning mongodb neural networks nodejs
+Embedded Systems,Pune,8000.0,8000.0,Arduino C Programming Circuit Design C Programming EAGLE Embedded Systems Internet of Things IoT,internship,arduino c programming circuit design c programming eagle embedded systems internet of things iot
+Teaching Assistant - Android App Development,Work from home,5000.0,5000.0,Android Artificial Intelligence English Proficiency Written Firebase Kotlin Online Teaching,internship,android artificial intelligence english proficiency written firebase kotlin online teaching
+Software Development,Bangalore,30000.0,30000.0,Dart Flutter HTML Java JavaScript ReactJS,internship,dart flutter html java javascript reactjs
+Mobile App Development,Work from home,15000.0,15000.0,Firebase Flutter iOS React Native REST API,internship,firebase flutter ios react native rest api
+Artificial Intelligence (AI),Delhi,15000.0,15000.0,Artificial Intelligence Natural Language Processing NLP Python,internship,artificial intelligence natural language processing nlp python
+Full Stack Development,Bangalore,10000.0,10000.0,CSS HTML JavaScript Nodejs ReactJS SQL,internship,css html javascript nodejs reactjs sql
+Backend Development,Bangalore,15000.0,15000.0,Amazon Web Server AWS Django Git MySQL Nodejs,internship,amazon web server aws django git mysql nodejs
+Computer Vision,Delhi,20000.0,20000.0,Artificial Intelligence C Programming Computer Vision C Programming Deep Learning Git Linux Machine Learning OpenCV Python Robotics,internship,artificial intelligence c programming computer vision c programming deep learning git linux machine learning opencv python robotics
+Machine Learning,Delhi,20000.0,20000.0,Amazon Web Services AWS Artificial Intelligence C Programming Computer Vision Deep Learning Git Google Cloud Computing Machine Learning Natural Language Processing NLP Python Robotics,internship,amazon web services aws artificial intelligence c programming computer vision deep learning git google cloud computing machine learning natural language processing nlp python robotics
+Video Content Creation (Mobile App Development),Work from home,1000.0,1000.0,Android Flutter iOS Kotlin React Native Swift,internship,android flutter ios kotlin react native swift
+Full Stack Development,Work from home,15000.0,30000.0,CSS HTML JavaScript MySQL Nodejs ReactJS,internship,css html javascript mysql nodejs reactjs
+Android App Development,Work from home,3000.0,3000.0,Android Database Management System DBMS Firebase HTML JavaScript,internship,android database management system dbms firebase html javascript
+Full Stack Development,Kolkata,10000.0,10000.0,Android AngularJS CSS HTML Java JavaScript MongoDB MySQL Nodejs PHP Python ReactJS,internship,android angularjs css html java javascript mongodb mysql nodejs php python reactjs
+Data Science,"Delhi, Noida",10000.0,12000.0,Artificial Intelligence Data Science Machine Learning Python,internship,artificial intelligence data science machine learning python
+Full Stack Development,Delhi,10000.0,15000.0,AngularJS CSS HTML JavaScript MongoDB Nodejs ReactJS,internship,angularjs css html javascript mongodb nodejs reactjs
+iOS App Development,Work from home,2000.0,3000.0,iOS Objective C REST API Unity 3D Unity Engine Xcode,internship,ios objective c rest api unity 3d unity engine xcode
+Blockchain Development,Work from home,20000.0,30000.0,Blockchain Ethereum Solidity,internship,blockchain ethereum solidity
+Software Engineer,Work from home,8200.0,16400.0,C Programming DevOps Google Cloud Computing Java JavaScript Mathematics MySQL PHP Python Research and Analytics R Programming,internship,c programming devops google cloud computing java javascript mathematics mysql php python research and analytics r programming
+Software Engineering (React Native),Work from home,10000.0,10000.0,React Native TypeScript,internship,react native typescript
+Python Development,Kolkata,8000.0,8000.0,APIs Data Analytics Machine Learning Python,internship,apis data analytics machine learning python
+Full Stack Development (MERN Intern),Noida,5000.0,5000.0,Expressjs MongoDB Nodejs Python ReactJS Redux TypeScript,internship,expressjs mongodb nodejs python reactjs redux typescript
+Full Stack Development,Work from home,1000.0,5000.0,AngularJS CSS Django HTML JavaScript Nodejs Python ReactJS React Native,internship,angularjs css django html javascript nodejs python reactjs react native
+Full Stack Development,Work from home,5000.0,10000.0,CSS HTML JavaScript Nodejs React ReactJS,internship,css html javascript nodejs react reactjs
+Data Science AI&ML Python Research,Work from home,6000.0,8000.0,Data Analytics Data Science Deep Learning English Proficiency Spoken English Proficiency Written Image Processing Machine Learning Natural Language Processing NLP Neural Networks Power BI Python Research and Analytics REST API SQL Tableau,internship,data analytics data science deep learning english proficiency spoken english proficiency written image processing machine learning natural language processing nlp neural networks power bi python research and analytics rest api sql tableau
+Software Development,Mumbai,15000.0,15000.0,Algorithms C Programming Data Structures Java JavaScript Nodejs Python ReactJS,internship,algorithms c programming data structures java javascript nodejs python reactjs
+Python Development,Delhi,15000.0,15000.0,CSS Data Analytics Data Science Django HTML Machine Learning Python,internship,css data analytics data science django html machine learning python
+Android App Development,Delhi,15000.0,20000.0,Android Firebase Java Kotlin REST API XML,internship,android firebase java kotlin rest api xml
+Data Science,Work from home,5000.0,10000.0,Data Analytics Python,internship,data analytics python
+Software Development,Work from home,5000.0,10000.0,Algorithms JavaScript Python SQL,internship,algorithms javascript python sql
+Data Analytics,Mumbai,15000.0,15000.0,JavaScript MSExcel Python SAS SPSS SQL Statistics XML,internship,javascript msexcel python sas spss sql statistics xml
+Data Analytics,Work from home,15000.0,15000.0,Data Analytics Data Science MSExcel Power BI Python SQL Tableau,internship,data analytics data science msexcel power bi python sql tableau
+Android App Development,Chennai,10000.0,10000.0,Android Flutter Java Kotlin VS Code,internship,android flutter java kotlin vs code
+AWS DevOps Engineer,Jaipur,5000.0,5000.0,Amazon Web Services AWS CICD DevOps Docker Jenkins Kubernetes Shell Scripting Terraform,internship,amazon web services aws cicd devops docker jenkins kubernetes shell scripting terraform
+Machine Learning,Kolkata,10000.0,10000.0,Artificial Intelligence Data Analytics Data Science Deep Learning Machine Learning Natural Language Processing NLP Python,internship,artificial intelligence data analytics data science deep learning machine learning natural language processing nlp python
+Software Development,Work from home,32800.0,32800.0,NET C Programming CSS HTML Java JavaScript MySQL Nodejs Python ReactJS,internship,net c programming css html java javascript mysql nodejs python reactjs
+Backend Development,Work from home,16400.0,16400.0,Bubbleio Django Expressjs HTML Java MongoDB MySQL Nodejs PHP Python REST API,internship,bubbleio django expressjs html java mongodb mysql nodejs php python rest api
+Data Analytics,Work from home,5000.0,5000.0,Data Analytics,internship,data analytics
+Web Development,Work from home,3000.0,10000.0,WordPress,internship,wordpress
+iOS App Development,"Surat, Gujarat",5000.0,5000.0,iOS Objective C REST API Swift Xcode,internship,ios objective c rest api swift xcode
+Data Science,Work from home,15000.0,15000.0,Data Analytics Data Science Python,internship,data analytics data science python
+Data Science,Work from home,10000.0,10000.0,Artificial Intelligence Data Analytics Data Science Deep Learning Machine Learning Natural Language Processing NLP Python SQL,internship,artificial intelligence data analytics data science deep learning machine learning natural language processing nlp python sql
+Full Stack Development,Work from home,10000.0,25000.0,JavaScript Nodejs ReactJS,internship,javascript nodejs reactjs
+Python Development,Bangalore,15000.0,22000.0,Amazon Web Services AWS CSS Django Embedded Systems FastAPI Flask HTML HTMLCSS Internet of Things IoT JavaScript Linux Machine Learning Microsoft Azure NoSQL Python REST API SQL,internship,amazon web services aws css django embedded systems fastapi flask html htmlcss internet of things iot javascript linux machine learning microsoft azure nosql python rest api sql
+Web Development,Work from home,2000.0,2000.0,CSS HTML JavaScript WordPress,internship,css html javascript wordpress
+Full Stack Development,Work from home,8000.0,8000.0,CSS HTML JavaScript MySQL Nodejs,internship,css html javascript mysql nodejs
+Urgent Hiring - Java Developer,Work from home,8000.0,12000.0,Java,internship,java
+Artificial Intelligence (AI),Work from home,25000.0,25000.0,Deep Learning Natural Language Processing NLP Neural Networks Python,internship,deep learning natural language processing nlp neural networks python
+Mobile App Development,"Pune, Mumbai",25000.0,25000.0,Android Firebase Flutter Java Nodejs React Native,internship,android firebase flutter java nodejs react native
+Data Analytics,"Thane, Navi Mumbai, Mumbai",5000.0,7000.0,Data Analytics MSExcel Power BI Python SQL Tableau,internship,data analytics msexcel power bi python sql tableau
+Urgent Hiring - Python Developer,"Bangalore, Hyderabad, Mumbai",8000.0,12000.0,Python,internship,python
+Python Developer,Work from home,8000.0,12000.0,Python,internship,python
+Urgent Hiring – Python Developer,Hyderabad,8000.0,8000.0,Python,internship,python
+Python Development,Work from home,8000.0,12000.0,Python,internship,python
+Urgent Hiring - Python Developer,Work from home,8000.0,12000.0,Python,internship,python
+Full Stack Development,Work from home,10000.0,15000.0,AngularJS CSS HTML JavaScript MongoDB MySQL Nodejs PHP Python ReactJS,internship,angularjs css html javascript mongodb mysql nodejs php python reactjs
+Software Development - Java,Work from home,8000.0,12000.0,Java,internship,java
+Java Developer,"Chennai, Hyderabad, Mumbai, Bangalore",8000.0,12000.0,Java JavaScript,internship,java javascript
+Hiring For Java Development,Work from home,8000.0,12000.0,Java,internship,java
+React/Python Developer - Full Stack,Work from home,6000.0,6000.0,JavaScript MySQL Python React,internship,javascript mysql python react
+Software Testing,Work from home,5000.0,10000.0,APIs CICD Data Analytics Database Testing Effective Communication GUI Testing Manual Testing Problem Solving Software Testing SQL Time Management,internship,apis cicd data analytics database testing effective communication gui testing manual testing problem solving software testing sql time management
+Mobile App Development,Gurgaon,5000.0,5000.0,Android Unity 3D Unity Engine,internship,android unity 3d unity engine
+Python Development,Work from home,3000.0,3000.0,Django Python REST API,internship,django python rest api
+Web Development,Work from home,10000.0,10000.0,CSS HTML JavaScript Nodejs ReactJS WordPress,internship,css html javascript nodejs reactjs wordpress
+Software Development Engineering (Web),Work from home,5000.0,17500.0,CSS MongoDB Nextjs Nodejs ReactJS TypeScript,internship,css mongodb nextjs nodejs reactjs typescript
+Mobile App Development,"Thane, Navi Mumbai",5000.0,5000.0,HTMLCSS ReactJS React Native,internship,htmlcss reactjs react native
+Computer Vision,Mumbai,10000.0,10000.0,Computer Vision Deep Learning Image Processing Linux Machine Learning OpenCV Python,internship,computer vision deep learning image processing linux machine learning opencv python
+Java Development,Mumbai,8000.0,8000.0,Hibernate Java Java MySQL,internship,hibernate java java mysql
+Artificial Intelligence (AI),Mumbai,8000.0,8000.0,Artificial Intelligence Machine Learning,internship,artificial intelligence machine learning
+Gen AI Developer,Chennai,10000.0,10000.0,Algorithms Artificial Intelligence Data Science Design Thinking Machine Learning Project Management Python,internship,algorithms artificial intelligence data science design thinking machine learning project management python
+Data Analytics,Chennai,10000.0,10000.0,Data Analytics Data Science MSExcel Power BI Python SQL Tableau,internship,data analytics data science msexcel power bi python sql tableau
+Full Stack Development,Chennai,10000.0,10000.0,Nextjs PostgreSQL,internship,nextjs postgresql
+Data Science,Chennai,10000.0,10000.0,Data Science Deep Learning Machine Learning SQL,internship,data science deep learning machine learning sql
+iOS App Development,Work from home,3000.0,5000.0,iOS REST API Swift Xcode,internship,ios rest api swift xcode
+Artificial Intelligence (AI),Chennai,10000.0,10000.0,Artificial Intelligence Data Science Data Structures Deep Learning Machine Learning Natural Language Processing NLP Neural Networks Python Research and Analytics,internship,artificial intelligence data science data structures deep learning machine learning natural language processing nlp neural networks python research and analytics
+Machine Learning,Chennai,10000.0,10000.0,Artificial Intelligence Data Analytics Data Science Deep Learning Machine Learning Natural Language Processing NLP Python R Programming,internship,artificial intelligence data analytics data science deep learning machine learning natural language processing nlp python r programming
+iOS App Development,Work from home,5000.0,20000.0,iOS Objective C REST API Swift Xcode,internship,ios objective c rest api swift xcode
+Backend Development,Work from home,15000.0,15000.0,Bubbleio Django Expressjs HTML Java MongoDB MySQL Nodejs PHP Python REST API,internship,bubbleio django expressjs html java mongodb mysql nodejs php python rest api
+SQL DEVELOPER,Work from home,15000.0,15000.0,SQL,internship,sql
+Software Development Engineering (Web),Work from home,12000.0,15000.0,Java JavaScript jQuery MySQL Nodejs NoSQL PHP Python React SQL,internship,java javascript jquery mysql nodejs nosql php python react sql
+Backend Development,Jaipur,8000.0,10000.0,Expressjs MongoDB Nodejs,internship,expressjs mongodb nodejs
+Android App Development,Pune,7000.0,7000.0,Android Java Nodejs Python,internship,android java nodejs python
+Software Development Engineering (Web),Mumbai,10000.0,20000.0,Digital Marketing Search Engine Optimization SEO Social Media Marketing WordPress,internship,digital marketing search engine optimization seo social media marketing wordpress
+Web Development,Work from home,2000.0,2000.0,WordPress,internship,wordpress
+Blockchain Development,Mumbai,8000.0,8000.0,Blockchain C Programming Ethereum Hyperledger Java JavaScript Nodejs Python ReactJS,internship,blockchain c programming ethereum hyperledger java javascript nodejs python reactjs
+Embedded Systems,Jaipur,2000.0,2000.0,Arduino ARM Microcontroller C Programming C Programming EAGLE Embedded Systems Internet of Things IoT Python Raspberry Pi,internship,arduino arm microcontroller c programming c programming eagle embedded systems internet of things iot python raspberry pi
+Software Development,Work from home,25000.0,25000.0,Java MongoDB PostgreSQL Redis,internship,java mongodb postgresql redis
+Data Analytics,Kolkata,8000.0,8000.0,Data Analytics Interpersonal Skills MSExcel,internship,data analytics interpersonal skills msexcel
+Artificial Intelligence (AI),Bangalore,10000.0,10000.0,Artificial Intelligence Python,internship,artificial intelligence python
+Software Development Engineering (Web),Bangalore,3000.0,3000.0,NET Android ASPNET Bootstrap CodeIgniter Firebase Flutter HTML iOS Java JavaScript Kotlin MEANMERN Stack MongoDB MS SQL Server MySQL Nodejs PHP ReactJS REST API,internship,net android aspnet bootstrap codeigniter firebase flutter html ios java javascript kotlin meanmern stack mongodb ms sql server mysql nodejs php reactjs rest api
+Web Development,Noida,4000.0,8000.0,HTML JavaScript MySQL ReactJS,internship,html javascript mysql reactjs
+Mobile App Development,Indore,2000.0,10000.0,Dart Flutter Java,internship,dart flutter java
+Mobile App Development,Bangalore,10000.0,10000.0,Android Digital Marketing Firebase Google Analytics iOS Market Analysis Marketing Strategies Research and Analytics REST API Search Engine Optimization SEO Social Media Marketing,internship,android digital marketing firebase google analytics ios market analysis marketing strategies research and analytics rest api search engine optimization seo social media marketing
+Data Analytics,Chennai,10000.0,10000.0,Data Analytics,internship,data analytics
+Gen AI Developer,Chennai,10000.0,10000.0,Python,internship,python
+Full Stack Development,Meerut,5000.0,5000.0,CSS Deep Learning HTML JavaScript Machine Learning MEANMERN Stack MongoDB MySQL Nodejs PHP Python ReactJS,internship,css deep learning html javascript machine learning meanmern stack mongodb mysql nodejs php python reactjs
+Artificial Intelligence (AI),Gurgaon,5000.0,5000.0,Artificial Intelligence Python,internship,artificial intelligence python
+Full Stack Development,Work from home,1000.0,2000.0,Amazon Web Services AWS JavaScript MongoDB Nodejs ReactJS,internship,amazon web services aws javascript mongodb nodejs reactjs
+Web Development,Ahmedabad,3000.0,6000.0,Bootstrap CSS HTML JavaScript jQuery MySQL PHP WordPress,internship,bootstrap css html javascript jquery mysql php wordpress
+Web Development,Work from home,6200.0,6200.0,CSS HTML JavaScript PHP WordPress,internship,css html javascript php wordpress
+Artificial Intelligence (AI),"Coimbatore, Erode, Salem",10000.0,10000.0,Artificial Intelligence Machine Learning Python,internship,artificial intelligence machine learning python
+"Software Engineering (Python, React)",Work from home,10000.0,10000.0,Flask Python React,internship,flask python react
+Machine Learning,Work from home,15000.0,15000.0,Artificial Intelligence Data Analytics Data Science Deep Learning Machine Learning Natural Language Processing NLP Python R Programming,internship,artificial intelligence data analytics data science deep learning machine learning natural language processing nlp python r programming
+Data Science,Chennai,10000.0,10000.0,Data Science Machine Learning,internship,data science machine learning
+Software Development,Work from home,8000.0,10000.0,MySQL Python ReactJS,internship,mysql python reactjs
+Web Development,Noida,12000.0,12000.0,Animation Bootstrap HTML JavaScript jQuery MySQL Nodejs ReactJS WordPress,internship,animation bootstrap html javascript jquery mysql nodejs reactjs wordpress
+Full Stack Development,Work from home,12500.0,12500.0,AngularJS CSS HTML JavaScript MEANMERN Stack MongoDB MySQL Nodejs ReactJS,internship,angularjs css html javascript meanmern stack mongodb mysql nodejs reactjs
+Backend Development,Bangalore,20000.0,30000.0,MongoDB Nodejs Python REST API,internship,mongodb nodejs python rest api
+Backend Development,Work from home,6000.0,12000.0,Expressjs Java MongoDB MySQL Nodejs REST API,internship,expressjs java mongodb mysql nodejs rest api
+Mobile App Development,Work from home,15000.0,15000.0,"Android Django Python React React Native UI, UX Design",internship,"android django python react react native ui, ux design"
+Python Development,Mumbai,8000.0,10000.0,FastAPI MongoDB Python,internship,fastapi mongodb python
+iOS App Development,Kozhikode,15000.0,15000.0,iOS Objective C REST API Swift Xcode,internship,ios objective c rest api swift xcode
+Python Development,Work from home,15000.0,15000.0,CSS Django Flask HTML Machine Learning Python REST API,internship,css django flask html machine learning python rest api
+Backend Development,"Ghaziabad, Noida, Delhi",10000.0,15000.0,Flask MongoDB Python REST API,internship,flask mongodb python rest api
+Artificial Intelligence (AI),Gurgaon,23000.0,25000.0,Artificial Intelligence Deep Learning Flask GitHub Machine Learning Natural Language Processing NLP Python,internship,artificial intelligence deep learning flask github machine learning natural language processing nlp python
+Big Data,Work from home,15000.0,15000.0,Hadoop Java Machine Learning Python SQL,internship,hadoop java machine learning python sql
+Web Development,Lucknow,7500.0,7500.0,NET Amazon Web Server AWS CSS MySQL Nodejs PHP,internship,net amazon web server aws css mysql nodejs php
+Cyber Security,Bangalore,15000.0,15000.0,Computer Networking Ethical Hacking VAPT Web Application Security,internship,computer networking ethical hacking vapt web application security
+Software Development,Chennai,15000.0,15000.0,C Programming C Programming Data Structures Linux Python,internship,c programming c programming data structures linux python
+Computer Vision,Gurgaon,15000.0,15000.0,Computer Vision Deep Learning Image Processing Machine Learning MATLAB Neural Networks OpenCV Python,internship,computer vision deep learning image processing machine learning matlab neural networks opencv python
+Full Stack Development,Work from home,10000.0,20000.0,AngularJS CICD CSS DevOps Expressjs Git Google Cloud Computing GraphQL HTML JavaScript Microsoft Azure MongoDB MySQL Nodejs PHP Python ReactJS Redux REST API TypeScript,internship,angularjs cicd css devops expressjs git google cloud computing graphql html javascript microsoft azure mongodb mysql nodejs php python reactjs redux rest api typescript
+Artificial Intelligence (AI),Chennai,15000.0,15000.0,Artificial Intelligence Data Science Data Structures Deep Learning Flutter Machine Learning MySQL Natural Language Processing NLP Neural Networks PHP Python,internship,artificial intelligence data science data structures deep learning flutter machine learning mysql natural language processing nlp neural networks php python
+Artificial Intelligence (AI),Work from home,2000.0,5000.0,Artificial Intelligence Data Science Data Structures Deep Learning Machine Learning Natural Language Processing NLP Neural Networks Python,internship,artificial intelligence data science data structures deep learning machine learning natural language processing nlp neural networks python
+Mobile App Development,Work from home,35000.0,45000.0,Android Flutter iOS JavaScript React ReactJS REST API,internship,android flutter ios javascript react reactjs rest api
+Software Development,Guwahati,5000.0,5000.0,Python,internship,python
+Web Development,Delhi,7000.0,10000.0,Bootstrap CSS HTML JavaScript jQuery LARAVEL MySQL PHP,internship,bootstrap css html javascript jquery laravel mysql php
+Python Development,Lucknow,8000.0,8000.0,Python,internship,python
+Android App Development,Work from home,3000.0,5000.0,Firebase Google Cloud Computing React React Native TypeScript,internship,firebase google cloud computing react react native typescript
+Data Analytics,Gurgaon,15000.0,15000.0,Data Analytics MSExcel Python SQL,internship,data analytics msexcel python sql
+Mobile App Development,Work from home,15000.0,15000.0,Android Firebase Flutter iOS Java Kotlin Nodejs ReactJS React Native REST API,internship,android firebase flutter ios java kotlin nodejs reactjs react native rest api
+Full Stack Development,Work from home,6000.0,6000.0,AngularJS Bubbleio CSS Expressjs Git GitHub GraphQL HTML JavaScript MongoDB MySQL Nodejs PHP Python ReactJS Redis Tailwind CSS TypeScript,internship,angularjs bubbleio css expressjs git github graphql html javascript mongodb mysql nodejs php python reactjs redis tailwind css typescript
+Web Development,Work from home,15000.0,15000.0,CSS HTML JavaScript PHP ReactJS,internship,css html javascript php reactjs
+Web Development,Mandi,4000.0,20000.0,Bootstrap CSS HTML JavaScript jQuery MySQL Nodejs PHP Python ReactJS Rust WordPress,internship,bootstrap css html javascript jquery mysql nodejs php python reactjs rust wordpress
+Full Stack Development,Mohali,2000.0,6000.0,AngularJS Bubbleio CSS HTML JavaScript MongoDB MySQL Nodejs PHP Python ReactJS,internship,angularjs bubbleio css html javascript mongodb mysql nodejs php python reactjs
+Artificial Intelligence (AI),Bangalore,15000.0,15000.0,Artificial Intelligence Deep Learning Machine Learning Natural Language Processing NLP,internship,artificial intelligence deep learning machine learning natural language processing nlp
+Mobile App Development,Indore,2000.0,2000.0,iOS Kotlin React Native,internship,ios kotlin react native
+Java Development,"Thane, Navi Mumbai",12000.0,12000.0,Hibernate Java MySQL Spring MVC,internship,hibernate java mysql spring mvc
+Web Development,Bangalore,20000.0,25000.0,Bootstrap CSS HTML JavaScript jQuery LARAVEL MySQL PHP ReactJS WordPress,internship,bootstrap css html javascript jquery laravel mysql php reactjs wordpress
