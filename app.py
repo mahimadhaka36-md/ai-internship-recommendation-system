@@ -17,12 +17,17 @@ from typing import List, Dict, Any
 from resume_parser import parse_resume
 from skill_extractor import extract_skills, normalize_skill_name, get_skill_vocab
 from recommendation import get_engine
+from peer_match import get_peer_engine
 import importlib
 import charts
 import auth
 import catalog_ui
+import peer_match
+import peer_match_ui
 importlib.reload(auth)
 importlib.reload(catalog_ui)
+importlib.reload(peer_match)
+importlib.reload(peer_match_ui)
 
 # -----------------------------------------------------------------------------
 # Page Configuration
@@ -321,6 +326,7 @@ if "extracted_resume_text" not in st.session_state:
     st.session_state.extracted_resume_text = None
 
 engine = get_engine()
+peer_engine = get_peer_engine()
 
 
 def navigate_to(page_key: Any):
@@ -337,6 +343,11 @@ def reset_all_state():
     st.session_state.resume_filename = None
     st.session_state.parse_error = None
     st.session_state.extracted_resume_text = None
+    st.session_state.pop("peer_profile", None)
+    st.session_state.pop("peer_match_results", None)
+    st.session_state.pop("skills_multiselect", None)
+    st.session_state.pop("custom_skill_input", None)
+    st.session_state["_sync_skills_widget"] = True
     st.rerun()
 
 
@@ -367,10 +378,8 @@ with st.sidebar:
     st.markdown("""
     **Topic:** AI Internship Recommendation System  
     **Level:** Second-Year College ML Project  
-    **Methodology:** Unsupervised Content-Based Filtering  
-    **Feature Matrix:** TF-IDF (Unigrams & Bigrams)  
-    **Ranking Metric:** Cosine Similarity  
-    **Dataset:** 388 Listings (`technical_internships_ready.csv`)  
+    **Internship Engine:** TF-IDF + Cosine Similarity (388 Listings)  
+    **Peer Match Engine:** K-Nearest Neighbors (30 Synthetic Profiles)  
     """)
 
     st.divider()
@@ -380,7 +389,8 @@ with st.sidebar:
         ("explore", "🔍 Explore Internships"),
         (1, "1. 📄 Resume Upload"),
         (2, "2. 🛠️ Review & Confirm Skills"),
-        (3, "3. 🎯 Recommendations & ML Analysis")
+        (3, "3. 🎯 Recommendations & ML Analysis"),
+        ("peer_match", "👥 Explore Profiles"),
     ]
     page_keys = [opt[0] for opt in nav_options]
     nav_labels = [opt[1] for opt in nav_options]
@@ -467,6 +477,12 @@ if st.session_state.current_page == "explore":
     catalog_ui.render_explore_page(engine, navigate_to)
 
 # =============================================================================
+# AI PEER MATCH PAGE — KNN-Based Student Profile Recommendation System
+# =============================================================================
+elif st.session_state.current_page == "peer_match":
+    peer_match_ui.render_peer_match_page(engine, peer_engine, navigate_to)
+
+# =============================================================================
 # PAGE 1 — Resume Upload
 # =============================================================================
 elif st.session_state.current_page == 1:
@@ -515,11 +531,13 @@ elif st.session_state.current_page == 1:
                         st.session_state.parse_error = error
                         st.session_state.extracted_resume_text = None
                         st.session_state.confirmed_skills = []
+                        st.session_state["_sync_skills_widget"] = True
                     else:
                         st.session_state.parse_error = None
                         st.session_state.extracted_resume_text = extracted_text
                         detected = extract_skills(extracted_text)
                         st.session_state.confirmed_skills = detected
+                        st.session_state["_sync_skills_widget"] = True
 
         # Display status feedback
         if st.session_state.parse_error:
@@ -576,6 +594,12 @@ elif st.session_state.current_page == 2:
 
         all_vocab = get_skill_vocab()
 
+        # Sync widget state before instantiation when skills changed externally (Add / Quick-add / Upload / Reset)
+        if st.session_state.pop("_sync_skills_widget", False) or "skills_multiselect" not in st.session_state:
+            st.session_state.skills_multiselect = list(st.session_state.confirmed_skills)
+        if st.session_state.pop("_clear_custom_skill_input", False):
+            st.session_state.custom_skill_input = ""
+
         if not st.session_state.confirmed_skills:
             st.info("💡 No skills have been recognized yet. Use the selector below or quick-add buttons to enter your technical skills.")
 
@@ -583,17 +607,18 @@ elif st.session_state.current_page == 2:
         selected_skills = st.multiselect(
             label="Confirmed Technical Skills",
             options=sorted(list(set(all_vocab + st.session_state.confirmed_skills))),
-            default=st.session_state.confirmed_skills,
+            key="skills_multiselect",
             help="Select skills from vocabulary or press backspace to remove.",
             placeholder="Search or add technical skills..."
         )
 
-        # Sync when edited
-        if selected_skills != st.session_state.confirmed_skills:
-            st.session_state.confirmed_skills = selected_skills
+        # Sync when edited directly via multiselect
+        if list(selected_skills) != list(st.session_state.confirmed_skills):
+            st.session_state.confirmed_skills = list(selected_skills)
             # Reset stale recommendations so they recompute cleanly
             st.session_state.recommendations = None
             st.session_state.rec_metadata = None
+            st.rerun()
 
         # Custom skill input
         custom_col1, custom_col2 = st.columns([3, 1])
@@ -601,17 +626,31 @@ elif st.session_state.current_page == 2:
             custom_input = st.text_input(
                 "Add Custom Skill",
                 placeholder="e.g. PyTorch, Docker, TypeScript, AWS",
-                label_visibility="collapsed"
+                label_visibility="collapsed",
+                key="custom_skill_input"
             )
         with custom_col2:
-            if st.button("➕ Add", use_container_width=True):
+            if st.button("➕ Add", use_container_width=True, key="btn_add_custom_skill"):
                 if custom_input.strip():
-                    norm_skill = normalize_skill_name(custom_input.strip())
-                    if norm_skill not in st.session_state.confirmed_skills:
-                        st.session_state.confirmed_skills.append(norm_skill)
+                    added_any = False
+                    for raw_skill in custom_input.split(","):
+                        if not raw_skill.strip():
+                            continue
+                        norm_skill = normalize_skill_name(raw_skill.strip())
+                        if norm_skill and norm_skill not in st.session_state.confirmed_skills:
+                            st.session_state.confirmed_skills.append(norm_skill)
+                            added_any = True
+                    st.session_state["_sync_skills_widget"] = True
+                    st.session_state["_clear_custom_skill_input"] = True
+                    if added_any:
                         st.session_state.recommendations = None
                         st.session_state.rec_metadata = None
-                        st.rerun()
+                    st.rerun()
+                else:
+                    st.session_state["_empty_custom_skill_warn"] = True
+
+        if st.session_state.pop("_empty_custom_skill_warn", False):
+            st.warning("Please type one or more skills (e.g. PyTorch, Docker) before clicking **+ Add**.")
 
         # Quick-add pills
         with st.expander("💡 Quick-add common skills"):
@@ -626,6 +665,7 @@ elif st.session_state.current_page == 2:
                 if col.button(f"+ {qs}", key=f"quick_{qs}", use_container_width=True):
                     if qs not in st.session_state.confirmed_skills:
                         st.session_state.confirmed_skills.append(qs)
+                        st.session_state["_sync_skills_widget"] = True
                         st.session_state.recommendations = None
                         st.session_state.rec_metadata = None
                         st.rerun()
@@ -703,7 +743,7 @@ elif st.session_state.current_page == 3:
     """, unsafe_allow_html=True)
 
     # Top search status and actions bar
-    top_col1, top_col2 = st.columns([2.5, 1], gap="medium")
+    top_col1, top_col2 = st.columns([2.0, 1.4], gap="medium")
     with top_col1:
         st.markdown("**Confirmed Skills Used for Search:**")
         if st.session_state.confirmed_skills:
@@ -713,11 +753,14 @@ elif st.session_state.current_page == 3:
             st.warning("No skills provided. Please return to Page 2 to select your skills.")
 
     with top_col2:
-        act_col1, act_col2 = st.columns(2)
+        act_col1, act_col2, act_col3 = st.columns(3)
         with act_col1:
             if st.button("✏️ Edit Skills", use_container_width=True):
                 navigate_to(2)
         with act_col2:
+            if st.button("👥 Explore Profiles", use_container_width=True, key="btn_p3_top_peer", help="Open Explore Profiles (KNN)"):
+                navigate_to("peer_match")
+        with act_col3:
             if st.button("🔄 Reset", use_container_width=True):
                 reset_all_state()
 
@@ -898,10 +941,13 @@ elif st.session_state.current_page == 3:
         st.dataframe(check_df, use_container_width=True, hide_index=True)
 
     st.markdown("<hr style='margin: 30px 0 18px 0; border: none; border-top: 1px solid #e2e8f0;'>", unsafe_allow_html=True)
-    p3_bcol1, p3_bcol2 = st.columns([1, 1.4])
+    p3_bcol1, p3_bcol2, p3_bcol3 = st.columns([1, 1.2, 1.2])
     with p3_bcol1:
         if st.button("⬅ Back to Skills Review", use_container_width=True, key="btn_p3_bottom_back"):
             navigate_to(2)
     with p3_bcol2:
         if st.button("🔍 Back to Explore Internships", use_container_width=True, key="btn_p3_bottom_explore"):
             navigate_to("explore")
+    with p3_bcol3:
+        if st.button("👥 Explore Profiles (KNN)", use_container_width=True, key="btn_p3_bottom_peer"):
+            navigate_to("peer_match")

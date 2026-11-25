@@ -20,6 +20,9 @@ from skill_extractor import extract_skills, normalize_skill_name, get_skill_voca
 from prepare_model import load_and_preprocess_dataset, build_and_save_model, DATA_PATH
 from recommendation import RecommendationEngine
 from resume_parser import parse_resume
+from peer_match import PeerMatchEngine, STUDENT_DATA_PATH
+import charts
+import matplotlib.pyplot as plt
 
 
 class TestRecommendationSystem(unittest.TestCase):
@@ -201,6 +204,118 @@ class TestRecommendationSystem(unittest.TestCase):
         sorted_title = self.engine.filter_and_sort_catalog(sort_by="Internship Title (A to Z)")
         titles = sorted_title["title"].tolist()
         self.assertTrue(titles[0].lower() <= titles[-1].lower())
+
+
+class TestPeerMatchSystem(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.engine = RecommendationEngine()
+        cls.peer_engine = PeerMatchEngine(STUDENT_DATA_PATH)
+
+    def test_14_peer_dataset_integrity(self):
+        """Verify synthetic_student_profiles_30.csv has 30 profiles and required fields."""
+        df = self.peer_engine.get_all_students()
+        self.assertEqual(len(df), 30)
+        self.assertEqual(df["Career_Field"].nunique(), 10)
+        self.assertTrue((df["cgpa_10"] > 0).all() and (df["cgpa_10"] <= 10.0).all())
+
+    def test_15_knn_peer_match_ranking_and_career(self):
+        """Verify KNN ranking order, K limit, and career field recommendation."""
+        profile = {
+            "student_name": "Test DS",
+            "major": "Computer Science",
+            "university_year": 4,
+            "cgpa": 8.5,
+            "cgpa_scale": 10.0,
+            "technical_skills": ["python", "sql", "pandas", "numpy", "statistics"],
+            "programming_skill": 8,
+            "problem_solving": 7,
+            "communication_skills": 7,
+            "projects_completed": 4,
+            "certifications": 2,
+            "internships": 2,
+        }
+        for metric in ["euclidean", "cosine"]:
+            res = self.peer_engine.find_similar_students(
+                profile, k=5, metric=metric, dataset_skill_freqs=self.engine.get_dataset_skill_frequencies()
+            )
+            peers = res["peers"]
+            self.assertEqual(len(peers), 5)
+            dists = [p["distance"] for p in peers]
+            sims = [p["similarity_score"] for p in peers]
+            for i in range(len(dists) - 1):
+                self.assertLessEqual(dists[i], dists[i + 1])
+                self.assertGreaterEqual(sims[i], sims[i + 1])
+            self.assertEqual(res["career_recommendations"][0]["career_field"], "Data Scientist")
+
+    def test_16_knn_cgpa_scale_normalization_and_edge_cases(self):
+        """Verify 4.0 vs 10.0 CGPA normalization, K clamping, unseen major, and empty skills."""
+        base = {
+            "student_name": "Scale Check",
+            "major": "Computer Science",
+            "university_year": 3,
+            "cgpa": 4.0,
+            "cgpa_scale": 4.0,
+            "technical_skills": ["python", "sql"],
+            "programming_skill": 7,
+            "problem_solving": 7,
+            "communication_skills": 7,
+            "projects_completed": 3,
+            "certifications": 1,
+            "internships": 1,
+        }
+        res_4 = self.peer_engine.find_similar_students(base, k=5)
+        res_10 = self.peer_engine.find_similar_students({**base, "cgpa": 10.0, "cgpa_scale": 10.0}, k=5)
+        self.assertEqual(
+            [p["student_id"] for p in res_4["peers"]],
+            [p["student_id"] for p in res_10["peers"]],
+        )
+
+        edge = self.peer_engine.find_similar_students(
+            {**base, "major": "Biomedical Engineering", "technical_skills": []},
+            k=99,
+            metric="cosine",
+        )
+        self.assertEqual(len(edge["peers"]), 30)
+        self.assertTrue(edge["empty_skills_input"])
+
+    def test_17_peer_skill_gaps_and_charts(self):
+        """Verify skill gap detection and Matplotlib peer chart rendering."""
+        profile = {
+            "student_name": "Frontend Learner",
+            "major": "Computer Science",
+            "university_year": 2,
+            "cgpa": 7.5,
+            "cgpa_scale": 10.0,
+            "technical_skills": ["html", "css", "javascript"],
+            "programming_skill": 8,
+            "problem_solving": 6,
+            "communication_skills": 9,
+            "projects_completed": 4,
+            "certifications": 1,
+            "internships": 0,
+        }
+        res = self.peer_engine.find_similar_students(
+            profile, k=5, dataset_skill_freqs=self.engine.get_dataset_skill_frequencies()
+        )
+        gap_skills = [g["skill"] for g in res["skill_gaps"]]
+        self.assertIn("react", gap_skills)
+
+        fig1 = charts.plot_peer_competency_radar(res["user_profile"], res["peer_average"], res["peers"][0])
+        fig2 = charts.plot_peer_experience_comparison(res["user_profile"], res["peer_average"], res["peers"][0])
+        fig3 = charts.plot_career_support_chart(res["career_recommendations"])
+        fig4 = charts.plot_knn_neighbors_chart(res["all_ranked"], res["k"], res["metric"])
+        for fig in [fig1, fig2, fig3, fig4]:
+            self.assertIsNotNone(fig)
+            plt.close(fig)
+
+    def test_18_knn_validation_checks(self):
+        """Verify automated KNN functional validation checks all pass."""
+        checks = self.peer_engine.run_knn_validation_checks()
+        self.assertGreaterEqual(len(checks), 5)
+        for c in checks:
+            self.assertEqual(c["status"], "PASSED", f"Check failed: {c}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,41 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache & build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Credentials, API keys, and secrets
+.env
+.env.*
+*.pem
+*.key
+secrets.toml
+.streamlit/secrets.toml
+credentials*.json
+
+# Uploaded resumes and temporary user files
+*.pdf
+*.docx
+*.doc
+uploads/
+resumes/
+
+# Local user databases
+*.db
+*.sqlite
+*.sqlite3
+users.json
+users.db
+
+# System and scratch files
+.DS_Store
+Thumbs.db
+*.swp
+test_plot.png

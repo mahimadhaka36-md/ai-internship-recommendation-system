@@ -289,3 +289,223 @@ def plot_similarity_heatmap_chart(heatmap_df: pd.DataFrame) -> plt.Figure:
     ax.spines["left"].set_visible(False)
     plt.tight_layout()
     return fig
+
+
+def plot_peer_competency_radar(
+    user_profile: Dict[str, Any],
+    peer_avg: Dict[str, float],
+    top_peer: Dict[str, Any],
+) -> plt.Figure:
+    """
+    AI Peer Match: Polar radar chart comparing Your Profile vs. K-Peer Average
+    vs. Top-1 Nearest Peer across core 0-10 academic & skill ratings.
+    """
+    categories = ["CGPA (/10)", "Programming", "Problem\nSolving", "Communication"]
+    user_vals = [
+        float(user_profile.get("cgpa_10", 0.0)),
+        float(user_profile.get("programming_skill", 0.0)),
+        float(user_profile.get("problem_solving", 0.0)),
+        float(user_profile.get("communication_skills", 0.0)),
+    ]
+    avg_vals = [
+        float(peer_avg.get("cgpa_10", 0.0)),
+        float(peer_avg.get("programming_skill", 0.0)),
+        float(peer_avg.get("problem_solving", 0.0)),
+        float(peer_avg.get("communication_skills", 0.0)),
+    ]
+    top_vals = [
+        float(top_peer.get("cgpa_10", 0.0)),
+        float(top_peer.get("programming_skill", 0.0)),
+        float(top_peer.get("problem_solving", 0.0)),
+        float(top_peer.get("communication_skills", 0.0)),
+    ]
+
+    angles = np.linspace(0, 2 * np.pi, len(categories), endpoint=False).tolist()
+    angles += angles[:1]
+    user_vals += user_vals[:1]
+    avg_vals += avg_vals[:1]
+    top_vals += top_vals[:1]
+
+    fig, ax = plt.subplots(figsize=(5.6, 4.4), dpi=130, subplot_kw=dict(polar=True))
+    fig.patch.set_facecolor("#ffffff")
+    ax.set_facecolor("#ffffff")
+
+    ax.plot(angles, user_vals, color="#2563eb", linewidth=2.2, label="You")
+    ax.fill(angles, user_vals, color="#2563eb", alpha=0.14)
+
+    ax.plot(angles, avg_vals, color="#0d9488", linewidth=2.0, linestyle="--", label="K-Peer Avg")
+    ax.fill(angles, avg_vals, color="#0d9488", alpha=0.08)
+
+    ax.plot(angles, top_vals, color="#64748b", linewidth=1.6, linestyle=":", label=f"Top Peer ({top_peer.get('student_name', 'Peer')})")
+
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(categories, fontsize=9.5, color="#0f172a", fontweight="600")
+    ax.set_ylim(0, 10)
+    ax.set_yticks([2, 4, 6, 8, 10])
+    ax.set_yticklabels(["2", "4", "6", "8", "10"], fontsize=8, color="#64748b")
+    ax.grid(color="#e2e8f0", linestyle="--", linewidth=0.8)
+    ax.spines["polar"].set_color("#cbd5e1")
+
+    ax.legend(loc="upper right", bbox_to_anchor=(1.22, 1.12), frameon=True, facecolor="#ffffff", edgecolor="#e2e8f0", fontsize=8.5)
+    plt.tight_layout()
+    return fig
+
+
+def plot_peer_experience_comparison(
+    user_profile: Dict[str, Any],
+    peer_avg: Dict[str, float],
+    top_peer: Dict[str, Any],
+) -> plt.Figure:
+    """
+    AI Peer Match: Grouped horizontal bar chart comparing Projects Completed,
+    Certifications, and Previous Internships (exact counts).
+    """
+    metrics = ["Internships", "Certifications", "Projects Completed"]
+    user_counts = [
+        float(user_profile.get("internships", 0.0)),
+        float(user_profile.get("certifications", 0.0)),
+        float(user_profile.get("projects_completed", 0.0)),
+    ]
+    avg_counts = [
+        float(peer_avg.get("internships", 0.0)),
+        float(peer_avg.get("certifications", 0.0)),
+        float(peer_avg.get("projects_completed", 0.0)),
+    ]
+    top_counts = [
+        float(top_peer.get("internships", 0.0)),
+        float(top_peer.get("certifications", 0.0)),
+        float(top_peer.get("projects_completed", 0.0)),
+    ]
+
+    fig, ax = plt.subplots(figsize=(6.2, 4.0), dpi=130)
+    fig.patch.set_facecolor("#ffffff")
+    ax.set_facecolor("#ffffff")
+
+    y = np.arange(len(metrics))
+    h = 0.24
+
+    bars_u = ax.barh(y + h, user_counts, h, label="You", color="#2563eb")
+    bars_a = ax.barh(y, avg_counts, h, label="K-Peer Average", color="#0d9488")
+    bars_t = ax.barh(y - h, top_counts, h, label=f"Top Peer ({top_peer.get('student_name', 'Peer')})", color="#94a3b8")
+
+    max_val = max(max(user_counts), max(avg_counts), max(top_counts), 2.0)
+    ax.set_xlim(0, max_val * 1.25)
+    ax.set_yticks(y)
+    ax.set_yticklabels(metrics, fontsize=9.5, color="#0f172a", fontweight="600")
+    ax.set_xlabel("Count", fontsize=9.5, color="#334155")
+
+    for bars, txt_color in [(bars_u, "#1d4ed8"), (bars_a, "#0f766e"), (bars_t, "#475569")]:
+        for bar in bars:
+            w = bar.get_width()
+            ax.text(w + max_val * 0.02, bar.get_y() + bar.get_height() / 2, f"{w:.1f}".rstrip("0").rstrip("."), va="center", ha="left", fontsize=8.5, color=txt_color, fontweight="600")
+
+    ax.legend(loc="lower right", frameon=True, facecolor="#ffffff", edgecolor="#e2e8f0", fontsize=8.5)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_color("#cbd5e1")
+    ax.spines["bottom"].set_color("#cbd5e1")
+    ax.grid(axis="x", linestyle="--", alpha=0.45, color="#e2e8f0")
+    ax.tick_params(colors="#334155", labelsize=9)
+    plt.tight_layout()
+    return fig
+
+
+def plot_career_support_chart(career_recs: List[Dict[str, Any]]) -> plt.Figure:
+    """
+    AI Peer Match: Horizontal bar chart showing KNN distance-weighted support (%)
+    for recommended career fields among the K nearest peers.
+    """
+    if not career_recs:
+        fig, ax = plt.subplots(figsize=(7, 2.2), dpi=130)
+        ax.text(0.5, 0.5, "No career recommendations available.", ha="center", va="center", color="#64748b")
+        ax.axis("off")
+        return fig
+
+    recs_rev = list(reversed(career_recs))
+    labels = [r["career_field"] for r in recs_rev]
+    shares = [r["weighted_share_pct"] for r in recs_rev]
+    counts = [f"{r['peer_count']}/{r['total_k']} peers ({r['weighted_share_pct']}%)" for r in recs_rev]
+
+    fig, ax = plt.subplots(figsize=(7.6, max(2.6, len(recs_rev) * 0.65)), dpi=130)
+    fig.patch.set_facecolor("#ffffff")
+    ax.set_facecolor("#ffffff")
+
+    colors = ["#0d9488" if i == len(recs_rev) - 1 else "#3b82f6" for i in range(len(recs_rev))]
+    bars = ax.barh(labels, shares, color=colors, height=0.5)
+    ax.set_xlim(0, 118)
+    ax.set_xlabel("Distance-Weighted Neighbor Support (%)", fontsize=9.5, color="#334155")
+
+    for bar, txt in zip(bars, counts):
+        ax.text(bar.get_width() + 1.5, bar.get_y() + bar.get_height() / 2, txt, va="center", ha="left", fontsize=9, fontweight="600", color="#0f172a")
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_color("#cbd5e1")
+    ax.spines["bottom"].set_color("#cbd5e1")
+    ax.grid(axis="x", linestyle="--", alpha=0.45, color="#e2e8f0")
+    ax.tick_params(colors="#334155", labelsize=9.5)
+    plt.tight_layout()
+    return fig
+
+
+def plot_knn_neighbors_chart(all_ranked: List[Dict[str, Any]], k: int, metric: str = "euclidean") -> plt.Figure:
+    """
+    AI Peer Match (KNN Model Insights): Visualizes the top-15 ranked synthetic students
+    by KNN similarity score, highlighting the K selected neighbors vs. cutoff boundary.
+    """
+    if not all_ranked:
+        fig, ax = plt.subplots(figsize=(8, 2.5), dpi=130)
+        ax.text(0.5, 0.5, "No neighbor ranking data available.", ha="center", va="center", color="#64748b")
+        ax.axis("off")
+        return fig
+
+    subset = all_ranked[: min(15, len(all_ranked))]
+    subset_rev = list(reversed(subset))
+    labels = [f"#{p['rank']} {p['student_name']} ({p['career_field']})" for p in subset_rev]
+    sims = [p["similarity_pct"] for p in subset_rev]
+    dists = [p["distance"] for p in subset_rev]
+    colors = ["#2563eb" if p["rank"] <= k else "#cbd5e1" for p in subset_rev]
+
+    fig, ax = plt.subplots(figsize=(8.6, max(3.6, len(subset_rev) * 0.36)), dpi=130)
+    fig.patch.set_facecolor("#ffffff")
+    ax.set_facecolor("#ffffff")
+
+    bars = ax.barh(labels, sims, color=colors, height=0.58)
+    ax.set_xlim(0, 115)
+    ax.set_xlabel(f"KNN Similarity Score (%) — Metric: {metric.title()}", fontsize=9.5, color="#334155")
+
+    for bar, sim, dist in zip(bars, sims, dists):
+        ax.text(
+            bar.get_width() + 1.2,
+            bar.get_y() + bar.get_height() / 2,
+            f"{sim:.1f}% (d={dist:.3f})",
+            va="center",
+            ha="left",
+            fontsize=8.3,
+            color="#0f172a",
+            fontweight="500",
+        )
+
+    # Draw K-cutoff line separating top-K neighbors from rank K+1
+    if 0 < k < len(subset_rev):
+        cutoff_y = len(subset_rev) - k - 0.5
+        ax.axhline(cutoff_y, color="#0d9488", linestyle="--", linewidth=1.5)
+        ax.text(
+            113,
+            cutoff_y + 0.12,
+            f"K={k} Cutoff",
+            ha="right",
+            va="bottom",
+            fontsize=8.5,
+            fontweight="700",
+            color="#0d9488",
+        )
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_color("#cbd5e1")
+    ax.spines["bottom"].set_color("#cbd5e1")
+    ax.grid(axis="x", linestyle="--", alpha=0.45, color="#e2e8f0")
+    ax.tick_params(colors="#334155", labelsize=8.8)
+    plt.tight_layout()
+    return fig

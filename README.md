@@ -1,59 +1,68 @@
 # AI Internship Recommendation System
 
-A clean, explainable, and professional web application for an academic second-year Machine Learning project. The system allows students to upload their resumes (PDF or DOCX), automatically extracts and lets them customize their technical skills, and provides personalized, ranked internship recommendations using **TF-IDF Vectorization** and **Cosine Similarity**.
+A clean, explainable, and interactive Machine Learning web application built with **Python** and **Streamlit**. The platform lets students browse technical internships, upload resumes (PDF or DOCX) for personalized **TF-IDF + Cosine Similarity** internship matching, and use **Explore Profiles** (powered by **K-Nearest Neighbors / KNN**) to discover similar student profiles, explore aligned career paths, and identify skill gaps.
 
 ---
 
-## 🎯 Architecture & Three-Page Flow
+## 🎯 Features & Application Flow
 
-The application follows an intuitive, sequential three-page workflow:
-
-```
-┌──────────────────────┐       ┌──────────────────────┐       ┌──────────────────────┐       ┌──────────────────────┐
-│  LOGIN / SIGNUP GATE │  ──▶  │ PAGE 1: Resume Upload│  ──▶  │ PAGE 2: Confirm Skills│  ──▶  │ PAGE 3: ML Dashboard │
-│  • Devpost aesthetic │       │ • PDF / DOCX in-mem  │       │ • Multiselect review │       │ • Top 5 match cards  │
-│  • GitHub/Google/In  │       │ • Size & type checks │       │ • Custom skill entry │       │ • Graphs A, B, C, D  │
-│  • Email & Password  │       │ • Scanned PDF alert  │       │ • Skill Coverage Plot│       │ • Honest Evaluation  │
-└──────────────────────┘       └──────────────────────┘       └──────────────────────┘       └──────────────────────┘
-```
+1. **Welcome & Authentication Gate (`auth.py`):**
+   - Two-section hero landing page with guest catalog access, sign-up/login flow, and one-click demo student login.
+2. **Explore Internships Catalog (`catalog_ui.py`):**
+   - Search, filter (location, required skills, minimum stipend), sort, and paginate across all 388 listings in `data/technical_internships_ready.csv`.
+3. **3-Step Personalized Internship Pipeline (`app.py`, `resume_parser.py`, `skill_extractor.py`, `recommendation.py`):**
+   - **Step 1 — Resume Upload:** In-memory PDF (`PyMuPDF`) and DOCX (`python-docx`) text extraction with scanned-PDF detection and zero disk persistence.
+   - **Step 2 — Review & Confirm Skills:** Interactive skill review with regex word-boundary extraction, alias normalization, custom skill input, quick-add pills, and a **Skill Coverage Overview** chart.
+   - **Step 3 — Recommendations & ML Analysis:** Top-5 ranked internship cards with Cosine Similarity scores, matched vs. missing skills, 4 explainable Matplotlib visualizations (`charts.py`), and honest functional validation checks.
+4. **Explore Profiles — KNN Peer & Career Matching (`peer_match.py`, `peer_match_ui.py`):**
+   - **My Academic Profile:** Structured form for major, university year, normalized CGPA (`10.0` or `4.0` scale), technical skills, proficiency ratings (`1–10`), projects, certifications, and internships (plus sample presets and resume skill import).
+   - **Recommended Peer Profiles:** Top-$K$ nearest student profiles from `data/synthetic_student_profiles_30.csv` using standardized numeric features, One-Hot encoded major, and exact-token TF-IDF technical skill vectors.
+   - **Student Profile Comparison:** Metric deltas, competency radar chart (`0–10` scale), and practical experience comparison bar chart.
+   - **Career Recommendations:** Distance-weighted KNN neighbor consensus recommending target career field, technical domain, and internship role.
+   - **Recommended Internships:** Bridges KNN profile skills directly into the 388-listing TF-IDF + Cosine Similarity engine.
+   - **Personalized Skill Improvement & KNN Model Insights:** Missing-skill prioritization (peer prevalence + internship listing demand), benchmark comparisons, neighbor $K$-cutoff chart, and automated KNN validation checks.
 
 ---
 
-## 📊 ML Visualization Dashboard (Page 3)
+## 📊 ML Methodology
 
-1. **Graph A — Top 5 Internship Match Scores:**
-   - Horizontal bar chart of actual Cosine Similarity scores ($0.0$ to $1.0$).
-   - Shows numerical score and percentage match beside each bar.
-   - Explains that cosine similarity represents textual alignment, not hiring probability.
+### 1. Internship Recommendation Engine (TF-IDF + Cosine Similarity)
+- **Unsupervised Content-Based Filtering:** Internship `title + skills_clean` records and confirmed student skills are projected into a unigram + bigram `TfidfVectorizer` space (`stop_words="english"`).
+- **Ranking Metric:**
+$$\text{Cosine Similarity}(\vec{A}, \vec{B}) = \frac{\vec{A} \cdot \vec{B}}{\|\vec{A}\| \|\vec{B}\|}$$
 
-2. **Graph B — Skill Match Breakdown:**
-   - Horizontal grouped bar chart comparing confirmed student skills (profile-level reference) against the count of overlapping skills required by each internship.
-
-3. **Graph C — Most In-Demand Skills in the Dataset:**
-   - Frequency distribution of the top 10–15 recognized skills across all 388 listings in `technical_internships_ready.csv` (e.g. Python: 162, JavaScript: 123, HTML: 91, CSS: 86, MySQL: 75, Machine Learning: 59).
-   - Handles multi-word skills like "machine learning" and "data science" as complete terms.
-
-4. **Graph D — Internship Similarity Heatmap (Expandable):**
-   - 2D matrix of cosine similarity values between the overall student profile + individual query skills against each recommended listing's feature vector.
+### 2. Peer & Career Matching Engine (K-Nearest Neighbors)
+- **Feature Preprocessing:**
+  - Technical skills encoded with `TfidfVectorizer` over canonicalized skill tokens.
+  - Academic & proficiency attributes (`University_Year`, normalized `CGPA/10`, `Programming_Skill`, `Problem_Solving`, `Communication_Skills`, `Projects_Completed`, `Certifications`, `Internships`) scaled with `StandardScaler`.
+  - Academic `Major` encoded with `OneHotEncoder(handle_unknown="ignore")`.
+- **Similarity Retrieval:** `sklearn.neighbors.NearestNeighbors` retrieves top-$K$ peers and aggregates career paths via similarity-weighted voting ($\frac{1}{1 + d}$ for Euclidean distance).
 
 ---
 
 ## 📁 Project Structure
 
 ```text
-ml project/
-├── app.py                      # Main Streamlit web application (Three Pages)
-├── recommendation.py           # TF-IDF & Cosine Similarity recommendation pipeline
-├── skill_extractor.py          # Rule-based skill extraction & canonical normalization
-├── resume_parser.py            # In-memory PDF & DOCX text extraction
-├── charts.py                   # Matplotlib visualization functions for ML Dashboard
-├── prepare_model.py            # Reproducible model artifact generation script
-├── test_app.py                 # Automated test suite (12 unit & integration tests)
-├── requirements.txt            # Python dependencies
-├── README.md                   # Setup and execution guide
+ai-internship-recommendation-system/
+├── app.py                              # Main Streamlit app & multi-page routing
+├── auth.py                             # Landing hero & authentication UI
+├── catalog_ui.py                       # Explore Internships catalog UI
+├── peer_match.py                       # KNN student profile & career matching engine
+├── peer_match_ui.py                    # Explore Profiles UI & insights
+├── recommendation.py                   # TF-IDF & Cosine Similarity recommendation engine
+├── skill_extractor.py                  # Rule-based skill extraction & alias normalization
+├── resume_parser.py                    # In-memory PDF & DOCX text extraction
+├── charts.py                           # Matplotlib visualizations for internships & peers
+├── prepare_model.py                    # Reproducible TF-IDF artifact builder
+├── test_app.py                         # Automated test suite (18 unit & integration tests)
+├── requirements.txt                    # Python dependencies
+├── README.md                           # Project documentation
 ├── data/
-│   └── technical_internships_ready.csv  # 388 internship records
-└── model_artifacts/            # Saved joblib artifacts (reproducible)
+│   ├── README.md
+│   ├── technical_internships_ready.csv     # 388 internship listings
+│   └── synthetic_student_profiles_30.csv   # 30 synthetic demo student profiles
+└── model_artifacts/
+    ├── README.md
     ├── tfidf_vectorizer.joblib
     ├── tfidf_matrix.joblib
     └── internships_cleaned.joblib
@@ -61,19 +70,20 @@ ml project/
 
 ---
 
-## 🚀 Setup & Execution Instructions
+## 🚀 Setup & Local Execution
 
 ### Prerequisites
-- Python 3.10 to 3.14
-- Recommended: Virtual environment (`venv` or `conda`)
+- Python 3.10+
 
-### 1. Navigate to Project Directory
+### 1. Clone the Repository
 ```bash
-cd "/Users/mahimadhaka/ml project"
+git clone https://github.com/mahimadhaka36-md/ai-internship-recommendation-system.git
+cd ai-internship-recommendation-system
 ```
 
-### 2. Activate Virtual Environment
+### 2. Create & Activate Virtual Environment
 ```bash
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
@@ -82,13 +92,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. (Optional) Generate Model Artifacts
-Artifacts are automatically built on the first run, but can also be created explicitly:
+### 4. (Optional) Rebuild TF-IDF Model Artifacts
+Pre-built artifacts are included in `model_artifacts/`, and are also generated automatically if missing:
 ```bash
 python prepare_model.py
 ```
 
-### 5. Launch Web Application
+### 5. Launch the Streamlit App
 ```bash
 streamlit run app.py
 ```
@@ -96,24 +106,25 @@ Open **[http://localhost:8501](http://localhost:8501)** in your browser.
 
 ---
 
+## ☁️ Streamlit Community Cloud Deployment
+
+1. Push this repository to GitHub (`main` branch).
+2. Go to [share.streamlit.io](https://share.streamlit.io) and click **New app**.
+3. Select repository `mahimadhaka36-md/ai-internship-recommendation-system`, branch `main`, and main file path `app.py`.
+4. Click **Deploy** — dependencies are installed automatically from `requirements.txt`, and all data/model paths resolve relative to the repository root.
+
+---
+
 ## 🧪 Automated Testing
 
-Run the automated test suite covering dataset integrity, parsers, ranking, and new visualization helpers:
+Run the automated test suite covering internship recommendations, parsers, catalogs, KNN peer matching, and visualizations:
 ```bash
-python test_app.py
+python -m unittest test_app.py -v
 ```
 
 ---
 
-## 🎓 College Viva Guide: Honest Evaluation & Methodology
+## 🎓 Honest Academic Evaluation & Limitations
 
-### Q1: Is this a supervised or unsupervised model?
-**Answer:** It is an **unsupervised content-based recommendation system**. We do not have pre-labeled student-internship suitability classes or hiring outcomes; instead, both student skills and internship descriptions are projected into a continuous TF-IDF vector space, and ranked using Cosine Similarity.
-
-### Q2: Why don't you report Precision, Recall, or an ROC Curve?
-**Answer:** Because the dataset does not contain ground-truth labeled outcomes (e.g. whether a student was accepted or rejected for each listing). Fabricating an accuracy or F1-score for unsupervised ranking is academically dishonest. We instead validate the system through deterministic functional checks (rank ordering, constraint limits, and edge case handling).
-
-### Q3: What is the mathematical formulation of Cosine Similarity?
-**Answer:**
-$$\text{Cosine Similarity}(\vec{A}, \vec{B}) = \frac{\vec{A} \cdot \vec{B}}{\|\vec{A}\| \|\vec{B}\|} = \frac{\sum_{i=1}^{n} A_i B_i}{\sqrt{\sum_{i=1}^{n} A_i^2} \sqrt{\sum_{i=1}^{n} B_i^2}}$$
-It evaluates the angle between vectors rather than magnitude, ensuring long descriptions do not unfairly dominate shorter, focused profiles.
+- Neither `technical_internships_ready.csv` nor `synthetic_student_profiles_30.csv` contains real-world hiring or placement outcomes.
+- Accordingly, supervised hiring accuracy or ROC curves are not fabricated; validation relies on deterministic functional checks (ranking monotonicity, edge-case handling, scale normalization, and internal Leave-One-Out consistency on the 30 synthetic profiles).

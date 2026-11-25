@@ -147,7 +147,7 @@ def render_explore_page(engine, navigate_to: Callable[[any], None]):
     header_col1, header_col2 = st.columns([1.7, 1.1], gap="large")
 
     with header_col1:
-        st.markdown(f"""
+        st.markdown("""
         <div style="margin-bottom: 4px;">
             <h1 style="color: #0f172a; font-size: 1.85rem; font-weight: 800; margin-bottom: 6px;">
                 Explore Internships
@@ -155,21 +155,23 @@ def render_explore_page(engine, navigate_to: Callable[[any], None]):
             <p style="color: #475569; font-size: 1.02rem; margin-bottom: 12px; line-height: 1.5;">
                 Discover technical internship opportunities that match your interests.
             </p>
-            <div style="display: inline-flex; align-items: center; gap: 8px; background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; padding: 5px 14px; border-radius: 20px; font-size: 0.88rem; font-weight: 600;">
-                <span>📊</span> <span>{total_dataset_count} Technical Internships Available in Dataset</span>
-            </div>
         </div>
         """, unsafe_allow_html=True)
 
     with header_col2:
         st.markdown("<div style='height: 8px;'></div>", unsafe_allow_html=True)
-        # Visually prominent CTA button in the top-right corner
-        if st.button("Get Personalized Matches →", type="primary", use_container_width=True, key="btn_cta_matches"):
-            if not st.session_state.is_authenticated:
-                render_login_modal("matches", None)
-            else:
-                navigate_to(1)
-        st.caption("Upload your resume or enter your skills to find relevant internships.")
+        # Visually prominent CTA buttons in the top-right corner
+        cta_c1, cta_c2 = st.columns(2, gap="small")
+        with cta_c1:
+            if st.button("Get Personalized Matches →", type="primary", use_container_width=True, key="btn_cta_matches"):
+                if not st.session_state.is_authenticated:
+                    render_login_modal("matches", None)
+                else:
+                    navigate_to(1)
+        with cta_c2:
+            if st.button("👥 Explore Profiles", use_container_width=True, key="btn_cta_peer_match"):
+                navigate_to("peer_match")
+        st.caption("Upload your resume for internship matches or use KNN to compare with similar student peers.")
 
     st.markdown("<hr style='margin: 18px 0 20px 0; border: none; border-top: 1px solid #e2e8f0;'>", unsafe_allow_html=True)
 
