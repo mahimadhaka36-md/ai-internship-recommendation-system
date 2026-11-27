@@ -24,10 +24,14 @@ import auth
 import catalog_ui
 import peer_match
 import peer_match_ui
+import mock_interview
+import mock_interview_ui
 importlib.reload(auth)
 importlib.reload(catalog_ui)
 importlib.reload(peer_match)
 importlib.reload(peer_match_ui)
+importlib.reload(mock_interview)
+importlib.reload(mock_interview_ui)
 
 # -----------------------------------------------------------------------------
 # Page Configuration
@@ -348,6 +352,7 @@ def reset_all_state():
     st.session_state.pop("skills_multiselect", None)
     st.session_state.pop("custom_skill_input", None)
     st.session_state["_sync_skills_widget"] = True
+    mock_interview_ui.reset_interview_session(clear_used_history=True)
     st.rerun()
 
 
@@ -380,6 +385,7 @@ with st.sidebar:
     **Level:** Second-Year College ML Project  
     **Internship Engine:** TF-IDF + Cosine Similarity (388 Listings)  
     **Peer Match Engine:** K-Nearest Neighbors (30 Synthetic Profiles)  
+    **Mock Interview:** MiniLM Semantic Similarity + TF-IDF Fallback  
     """)
 
     st.divider()
@@ -391,6 +397,7 @@ with st.sidebar:
         (2, "2. 🛠️ Review & Confirm Skills"),
         (3, "3. 🎯 Recommendations & ML Analysis"),
         ("peer_match", "👥 Explore Profiles"),
+        ("mock_interview", "🎤 AI Mock Interview"),
     ]
     page_keys = [opt[0] for opt in nav_options]
     nav_labels = [opt[1] for opt in nav_options]
@@ -481,6 +488,12 @@ if st.session_state.current_page == "explore":
 # =============================================================================
 elif st.session_state.current_page == "peer_match":
     peer_match_ui.render_peer_match_page(engine, peer_engine, navigate_to)
+
+# =============================================================================
+# AI MOCK INTERVIEW PAGE — Semantic ML Evaluation & Feedback
+# =============================================================================
+elif st.session_state.current_page == "mock_interview":
+    mock_interview_ui.render_mock_interview_page(navigate_to)
 
 # =============================================================================
 # PAGE 1 — Resume Upload
@@ -832,6 +845,14 @@ elif st.session_state.current_page == 3:
                 </div>
             </div>
             """, unsafe_allow_html=True)
+            _, launch_col = st.columns([2.6, 1.1])
+            with launch_col:
+                if st.button(
+                    "🎤 Practice Mock Interview",
+                    key=f"btn_p3_interview_{idx}",
+                    use_container_width=True,
+                ):
+                    mock_interview_ui.launch_interview_from_internship(title, req_skills, navigate_to)
 
         # ---------------------------------------------------------------------
         # ML VISUALIZATION DASHBOARD

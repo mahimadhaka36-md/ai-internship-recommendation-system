@@ -21,6 +21,18 @@ from prepare_model import load_and_preprocess_dataset, build_and_save_model, DAT
 from recommendation import RecommendationEngine
 from resume_parser import parse_resume
 from peer_match import PeerMatchEngine, STUDENT_DATA_PATH
+from ai_provider import CovexcodeProvider
+from interview_evaluator import InterviewAnswerEvaluator
+from mock_interview import (
+    QUESTIONS_PATH,
+    ROLE_TO_DOMAIN,
+    build_interview_summary,
+    format_interview_report_markdown,
+    load_question_bank,
+    map_internship_to_interview_config,
+    select_interview_questions,
+    suggest_roles_for_student,
+)
 import charts
 import matplotlib.pyplot as plt
 
@@ -316,6 +328,257 @@ class TestPeerMatchSystem(unittest.TestCase):
         self.assertGreaterEqual(len(checks), 5)
         for c in checks:
             self.assertEqual(c["status"], "PASSED", f"Check failed: {c}")
+
+
+class TestMockInterviewSystem(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.bank = load_question_bank(QUESTIONS_PATH)
+
+    def test_19_interview_question_bank_integrity(self):
+        """Verify >= 150 unique questions across all 10 required roles and valid schemas."""
+        self.assertGreaterEqual(len(self.bank), 150)
+        ids = [q["question_id"] for q in self.bank]
+        texts = [q["question_text"] for q in self.bank]
+        self.assertEqual(len(ids), len(set(ids)), "Duplicate question IDs found.")
+        self.assertEqual(len(texts), len(set(texts)), "Duplicate question texts found.")
+
+        roles_present = {q["role"] for q in self.bank}
+        for required_role in ROLE_TO_DOMAIN:
+            self.assertIn(required_role, roles_present)
+
+        for q in self.bank:
+            for field in [
+                "question_id", "role", "domain", "difficulty", "question_type",
+                "topic", "question_text", "reference_answer", "expected_concepts", "evaluation_rubric",
+            ]:
+                self.assertIn(field, q)
+                self.assertTrue(q[field])
+
+    def test_20_role_suggestions_and_non_repeating_selection(self):
+        """Verify role suggestions, internship mapping, and non-repeating 5/10/15 selection."""
+        suggestions = suggest_roles_for_student(
+            confirmed_skills=["python", "pytorch", "deep learning", "nlp"],
+            recommendations=[{"title": "Artificial Intelligence (AI)", "required_skills": "Python NLP"}],
+        )
+        self.assertEqual(suggestions[0]["role"], "AI Engineer")
+
+        mapped = map_internship_to_interview_config("Cybersecurity Analyst Intern", "Linux Networking")
+        self.assertEqual(mapped["role"], "Cybersecurity Analyst")
+
+        for count in [5, 10, 15]:
+            qs = select_interview_questions(
+                self.bank,
+                role="ML Engineer",
+                domain="Data Science / AI",
+                interview_type="Mixed",
+                difficulty="Intermediate",
+                num_questions=count,
+                seed=42,
+            )
+            self.assertEqual(len(qs), count)
+            self.assertEqual(len({q["question_id"] for q in qs}), count, "Repeated questions within session.")
+
+        # Verify exclude_ids prevents repeating questions across sessions
+        first_5 = select_interview_questions(
+            self.bank, "ML Engineer", "Data Science / AI", "Technical", "Beginner", num_questions=5, seed=1
+        )
+        excluded = {q["question_id"] for q in first_5}
+        next_5 = select_interview_questions(
+            self.bank, "ML Engineer", "Data Science / AI", "Technical", "Beginner", num_questions=5, exclude_ids=excluded, seed=2
+        )
+        self.assertTrue(excluded.isdisjoint({q["question_id"] for q in next_5}))
+
+    def test_21_evaluator_fallback_empty_skipped_and_quality(self):
+        """Verify TF-IDF fallback when model unavailable, empty answers, skipped questions, and scoring quality."""
+        sample_q = next(q for q in self.bank if q["question_id"] == "MLE-TECH-BEG-01")
+        fallback_eval = InterviewAnswerEvaluator(force_fallback=True)
+        status = fallback_eval.get_backend_status()
+        self.assertFalse(status["using_transformer"])
+        self.assertIn("Fallback", status["backend_label"])
+
+        # Unavailable model name triggers fast automatic fallback without hanging
+        unavail_eval = InterviewAnswerEvaluator(model_name="nonexistent-model-xyz-offline")
+        unavail_status = unavail_eval.get_backend_status()
+        self.assertFalse(unavail_status["using_transformer"])
+        self.assertIn("Fallback", unavail_status["backend_label"])
+
+        # Empty answer
+        empty_res = fallback_eval.evaluate_answer(sample_q, "   ", skipped=False)
+        self.assertEqual(empty_res["status"], "empty")
+        self.assertEqual(empty_res["overall_score"], 0.0)
+        self.assertEqual(empty_res["covered_concepts"], [])
+        self.assertEqual(len(empty_res["missing_concepts"]), len(sample_q["expected_concepts"]))
+
+        # Skipped question
+        skip_res = fallback_eval.evaluate_answer(sample_q, "", skipped=True)
+        self.assertEqual(skip_res["status"], "skipped")
+        self.assertTrue(skip_res["skipped"])
+        self.assertIsNone(skip_res["overall_score"])
+
+        # Strong vs weak answer discrimination
+        strong_ans = (
+            "Overfitting occurs when a model memorizes training data noise and fails on validation or test sets, "
+            "hurting generalization. We detect it by comparing training vs validation errors via cross-validation, "
+            "and reduce it using L1/L2 regularization, simpler models, or more training data."
+        )
+        weak_ans = "I don't know maybe it is a bug."
+        strong_res = fallback_eval.evaluate_answer(sample_q, strong_ans, skipped=False)
+        weak_res = fallback_eval.evaluate_answer(sample_q, weak_ans, skipped=False)
+        self.assertGreater(strong_res["overall_score"], weak_res["overall_score"] + 30.0)
+        self.assertIn("overfitting", strong_res["covered_concepts"])
+        self.assertIn("regularization", strong_res["covered_concepts"])
+
+    def test_22_transformer_or_fallback_summary_and_charts(self):
+        """Verify end-to-end evaluation, dashboard summary, markdown report, and interview charts."""
+        qs = select_interview_questions(
+            self.bank, "Data Scientist", "Data Science / AI", "Mixed", "Beginner", num_questions=5, seed=7
+        )
+        evaluator = InterviewAnswerEvaluator()
+        responses = {
+            0: {
+                "answer_text": qs[0]["reference_answer"],
+                "evaluation": evaluator.evaluate_answer(qs[0], qs[0]["reference_answer"], skipped=False),
+            },
+            1: {
+                "answer_text": "",
+                "evaluation": evaluator.evaluate_answer(qs[1], "", skipped=True),
+            },
+            2: {
+                "answer_text": "We should check data and try something simple.",
+                "evaluation": evaluator.evaluate_answer(qs[2], "We should check data and try something simple.", skipped=False),
+            },
+        }
+        summary = build_interview_summary(
+            {
+                "role": "Data Scientist",
+                "domain": "Data Science / AI",
+                "interview_type": "Mixed",
+                "difficulty": "Beginner",
+                "timed_mode": False,
+            },
+            qs,
+            responses,
+        )
+        self.assertEqual(summary["questions_attempted"], 2)
+        self.assertEqual(summary["questions_skipped"], 1)
+        self.assertGreater(summary["average_answer_score"], 0.0)
+        self.assertIn("not hiring probabilities", summary["disclaimer"].lower())
+
+        report = format_interview_report_markdown(summary)
+        self.assertIn("# AI Mock Interview Performance Report", report)
+        self.assertIn("Data Scientist", report)
+
+        fig1 = charts.plot_interview_question_scores_chart(summary["question_rows"])
+        fig2 = charts.plot_interview_rubric_dimensions_chart(summary["dimension_averages"])
+        fig3 = charts.plot_interview_topic_performance_chart(summary["topic_averages"])
+        for fig in [fig1, fig2, fig3]:
+            self.assertIsNotNone(fig)
+            plt.close(fig)
+
+
+class TestCovexcodeProvider(unittest.TestCase):
+
+    def test_23_provider_config_and_error_handling(self):
+        """Verify CovexcodeProvider key masking, unconfigured safety, and HTTP error handling."""
+        from unittest.mock import MagicMock, patch
+
+        # Unconfigured provider
+        unconf = CovexcodeProvider(api_key="")
+        self.assertFalse(unconf.is_configured())
+        tc = unconf.test_connection()
+        self.assertFalse(tc["ok"])
+        self.assertEqual(tc["error_kind"], "not_configured")
+
+        # Key masking never reveals middle of key
+        conf = CovexcodeProvider(api_key="bx-live-testsecret1234")
+        status = conf.get_status()
+        self.assertTrue(status["configured"])
+        self.assertNotIn("testsecret", status["key_masked"])
+
+        # Expired credits / 402 error handled gracefully
+        mock_402 = MagicMock()
+        mock_402.status_code = 402
+        mock_402.json.return_value = {"error": {"message": "event allowance exhausted"}}
+        mock_402.text = "event allowance exhausted"
+        with patch("ai_provider.requests.post", return_value=mock_402):
+            res_402 = conf.chat_completion([{"role": "user", "content": "Hi"}])
+            self.assertFalse(res_402["ok"])
+            self.assertEqual(res_402["error_kind"], "credits_exhausted")
+
+        # Rate limit / 429 error handled gracefully
+        mock_429 = MagicMock()
+        mock_429.status_code = 429
+        mock_429.json.return_value = {"error": {"message": "rate limit exceeded"}}
+        mock_429.text = "rate limit exceeded"
+        with patch("ai_provider.requests.post", return_value=mock_429):
+            res_429 = conf.chat_completion([{"role": "user", "content": "Hi"}])
+            self.assertFalse(res_429["ok"])
+            self.assertEqual(res_429["error_kind"], "rate_limit")
+
+        # Valid JSON parsing with code fences
+        mock_200 = MagicMock()
+        mock_200.status_code = 200
+        mock_200.json.return_value = {
+            "model": "deepseek-flash",
+            "choices": [{"message": {"content": "```json\n{\"ok\": true}\n```"}}],
+            "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15},
+        }
+        with patch("ai_provider.requests.post", return_value=mock_200):
+            res_json = conf.chat_json([{"role": "user", "content": "Return json"}])
+            self.assertTrue(res_json["ok"])
+            self.assertEqual(res_json["data"], {"ok": True})
+            self.assertEqual(res_json["usage"]["total_tokens"], 15)
+
+    def test_24_covexcode_mock_interview_integration_and_fallback(self):
+        """Verify Mock Interview integrates Covexcode AI and falls back seamlessly when credits expire."""
+        from unittest.mock import MagicMock, patch
+        from mock_interview import generate_optional_ai_questions
+
+        bank = load_question_bank(QUESTIONS_PATH)
+        sample_q = next(q for q in bank if q["question_id"] == "MLE-TECH-BEG-01")
+        provider = CovexcodeProvider(api_key="bx-live-testsecret1234")
+
+        # 1) Simulate successful Covexcode question generation
+        mock_q_resp = MagicMock()
+        mock_q_resp.status_code = 200
+        mock_q_resp.json.return_value = {
+            "model": "deepseek-flash",
+            "choices": [{
+                "message": {
+                    "content": '[{"topic":"ML Pipelines","question_type":"Technical","question_text":"How do you prevent feature leakage in pipelines?","reference_answer":"Fit transformers only on training folds inside a Pipeline.","expected_concepts":["pipeline","leakage","fit","transform"],"evaluation_rubric":{"technical_correctness":"Accurate","concept_coverage":"Covers pipeline","completeness":"Complete","clarity":"Clear"}}]'
+                }
+            }],
+            "usage": {"prompt_tokens": 80, "completion_tokens": 60, "total_tokens": 140},
+        }
+        with patch("ai_provider.requests.post", return_value=mock_q_resp):
+            ai_qs, note, usage = generate_optional_ai_questions(
+                "ML Engineer", "Data Science / AI", "Intermediate", "Technical", count=1, provider=provider
+            )
+            self.assertEqual(len(ai_qs), 1)
+            self.assertEqual(usage["total_tokens"], 140)
+            self.assertIn("Covexcode", note)
+
+        # 2) Simulate expired credits -> graceful fallback to local 170-question bank & evaluator
+        mock_expired = MagicMock()
+        mock_expired.status_code = 402
+        mock_expired.json.return_value = {"error": {"message": "Out of credit"}}
+        mock_expired.text = "Out of credit"
+        with patch("ai_provider.requests.post", return_value=mock_expired):
+            ai_qs_exp, note_exp, _ = generate_optional_ai_questions(
+                "ML Engineer", "Data Science / AI", "Intermediate", "Technical", count=1, provider=provider
+            )
+            self.assertEqual(ai_qs_exp, [])
+            self.assertIn("170-question bank", note_exp)
+
+            ev = InterviewAnswerEvaluator()
+            ans = "Overfitting happens when a model memorizes training data instead of generalizing to validation sets; regularization and cross-validation reduce it."
+            eval_res = ev.evaluate_answer(sample_q, ans, skipped=False, use_ai=True, ai_provider=provider)
+            self.assertEqual(eval_res["status"], "evaluated")
+            self.assertFalse(eval_res["ai_evaluation_used"])
+            self.assertIsNotNone(eval_res["ai_fallback_note"])
+            self.assertGreater(eval_res["overall_score"], 50.0)
 
 
 if __name__ == "__main__":

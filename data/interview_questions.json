@@ -1,0 +1,2892 @@
+[
+  {
+    "question_id": "AIE-TECH-BEG-01",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Neural Networks Basics",
+    "question_text": "What is the role of an activation function in a neural network, and why can't a deep network just use linear layers?",
+    "reference_answer": "An activation function introduces non-linearity into a neural network. Without non-linear activation functions like ReLU, sigmoid, or tanh, stacking multiple linear layers mathematically collapses into a single linear transformation, preventing the network from learning complex non-linear patterns.",
+    "expected_concepts": ["non-linearity", "relu", "sigmoid", "linear transformation", "complex patterns"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly states that stacked linear layers remain linear without non-linear activations.",
+      "concept_coverage": "Mentions non-linearity and at least one example such as ReLU, sigmoid, or tanh.",
+      "completeness": "Explains both why linear-only networks fail and what activation functions enable.",
+      "clarity": "Explains the intuition clearly and concisely."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-BEG-02",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "NLP & Text Representation",
+    "question_text": "What is tokenization in Natural Language Processing, and how does word tokenization differ from subword tokenization?",
+    "reference_answer": "Tokenization splits raw text into smaller units called tokens that a model can process. Word tokenization splits text by whitespace or punctuation, which struggles with rare or out-of-vocabulary words, whereas subword tokenization like BPE or WordPiece breaks rare words into frequent meaningful pieces so unseen words can still be represented.",
+    "expected_concepts": ["tokenization", "tokens", "out-of-vocabulary", "subword", "bpe"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately defines tokenization and the difference between word and subword units.",
+      "concept_coverage": "Mentions tokens, rare or out-of-vocabulary words, and subword methods like BPE or WordPiece.",
+      "completeness": "Covers both the general definition and the practical advantage of subword tokenization.",
+      "clarity": "Clear comparison with concrete examples."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-BEG-03",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Embeddings & Similarity",
+    "question_text": "What are text embeddings, and why is cosine similarity commonly used to compare them?",
+    "reference_answer": "Text embeddings are dense numerical vector representations that capture the semantic meaning of words, sentences, or documents in a continuous vector space. Cosine similarity measures the angle between two vectors rather than their raw magnitude, making it effective for comparing semantic alignment across texts of different lengths.",
+    "expected_concepts": ["dense vector", "semantic meaning", "cosine similarity", "angle", "magnitude"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly defines embeddings as dense semantic vectors and cosine similarity as angle-based.",
+      "concept_coverage": "Mentions dense vectors, semantic similarity, angle vs magnitude, and length invariance.",
+      "completeness": "Connects embeddings to similarity search or NLP comparison.",
+      "clarity": "Structured and easy to follow."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-BEG-04",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Generative AI Fundamentals",
+    "question_text": "What is a hallucination in a Large Language Model (LLM), and name two ways to reduce it?",
+    "reference_answer": "An LLM hallucination occurs when the model generates confident-sounding but factually incorrect or unsupported information because it predicts probable next tokens rather than verifying facts. It can be reduced using Retrieval-Augmented Generation (RAG) to ground outputs in retrieved documents, lowering temperature, improving prompt constraints, or asking the model to cite sources.",
+    "expected_concepts": ["hallucination", "factually incorrect", "rag", "grounding", "temperature"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately explains hallucinations as plausible-looking but unsupported or false generations.",
+      "concept_coverage": "Mentions token prediction nature plus mitigation methods like RAG, grounding, or temperature.",
+      "completeness": "Provides both definition and at least two concrete mitigations.",
+      "clarity": "Clear and practical explanation."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-INT-01",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Retrieval-Augmented Generation",
+    "question_text": "Explain how Retrieval-Augmented Generation (RAG) works end to end and why chunk size matters.",
+    "reference_answer": "In RAG, documents are split into chunks, converted into embeddings, and stored in a vector index. At query time, the user's question is embedded and top-k relevant chunks are retrieved via similarity search and injected into the LLM prompt as context. Chunk size matters because chunks that are too small lose surrounding context, while chunks that are too large dilute retrieval precision and waste prompt context window.",
+    "expected_concepts": ["chunking", "embeddings", "vector database", "similarity search", "context window"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly outlines indexing and query-time retrieval before LLM generation.",
+      "concept_coverage": "Covers chunking, embeddings, vector retrieval, prompt augmentation, and chunk-size trade-offs.",
+      "completeness": "Explains both the pipeline and the trade-off between small and large chunks.",
+      "clarity": "Logical step-by-step flow."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-INT-02",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Transformers & Attention",
+    "question_text": "What is self-attention in a Transformer, and what problem did it solve compared to RNNs?",
+    "reference_answer": "Self-attention allows each token in a sequence to attend to all other tokens directly using Query, Key, and Value projections to compute weighted contextual representations. Compared to RNNs, which process tokens sequentially and suffer from vanishing gradients over long sequences, self-attention enables parallel computation during training and captures long-range dependencies directly.",
+    "expected_concepts": ["self-attention", "query key value", "parallel", "long-range dependencies", "rnn"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately explains attention weights via Q/K/V and contrast with sequential RNNs.",
+      "concept_coverage": "Mentions query/key/value, parallelization, and long-range dependencies or vanishing gradients.",
+      "completeness": "Covers both mechanism and architectural advantage.",
+      "clarity": "Clear conceptual framing."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-INT-03",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Fine-Tuning & Prompting",
+    "question_text": "When should you choose prompt engineering or RAG over fine-tuning a pre-trained LLM?",
+    "reference_answer": "Choose prompt engineering or RAG when you need up-to-date or private factual knowledge, fast iteration, or lower cost, because RAG updates knowledge without retraining weights. Choose fine-tuning when you need consistent output formatting, specialized domain tone or reasoning style, or lower latency on narrow repetitive tasks where prompting alone is unreliable.",
+    "expected_concepts": ["prompt engineering", "rag", "fine-tuning", "up-to-date knowledge", "cost"],
+    "evaluation_rubric": {
+      "technical_correctness": "Distinguishes knowledge injection (RAG) from behavioral/style adaptation (fine-tuning).",
+      "concept_coverage": "Mentions dynamic data, cost/latency, formatting/style consistency, and maintenance.",
+      "completeness": "Gives clear decision criteria for both approaches.",
+      "clarity": "Actionable engineering comparison."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-INT-04",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Deep Learning Training",
+    "question_text": "What is dropout in PyTorch/neural networks, and how does its behavior change between training and evaluation mode?",
+    "reference_answer": "Dropout is a regularization technique that randomly zeroes out a fraction of neuron activations during training to prevent co-adaptation and reduce overfitting. During training (`model.train()`), activations are randomly dropped and scaled (inverted dropout); during inference (`model.eval()`), dropout is disabled so the full deterministic network is used.",
+    "expected_concepts": ["dropout", "regularization", "overfitting", "train", "eval"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains random zeroing during training and disabling during evaluation.",
+      "concept_coverage": "Mentions regularization, preventing co-adaptation/overfitting, and train vs eval mode.",
+      "completeness": "Covers both training behavior and inference behavior.",
+      "clarity": "Concise and accurate."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-ADV-01",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Parameter-Efficient Fine-Tuning",
+    "question_text": "How does LoRA (Low-Rank Adaptation) reduce memory usage when fine-tuning large models?",
+    "reference_answer": "LoRA freezes the pre-trained model weights and injects trainable low-rank decomposition matrices (A and B) alongside linear layers such as attention projections. Instead of updating all billion-scale weights and storing optimizer states for them, only the small low-rank adapters are trained, dramatically reducing GPU VRAM for gradients and optimizer states while adding zero inference latency if merged.",
+    "expected_concepts": ["lora", "freeze weights", "low-rank", "optimizer states", "vram"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately explains frozen base weights plus trainable low-rank matrices A and B.",
+      "concept_coverage": "Mentions low-rank decomposition, frozen weights, optimizer state memory, and weight merging.",
+      "completeness": "Explains both the math intuition and the memory/latency benefits.",
+      "clarity": "Well-structured technical depth."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-ADV-02",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "RAG Evaluation & Reranking",
+    "question_text": "Why do production RAG pipelines often combine bi-encoder retrieval with a cross-encoder reranker?",
+    "reference_answer": "A bi-encoder embeds queries and documents independently, allowing fast approximate nearest-neighbor vector search across millions of chunks, though it misses fine-grained token interactions. A cross-encoder processes the query and candidate chunk together through full self-attention, which is too slow for the entire corpus but highly accurate for reranking the top 20 to 50 retrieved candidates.",
+    "expected_concepts": ["bi-encoder", "cross-encoder", "reranker", "latency", "precision"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly contrasts independent embeddings (bi-encoder) with joint attention (cross-encoder).",
+      "concept_coverage": "Mentions speed/scalability vs accuracy trade-off and two-stage retrieve-then-rerank.",
+      "completeness": "Explains why both stages are needed together.",
+      "clarity": "Clear architectural reasoning."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-ADV-03",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "LLM Inference Optimization",
+    "question_text": "Explain KV caching during autoregressive LLM decoding and why quantization helps memory-bound inference.",
+    "reference_answer": "During autoregressive token generation, KV caching stores previously computed Key and Value tensors for earlier tokens so each new step only computes attention against the cached states instead of recomputing the entire prefix. Because decoding is often memory-bandwidth bound, quantization (such as INT8 or INT4) shrinks model weights and KV cache size, reducing memory footprint and speeding up weight transfers.",
+    "expected_concepts": ["kv cache", "autoregressive", "key value", "quantization", "memory bandwidth"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains KV caching avoiding prefix recomputation and quantization reducing memory transfer.",
+      "concept_coverage": "Mentions cached keys/values, quadratic vs incremental work, and memory-bound decoding/quantization.",
+      "completeness": "Connects caching and quantization to latency/throughput.",
+      "clarity": "Accurate and concise."
+    }
+  },
+  {
+    "question_id": "AIE-TECH-ADV-04",
+    "role": "AI Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "AI Agents & Safety",
+    "question_text": "How would you design guardrails and evaluation for an AI agent that executes external tools or API calls?",
+    "reference_answer": "An agentic system should enforce strict JSON schema validation on tool arguments, allowlists of permitted actions, human-in-the-loop confirmation for destructive or state-changing calls, sandboxing, and rate/step limits to prevent infinite loops. Evaluation should test trajectory accuracy, tool-selection precision, prompt-injection resistance, and end-to-end task completion on golden test cases.",
+    "expected_concepts": ["schema validation", "allowlist", "human-in-the-loop", "prompt injection", "step limit"],
+    "evaluation_rubric": {
+      "technical_correctness": "Addresses real tool-use failure modes including invalid args, loops, and prompt injection.",
+      "concept_coverage": "Mentions input/output validation, permissions/sandboxing, step limits, and trajectory evaluation.",
+      "completeness": "Covers both runtime guardrails and offline evaluation.",
+      "clarity": "Practical production mindset."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-BEG-01",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Overfitting & Generalization",
+    "question_text": "What is overfitting in machine learning, how do you detect it, and how can you reduce it?",
+    "reference_answer": "Overfitting happens when a model memorizes noise and specifics in the training data rather than learning generalizable patterns, resulting in high training accuracy but poor validation or test performance. You detect it by comparing training and validation metrics across splits, and reduce it using more data, cross-validation, simpler models, feature selection, or regularization (L1/L2, dropout).",
+    "expected_concepts": ["overfitting", "validation", "generalization", "regularization", "cross-validation"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly contrasts training vs validation/test performance.",
+      "concept_coverage": "Mentions generalization gap, detection via validation split, and mitigations like regularization.",
+      "completeness": "Addresses definition, detection, and prevention.",
+      "clarity": "Clear and structured."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-BEG-02",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Feature Scaling",
+    "question_text": "Why is feature scaling important for algorithms like KNN and SVM, and why is it less critical for decision trees?",
+    "reference_answer": "Distance-based and margin-based models like KNN, K-Means, and SVM compute Euclidean or dot-product distances, so features with larger numeric ranges dominate the calculation unless scaled via StandardScaler or MinMaxScaler. Decision trees split on single-feature thresholds independently, which are invariant to monotonic feature scaling.",
+    "expected_concepts": ["feature scaling", "distance", "standardscaler", "knn", "decision trees"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains distance dominance for KNN/SVM and threshold invariance for trees.",
+      "concept_coverage": "Mentions StandardScaler/MinMaxScaler, distance metrics, and tree splitting.",
+      "completeness": "Covers both scaled-sensitive and scale-invariant models.",
+      "clarity": "Direct and intuitive."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-BEG-03",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Classification Metrics",
+    "question_text": "Why can accuracy be misleading on an imbalanced classification dataset, and which metrics should you use instead?",
+    "reference_answer": "On an imbalanced dataset—such as 99% negative and 1% positive cases—a naive model predicting all negatives achieves 99% accuracy while failing to detect any positive cases. Instead, evaluate Precision, Recall, F1-score, Precision-Recall AUC, or confusion matrix breakdowns depending on the cost of false positives versus false negatives.",
+    "expected_concepts": ["imbalanced", "precision", "recall", "f1-score", "confusion matrix"],
+    "evaluation_rubric": {
+      "technical_correctness": "Demonstrates why high accuracy can hide 0% recall on the minority class.",
+      "concept_coverage": "Mentions class imbalance, precision, recall, F1-score, or PR-AUC.",
+      "completeness": "Explains both the failure mode and better alternatives.",
+      "clarity": "Uses a clear concrete example."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-BEG-04",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Data Leakage",
+    "question_text": "What is data leakage in a scikit-learn preprocessing workflow, and how do Pipelines prevent it?",
+    "reference_answer": "Data leakage occurs when information from the validation or test set influences training, such as fitting a StandardScaler or TF-IDF vectorizer on the entire dataset before splitting. Scikit-learn Pipelines prevent leakage by fitting transformers strictly on each training fold during `fit` or `cross_val_score` and only calling `transform` on held-out validation/test folds.",
+    "expected_concepts": ["data leakage", "train test split", "pipeline", "fit", "transform"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly identifies fitting preprocessing on full data as leakage.",
+      "concept_coverage": "Mentions train/test split, fit on train only, and scikit-learn Pipeline.",
+      "completeness": "Explains both the mistake and the Pipeline fix.",
+      "clarity": "Concise and practical."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-INT-01",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Regularization",
+    "question_text": "Compare L1 (Lasso) and L2 (Ridge) regularization in terms of penalty term and impact on model weights.",
+    "reference_answer": "L1 regularization adds the sum of absolute weights (`lambda * sum(|w|)`) to the loss, which produces sparse solutions by driving unimportant feature weights to exactly zero, aiding feature selection. L2 regularization adds the sum of squared weights (`lambda * sum(w^2)`), shrinking correlated weights smoothly toward zero without eliminating them completely.",
+    "expected_concepts": ["l1", "l2", "sparse", "absolute", "squared"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately states penalty formulas and sparsity behavior.",
+      "concept_coverage": "Mentions L1 absolute penalty, zeroed weights/feature selection, and L2 squared penalty/shrinkage.",
+      "completeness": "Compares both mathematically and practically.",
+      "clarity": "Clear side-by-side contrast."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-INT-02",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Ensemble Methods",
+    "question_text": "Explain the core difference between Bagging (e.g., Random Forest) and Boosting (e.g., XGBoost / Gradient Boosting).",
+    "reference_answer": "Bagging trains multiple independent models in parallel on bootstrap samples of the data and averages their predictions to reduce variance. Boosting trains weak learners sequentially, where each new tree focuses on correcting the residual errors or misclassified examples of prior trees, primarily reducing bias.",
+    "expected_concepts": ["bagging", "boosting", "variance", "bias", "sequential"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly links bagging to parallel variance reduction and boosting to sequential bias reduction.",
+      "concept_coverage": "Mentions bootstrap/parallel, sequential residuals, variance, and bias.",
+      "completeness": "Covers mechanism and bias-variance effect for both.",
+      "clarity": "Well-organized comparison."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-INT-03",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "K-Nearest Neighbors",
+    "question_text": "How does choosing K and the curse of dimensionality affect K-Nearest Neighbors (KNN) performance?",
+    "reference_answer": "A very small K (e.g., K=1) makes KNN sensitive to noise and overfitting, while a very large K over-smooths decision boundaries and increases bias. Under the curse of dimensionality, as the number of features grows, distances between points become nearly uniform, reducing KNN's ability to distinguish close neighbors unless dimensionality reduction or feature selection is applied.",
+    "expected_concepts": ["knn", "curse of dimensionality", "noise", "bias", "distance"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately describes small vs large K trade-offs and high-dimensional distance concentration.",
+      "concept_coverage": "Mentions noise/variance for small K, smoothing/bias for large K, and high-dimensional distance issues.",
+      "completeness": "Covers both K selection and dimensionality effects.",
+      "clarity": "Clear ML reasoning."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-INT-04",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Model Deployment & Serialization",
+    "question_text": "How do you ensure reproducibility and consistent inference when saving and serving a trained scikit-learn model?",
+    "reference_answer": "Bundle all preprocessing steps and the estimator into a single scikit-learn Pipeline saved with `joblib`, pin dependency versions (`scikit-learn`, `numpy`, `joblib`) in `requirements.txt`, fix random seeds during training, and validate input schema/types at inference time before calling `predict`.",
+    "expected_concepts": ["pipeline", "joblib", "requirements.txt", "random seed", "schema validation"],
+    "evaluation_rubric": {
+      "technical_correctness": "Identifies coupling preprocessing with model and pinning library versions.",
+      "concept_coverage": "Mentions Pipeline, serialization (joblib/pickle), version pinning, and input validation.",
+      "completeness": "Addresses training reproducibility and serving safety.",
+      "clarity": "Practical MLOps perspective."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-ADV-01",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Production Monitoring & Drift",
+    "question_text": "Distinguish between data drift and concept drift in production ML systems, and explain how you would monitor them.",
+    "reference_answer": "Data drift (covariate shift) occurs when the input feature distribution P(X) changes over time (e.g., new user demographics), whereas concept drift occurs when the relationship P(Y|X) changes (e.g., user purchasing behavior changes during inflation). Monitor data drift with statistical tests like PSI or KS-test on incoming features, and monitor concept drift using delayed ground-truth labels, calibration checks, and rolling online performance metrics.",
+    "expected_concepts": ["data drift", "concept drift", "distribution", "psi", "ground truth"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly distinguishes P(X) change from P(Y|X) change.",
+      "concept_coverage": "Mentions covariate/data drift, concept drift, distribution tests (PSI/KS), and label feedback.",
+      "completeness": "Covers definitions and monitoring strategies for both.",
+      "clarity": "Crisp probabilistic and engineering explanation."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-ADV-02",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Probability Calibration",
+    "question_text": "When is probability calibration needed for a classifier, and how do Platt scaling and isotonic regression work?",
+    "reference_answer": "Calibration is needed when downstream decisions rely on accurate probability estimates (such as expected value thresholding or risk scoring) rather than rank order alone, since models like SVMs or boosted trees can output poorly calibrated scores. Platt scaling fits a logistic sigmoid over raw scores (parametric, good for small calibration sets), while isotonic regression fits a non-parametric monotonic step function (flexible, requires more data to avoid overfitting).",
+    "expected_concepts": ["calibration", "platt scaling", "isotonic regression", "probabilities", "brier score"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains why predicted scores may not equal true frequencies and compares both methods.",
+      "concept_coverage": "Mentions calibrated probabilities, Platt scaling/logistic, isotonic regression, and calibration split.",
+      "completeness": "Addresses when to calibrate and method trade-offs.",
+      "clarity": "Clear statistical intuition."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-ADV-03",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Recommendation Systems",
+    "question_text": "Compare content-based filtering and collaborative filtering, and explain how to handle the cold-start problem.",
+    "reference_answer": "Content-based filtering recommends items using item metadata and user feature similarity (such as TF-IDF and cosine similarity), requiring no cross-user interaction logs, while collaborative filtering uses patterns across user-item interactions (matrix factorization or neighborhood methods). Cold-start for new users or items is addressed by starting with content-based metadata, onboarding skill/preference questionnaires, popularity priors, and transitioning to hybrid models as interactions accumulate.",
+    "expected_concepts": ["content-based", "collaborative filtering", "cold-start", "hybrid", "metadata"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately distinguishes item-feature vs interaction-matrix approaches.",
+      "concept_coverage": "Mentions content features, user-item interactions, cold-start problem, and hybrid fallbacks.",
+      "completeness": "Covers both comparison and cold-start mitigation.",
+      "clarity": "Directly connects ML theory to real systems."
+    }
+  },
+  {
+    "question_id": "MLE-TECH-ADV-04",
+    "role": "ML Engineer",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Experimentation & Serving",
+    "question_text": "How do you safely roll out a new ML ranking model to production using offline evaluation, shadow deployment, and A/B testing?",
+    "reference_answer": "Start with offline evaluation on time-split holdout sets and slicing checks to catch regressions before deployment. Next, run shadow mode (or canary rollout) where the new model scores live traffic silently to verify latency, memory, and output stability without affecting users. Finally, conduct a randomized A/B test with guardrails, sufficient sample size, and business KPIs before full rollout.",
+    "expected_concepts": ["offline evaluation", "shadow deployment", "a/b test", "latency", "canary"],
+    "evaluation_rubric": {
+      "technical_correctness": "Presents a safe staged rollout separating system verification from user impact.",
+      "concept_coverage": "Mentions offline time-split eval, shadow/canary serving, and randomized A/B testing.",
+      "completeness": "Addresses both ML quality and production reliability.",
+      "clarity": "Clear end-to-end rollout sequence."
+    }
+  },
+  {
+    "question_id": "DS-TECH-BEG-01",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Data Cleaning & Missing Values",
+    "question_text": "What strategies would you use to handle missing values in a tabular dataset with Pandas?",
+    "reference_answer": "First inspect why values are missing (missing completely at random vs informative missingness). Options include dropping rows/columns only when missingness is minimal or unusable, imputing numeric columns with mean or median (median is robust to outliers), imputing categoricals with mode or an 'Unknown' category, and optionally adding a binary missing-indicator flag.",
+    "expected_concepts": ["missing values", "median", "outliers", "imputation", "drop"],
+    "evaluation_rubric": {
+      "technical_correctness": "Distinguishes mean vs median under skew and categorical handling.",
+      "concept_coverage": "Mentions inspecting missingness, median/mean imputation, categorical mode/Unknown, and dropping thresholds.",
+      "completeness": "Covers numeric, categorical, and reasoning behind choice.",
+      "clarity": "Practical Pandas workflow."
+    }
+  },
+  {
+    "question_id": "DS-TECH-BEG-02",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Statistics Fundamentals",
+    "question_text": "When is the median a better summary statistic than the mean, and how do outliers affect standard deviation?",
+    "reference_answer": "The median is preferred over the mean for skewed distributions or datasets with extreme outliers—such as salaries or house prices—because the mean gets pulled toward the tail while the median reflects the central 50th percentile. Standard deviation squares deviations from the mean, so extreme outliers inflate standard deviation substantially; IQR is a more robust spread measure.",
+    "expected_concepts": ["median", "skewed", "outliers", "standard deviation", "iqr"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains sensitivity of mean/std vs robustness of median/IQR.",
+      "concept_coverage": "Mentions skewed data, outliers, squared deviations, and median/IQR.",
+      "completeness": "Answers both parts of the question.",
+      "clarity": "Clear examples."
+    }
+  },
+  {
+    "question_id": "DS-TECH-BEG-03",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Correlation vs Causation",
+    "question_text": "Explain why correlation does not imply causation, and give an example of a confounding variable.",
+    "reference_answer": "Correlation measures linear association between two variables, but two variables can move together due to a hidden third confounding factor or pure coincidence rather than direct cause and effect. For example, ice cream sales and drowning incidents correlate strongly because hot summer weather is a confounder driving both.",
+    "expected_concepts": ["correlation", "causation", "confounding variable", "linear", "experiment"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately defines association vs causal effect and confounders.",
+      "concept_coverage": "Mentions confounding variable, association, and a valid real-world example.",
+      "completeness": "Covers both conceptual explanation and example.",
+      "clarity": "Easy to understand."
+    }
+  },
+  {
+    "question_id": "DS-TECH-BEG-04",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Exploratory Data Analysis",
+    "question_text": "How does TF-IDF work conceptually, and why does it down-weight very common words?",
+    "reference_answer": "TF-IDF multiplies Term Frequency (how often a term appears in a document) by Inverse Document Frequency (how rare that term is across the whole corpus). Very common words appearing in nearly every document carry low discriminative signal, so IDF shrinks their weight while boosting rarer, domain-specific terms.",
+    "expected_concepts": ["term frequency", "inverse document frequency", "corpus", "discriminative", "weights"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately describes TF and IDF components and their product.",
+      "concept_coverage": "Mentions term frequency, inverse document frequency, common words, and rare informative terms.",
+      "completeness": "Explains both formula intuition and benefit.",
+      "clarity": "Concise and accurate."
+    }
+  },
+  {
+    "question_id": "DS-TECH-INT-01",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Hypothesis Testing",
+    "question_text": "What is a p-value in hypothesis testing, and what is a common misconception about what it means?",
+    "reference_answer": "A p-value is the probability of observing a test statistic at least as extreme as the sample result assuming the null hypothesis is true. A common misconception is that the p-value is the probability that the null hypothesis itself is true or that a low p-value alone proves practical significance.",
+    "expected_concepts": ["p-value", "null hypothesis", "extreme", "alpha", "practical significance"],
+    "evaluation_rubric": {
+      "technical_correctness": "Gives the exact conditional probability definition under H0.",
+      "concept_coverage": "Mentions null hypothesis, assuming H0 true, and the inverse-probability misconception.",
+      "completeness": "Covers both definition and common misinterpretation.",
+      "clarity": "Precise statistical phrasing."
+    }
+  },
+  {
+    "question_id": "DS-TECH-INT-02",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Bias-Variance Trade-off",
+    "question_text": "Explain the bias-variance trade-off and how model complexity affects total prediction error.",
+    "reference_answer": "Bias is error from overly simplistic assumptions (underfitting), while variance is error from excessive sensitivity to small fluctuations in the training set (overfitting). As model complexity increases, bias decreases and variance increases; total expected error (bias^2 + variance + irreducible noise) reaches a minimum at an optimal intermediate complexity.",
+    "expected_concepts": ["bias", "variance", "underfitting", "overfitting", "complexity"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly decomposes error into bias, variance, and irreducible noise.",
+      "concept_coverage": "Mentions underfitting, overfitting, complexity curve, and sweet spot.",
+      "completeness": "Connects complexity to both components.",
+      "clarity": "Clear and rigorous."
+    }
+  },
+  {
+    "question_id": "DS-TECH-INT-03",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Cross-Validation",
+    "question_text": "When should you use Stratified K-Fold or GroupKFold instead of standard K-Fold cross-validation?",
+    "reference_answer": "Use Stratified K-Fold for imbalanced classification so every fold preserves the original class proportions. Use GroupKFold when observations are grouped (for example, multiple records per user, patient, or company) so records from the same group never appear in both training and validation folds, preventing group leakage.",
+    "expected_concepts": ["stratified", "groupkfold", "imbalanced", "class proportions", "leakage"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains class stratification and group-level leakage prevention.",
+      "concept_coverage": "Mentions Stratified K-Fold for imbalance and GroupKFold for grouped/entity samples.",
+      "completeness": "Covers both variants with clear use cases.",
+      "clarity": "Well-structured."
+    }
+  },
+  {
+    "question_id": "DS-TECH-INT-04",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Feature Engineering",
+    "question_text": "How do you encode high-cardinality categorical features without causing dimensionality explosion?",
+    "reference_answer": "Standard one-hot encoding creates too many sparse columns on high-cardinality categories like city or company ID. Better strategies include grouping rare categories into 'Other', frequency/count encoding, out-of-fold target encoding (computed strictly inside CV folds to avoid leakage), or learned entity embeddings in neural models.",
+    "expected_concepts": ["high cardinality", "one-hot encoding", "target encoding", "frequency encoding", "leakage"],
+    "evaluation_rubric": {
+      "technical_correctness": "Explains why one-hot explodes and notes leakage risk in target encoding.",
+      "concept_coverage": "Mentions rare-binning, frequency encoding, out-of-fold target encoding, or embeddings.",
+      "completeness": "Covers problem and multiple valid solutions.",
+      "clarity": "Practical feature engineering insight."
+    }
+  },
+  {
+    "question_id": "DS-TECH-ADV-01",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "A/B Testing & Experimentation",
+    "question_text": "What is the multiple testing problem (and peeking problem) in A/B testing, and how do you control false positives?",
+    "reference_answer": "Running many simultaneous metric comparisons or peeking repeatedly at p-values before reaching the planned sample size inflates the family-wise false-positive rate well above alpha (e.g., 5%). You control this by pre-registering a single primary metric and fixed sample size via power analysis, applying Bonferroni or Benjamini-Hochberg FDR corrections for multiple tests, or using sequential testing methods.",
+    "expected_concepts": ["multiple testing", "peeking", "false positive", "bonferroni", "power analysis"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately explains alpha inflation from multiple metrics or repeated peeking.",
+      "concept_coverage": "Mentions family-wise error/FDR, pre-specified sample size/power, Bonferroni/BH, or sequential testing.",
+      "completeness": "Covers both root cause and statistical remedies.",
+      "clarity": "Strong experimentation rigor."
+    }
+  },
+  {
+    "question_id": "DS-TECH-ADV-02",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Model Explainability",
+    "question_text": "How do SHAP values differ from standard tree feature importance (Gini importance), and what are their limitations?",
+    "reference_answer": "Gini/MDI feature importance measures total impurity reduction across splits, which biases toward high-cardinality continuous features and gives only global unsigned rankings. SHAP uses game-theoretic Shapley values to provide consistent local (per-prediction) and global directional attributions, though exact SHAP can be slow on non-tree models and correlated features can distort marginal attribution assumptions.",
+    "expected_concepts": ["shap", "shapley", "gini importance", "local explanation", "correlated features"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly contrasts global impurity bias with local directional Shapley attributions.",
+      "concept_coverage": "Mentions high-cardinality bias in Gini, local+global SHAP, and correlation/compute limits.",
+      "completeness": "Addresses advantages and limitations.",
+      "clarity": "Thoughtful interpretability answer."
+    }
+  },
+  {
+    "question_id": "DS-TECH-ADV-03",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Dimensionality Reduction",
+    "question_text": "When would you choose PCA versus UMAP/t-SNE, and why must PCA be fitted only after train/test splitting?",
+    "reference_answer": "PCA finds orthogonal linear projections maximizing variance and supports fast deterministic `transform` on unseen test data for modeling or noise reduction. t-SNE and UMAP capture non-linear local neighborhoods mainly for 2D/3D visualization and do not preserve global distances cleanly. Like any scaler, PCA uses dataset covariance/means, so fitting on the full dataset leaks test variance into training.",
+    "expected_concepts": ["pca", "variance", "non-linear", "visualization", "leakage"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately contrasts linear variance projection vs non-linear visualization embeddings.",
+      "concept_coverage": "Mentions PCA orthogonality/transform, t-SNE/UMAP visualization, and leakage prevention.",
+      "completeness": "Answers both comparison and splitting rule.",
+      "clarity": "Clear and accurate."
+    }
+  },
+  {
+    "question_id": "DS-TECH-ADV-04",
+    "role": "Data Scientist",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Causal Inference",
+    "question_text": "When randomized A/B testing isn't possible, how can observational techniques like Propensity Score Matching estimate treatment effect?",
+    "reference_answer": "Without randomization, treated and control groups differ in baseline covariates (selection bias). Propensity Score Matching estimates each unit's probability of receiving treatment given observed covariates, then matches treated and untreated units with similar propensity scores to balance covariates—assuming no unmeasured confounding (ignorability).",
+    "expected_concepts": ["selection bias", "propensity score", "matching", "covariates", "unmeasured confounding"],
+    "evaluation_rubric": {
+      "technical_correctness": "Explains balancing observed covariates and explicitly notes the no-unmeasured-confounding assumption.",
+      "concept_coverage": "Mentions selection bias, propensity score estimation, matching, and unmeasured confounders.",
+      "completeness": "Covers both method and key assumption.",
+      "clarity": "Rigorous causal framing."
+    }
+  },
+  {
+    "question_id": "DA-TECH-BEG-01",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "SQL Joins",
+    "question_text": "Explain the difference between INNER JOIN, LEFT JOIN, and FULL OUTER JOIN in SQL.",
+    "reference_answer": "An INNER JOIN returns only rows with matching keys in both tables. A LEFT JOIN returns all rows from the left table and matching rows from the right table, filling unmatched right columns with NULL. A FULL OUTER JOIN returns all rows from both tables, placing NULL wherever a match is missing on either side.",
+    "expected_concepts": ["inner join", "left join", "full outer join", "null", "matching keys"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately describes row retention and NULL behavior for all three joins.",
+      "concept_coverage": "Covers INNER, LEFT, FULL OUTER, and NULL values.",
+      "completeness": "Handles all three join types clearly.",
+      "clarity": "Concise and accurate."
+    }
+  },
+  {
+    "question_id": "DA-TECH-BEG-02",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "SQL Aggregation",
+    "question_text": "What is the difference between the WHERE clause and the HAVING clause in SQL?",
+    "reference_answer": "WHERE filters individual rows before grouping (`GROUP BY`) and cannot directly filter on aggregate functions like `SUM` or `COUNT`. HAVING filters groups after `GROUP BY` and aggregation have been computed.",
+    "expected_concepts": ["where", "having", "group by", "aggregate", "filter"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly places WHERE before GROUP BY and HAVING after aggregation.",
+      "concept_coverage": "Mentions row-level vs group-level filtering and aggregate functions.",
+      "completeness": "Clear execution order explanation.",
+      "clarity": "Direct and concise."
+    }
+  },
+  {
+    "question_id": "DA-TECH-BEG-03",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Data Visualization",
+    "question_text": "How do you decide between a bar chart, line chart, and scatter plot when presenting data?",
+    "reference_answer": "Use a bar chart to compare discrete categories or rankings, a line chart to show continuous trends over time, and a scatter plot to examine the relationship, correlation, or outliers between two numeric variables.",
+    "expected_concepts": ["bar chart", "line chart", "scatter plot", "categories", "time series"],
+    "evaluation_rubric": {
+      "technical_correctness": "Matches each chart type to the right data types (categorical, temporal, bivariate numeric).",
+      "concept_coverage": "Covers all three charts and their analytical purpose.",
+      "completeness": "Addresses every chart mentioned.",
+      "clarity": "Clear visual communication principles."
+    }
+  },
+  {
+    "question_id": "DA-TECH-BEG-04",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Spreadsheet & BI Tools",
+    "question_text": "How do Pivot Tables in Excel or calculated measures in Power BI help summarize raw transactional data?",
+    "reference_answer": "Pivot Tables and BI measures dynamically group, slice, and aggregate thousands of raw rows into cross-tabulated summaries (sums, averages, counts, percentages) across dimensions like region, month, or category without modifying the underlying source records.",
+    "expected_concepts": ["pivot table", "aggregate", "dimensions", "slice", "summary"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly describes dynamic grouping and aggregation across dimensions.",
+      "concept_coverage": "Mentions grouping, slicing/filtering, aggregations, and preserving raw data.",
+      "completeness": "Practical analytical explanation.",
+      "clarity": "Easy to understand."
+    }
+  },
+  {
+    "question_id": "DA-TECH-INT-01",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "SQL Window Functions",
+    "question_text": "Contrast ROW_NUMBER(), RANK(), and DENSE_RANK() in SQL window functions when there are ties.",
+    "reference_answer": "With tied values (e.g., 100, 100, 90), ROW_NUMBER() assigns unique sequential integers (1, 2, 3), RANK() assigns the same rank to ties and skips subsequent numbers (1, 1, 3), and DENSE_RANK() assigns the same rank to ties without gaps (1, 1, 2).",
+    "expected_concepts": ["row_number", "rank", "dense_rank", "ties", "window function"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly gives the tie and gap behavior for all three functions.",
+      "concept_coverage": "Mentions ties, gaps vs no gaps, and unique numbering.",
+      "completeness": "Covers all three functions with an example.",
+      "clarity": "Crystal-clear sequence example."
+    }
+  },
+  {
+    "question_id": "DA-TECH-INT-02",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Pandas Data Manipulation",
+    "question_text": "What is the difference between `groupby().agg()` and `groupby().transform()` in Pandas?",
+    "reference_answer": "`groupby().agg()` collapses each group into a single summary row (reducing the number of rows), whereas `groupby().transform()` computes a group-level statistic and broadcasts it back aligned to the original DataFrame index and row count, which is useful for group-normalized features.",
+    "expected_concepts": ["groupby", "agg", "transform", "index", "broadcast"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately distinguishes reduced group output vs index-aligned output.",
+      "concept_coverage": "Mentions aggregation row reduction, transform preserving length/index, and use cases.",
+      "completeness": "Explains both and when to use each.",
+      "clarity": "Clear Pandas distinction."
+    }
+  },
+  {
+    "question_id": "DA-TECH-INT-03",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "KPI Design & Business Analysis",
+    "question_text": "If daily active users rise by 15% while conversion rate drops by 10%, how would you diagnose the root cause?",
+    "reference_answer": "Segment both metrics by acquisition channel, device, geography, and new vs returning users to see if a low-intent traffic source or campaign inflated DAU. Also check funnel drop-off steps, recent UI/checkout releases, and tracking/bot anomalies before concluding product degradation.",
+    "expected_concepts": ["segmentation", "funnel", "acquisition channel", "new vs returning", "tracking"],
+    "evaluation_rubric": {
+      "technical_correctness": "Recognizes Simpson's paradox / mix-shift and funnel instrumentation checks.",
+      "concept_coverage": "Mentions channel/device segmentation, funnel stages, new vs returning, and data quality.",
+      "completeness": "Structured diagnostic checklist.",
+      "clarity": "Strong analytical thinking."
+    }
+  },
+  {
+    "question_id": "DA-TECH-INT-04",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "SQL CTEs & Subqueries",
+    "question_text": "How do Common Table Expressions (CTEs) improve SQL query readability, and how do you find duplicate records in a table?",
+    "reference_answer": "CTEs (`WITH ... AS`) break complex nested queries into named, modular, top-to-bottom steps that are easier to read and debug. To find duplicate records, group by the identifying key columns using `GROUP BY ... HAVING COUNT(*) > 1`, or use `ROW_NUMBER() OVER (PARTITION BY key ORDER BY updated_at DESC)` to flag extra rows.",
+    "expected_concepts": ["cte", "with", "group by", "having count", "partition by"],
+    "evaluation_rubric": {
+      "technical_correctness": "Provides valid SQL patterns for both CTEs and deduplication.",
+      "concept_coverage": "Mentions WITH clause modularity and GROUP BY HAVING or ROW_NUMBER deduplication.",
+      "completeness": "Answers both parts accurately.",
+      "clarity": "Practical SQL fluency."
+    }
+  },
+  {
+    "question_id": "DA-TECH-ADV-01",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "SQL Performance Optimization",
+    "question_text": "How would you optimize a slow analytical SQL query scanning tens of millions of rows?",
+    "reference_answer": "Inspect the execution plan (`EXPLAIN ANALYZE`) to find full table scans or expensive joins. Select only required columns instead of `SELECT *`, filter early on indexed or partitioned date columns, avoid wrapping indexed columns in functions inside `WHERE`, pre-aggregate large fact tables into summary tables/materialized views, and ensure join keys have matching types and indexes.",
+    "expected_concepts": ["explain", "index", "partition", "select *", "materialized view"],
+    "evaluation_rubric": {
+      "technical_correctness": "Gives sound query-plan diagnostics and indexing/partitioning fixes.",
+      "concept_coverage": "Mentions EXPLAIN, partitioning/indexes, sargable predicates, and pre-aggregation.",
+      "completeness": "Covers diagnostics plus concrete optimizations.",
+      "clarity": "Structured tuning approach."
+    }
+  },
+  {
+    "question_id": "DA-TECH-ADV-02",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Cohort & Retention Analysis",
+    "question_text": "How do you build a user retention cohort analysis in SQL or Python, and what insights does it reveal that aggregate DAU hides?",
+    "reference_answer": "Assign each user to a signup cohort (e.g., signup week/month), join subsequent activity timestamps, compute the time offset (`activity_period - cohort_period`), and divide active users in each offset by initial cohort size. Unlike aggregate DAU—which can look healthy simply from new user acquisition—cohort curves reveal whether product stickiness is improving or decaying over user lifetime.",
+    "expected_concepts": ["cohort", "retention", "signup date", "activity period", "churn"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly defines cohort assignment, period offset, and retention denominator.",
+      "concept_coverage": "Mentions cohort grouping, offset calculation, acquisition masking, and retention curves.",
+      "completeness": "Covers both implementation logic and business insight.",
+      "clarity": "Clear analytical explanation."
+    }
+  },
+  {
+    "question_id": "DA-TECH-ADV-03",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Data Modeling & Warehousing",
+    "question_text": "Explain a Star Schema (fact vs dimension tables) and why it is preferred for BI dashboards like Power BI.",
+    "reference_answer": "A Star Schema organizes a central fact table containing numeric measurements/events and foreign keys, surrounded by denormalized dimension tables describing entities like date, user, or product. It simplifies BI joins, enables fast slice-and-dice aggregations, and avoids ambiguous many-to-many filter paths compared to heavily normalized schemas.",
+    "expected_concepts": ["star schema", "fact table", "dimension table", "denormalized", "joins"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly distinguishes grain/metrics in fact tables from descriptive attributes in dimensions.",
+      "concept_coverage": "Mentions fact table, dimension tables, fewer joins, and BI filter clarity.",
+      "completeness": "Covers structure and analytical performance benefits.",
+      "clarity": "Clear data warehousing concepts."
+    }
+  },
+  {
+    "question_id": "DA-TECH-ADV-04",
+    "role": "Data Analyst",
+    "domain": "Data Science / AI",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Data Quality & Anomaly Detection",
+    "question_text": "How do you design automated data quality checks before publishing executive metrics?",
+    "reference_answer": "Validate schema contracts, non-null primary keys, uniqueness, freshness/timeliness SLAs, referential integrity across joins, and expected value ranges (e.g., non-negative revenue). Add statistical anomaly alerts comparing daily row counts and metric totals against rolling historical baselines so broken ETL jobs are caught before dashboards update.",
+    "expected_concepts": ["freshness", "uniqueness", "null checks", "referential integrity", "anomaly"],
+    "evaluation_rubric": {
+      "technical_correctness": "Covers structural checks and statistical volume/metric checks.",
+      "concept_coverage": "Mentions nulls/duplicates, freshness, range checks, and rolling baseline alerts.",
+      "completeness": "Addresses pre-publish pipeline validation.",
+      "clarity": "Practical analytics engineering mindset."
+    }
+  },
+  {
+    "question_id": "PY-TECH-BEG-01",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Python Data Structures",
+    "question_text": "What are the differences between a Python list, tuple, and set, and when should you use each?",
+    "reference_answer": "A list is ordered and mutable (`[]`), ideal for sequences that change. A tuple is ordered and immutable (`()`), good for fixed records or dictionary keys. A set is unordered with unique elements (`set()`), providing O(1) average membership checks and deduplication.",
+    "expected_concepts": ["mutable", "immutable", "ordered", "unique", "membership"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately states mutability, ordering, uniqueness, and lookup complexity.",
+      "concept_coverage": "Covers list, tuple, set, mutability, and O(1) lookup.",
+      "completeness": "Addresses all three types and use cases.",
+      "clarity": "Clear and concise."
+    }
+  },
+  {
+    "question_id": "PY-TECH-BEG-02",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Python Functions & Arguments",
+    "question_text": "Why is using a mutable default argument like `def add_item(x, items=[]):` dangerous in Python, and how do you fix it?",
+    "reference_answer": "Default argument objects in Python are evaluated once at function definition time, not on each call. Using a mutable default like `[]` shares the same list across calls, causing unexpected state accumulation. Fix it by using `items=None` and initializing `if items is None: items = []` inside the function.",
+    "expected_concepts": ["mutable default", "definition time", "shared state", "none", "bug"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains function-definition-time evaluation and shared object mutation.",
+      "concept_coverage": "Mentions evaluated once, shared list across calls, and `None` sentinel fix.",
+      "completeness": "Explains both root cause and idiomatic fix.",
+      "clarity": "Clear code-level explanation."
+    }
+  },
+  {
+    "question_id": "PY-TECH-BEG-03",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Iteration & Memory",
+    "question_text": "How does a list comprehension differ from a generator expression in Python?",
+    "reference_answer": "A list comprehension (`[x*2 for x in data]`) evaluates immediately and stores all elements in memory as a list, allowing indexing and repeated iteration. A generator expression (`(x*2 for x in data)`) yields items lazily one at a time, using minimal O(1) memory for large streams, though it can only be consumed once.",
+    "expected_concepts": ["list comprehension", "generator", "lazy", "memory", "single-use"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly contrasts eager list allocation vs lazy single-pass yielding.",
+      "concept_coverage": "Mentions eager vs lazy, memory usage, and single-pass consumption.",
+      "completeness": "Covers syntax/behavior and when to prefer each.",
+      "clarity": "Concise comparison."
+    }
+  },
+  {
+    "question_id": "PY-TECH-BEG-04",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Environments & Packaging",
+    "question_text": "Why do Python projects use virtual environments (`.venv`) and `requirements.txt`?",
+    "reference_answer": "Virtual environments isolate a project's Python interpreter and package dependencies from the global system and other projects, preventing version conflicts. `requirements.txt` records required packages and versions so collaborators or cloud platforms can reproduce the exact environment consistently.",
+    "expected_concepts": ["virtual environment", "isolation", "version conflicts", "requirements.txt", "reproducibility"],
+    "evaluation_rubric": {
+      "technical_correctness": "Explains dependency isolation and reproducible installs.",
+      "concept_coverage": "Mentions isolation, dependency conflicts, and reproducibility.",
+      "completeness": "Covers both `.venv` and `requirements.txt`.",
+      "clarity": "Practical developer explanation."
+    }
+  },
+  {
+    "question_id": "PY-TECH-INT-01",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Decorators & Context Managers",
+    "question_text": "What are Python decorators and context managers (`with` statement), and when would you write a custom one?",
+    "reference_answer": "A decorator is a callable that wraps another function or class to extend behavior—such as logging, timing, caching, or auth checks—without modifying its source code, using `functools.wraps` to preserve metadata. A context manager implements `__enter__` and `__exit__` (or `@contextmanager`) to guarantee setup and deterministic cleanup of resources like files, locks, or DB connections even on exceptions.",
+    "expected_concepts": ["decorator", "wrapper", "functools.wraps", "context manager", "__enter__"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately defines decorators and resource cleanup via context managers.",
+      "concept_coverage": "Mentions wrapping functions, metadata preservation, `__enter__`/`__exit__`, and exception-safe cleanup.",
+      "completeness": "Covers both constructs with practical examples.",
+      "clarity": "Clean and idiomatic."
+    }
+  },
+  {
+    "question_id": "PY-TECH-INT-02",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Equality & Memory Model",
+    "question_text": "Explain the difference between `==` and `is` in Python, and between shallow copy and deep copy.",
+    "reference_answer": "`==` checks value equality (invoking `__eq__`), whereas `is` checks object identity (`id(a) == id(b)`, whether two variables reference the exact same object in memory—used for `None`). A shallow copy (`copy.copy`) creates a new outer container but keeps references to nested mutable objects, while `copy.deepcopy` recursively clones all nested objects.",
+    "expected_concepts": ["value equality", "identity", "none", "shallow copy", "deep copy"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly distinguishes value vs identity and nested reference sharing.",
+      "concept_coverage": "Mentions `==` vs `is`, `None` comparison, shallow reference sharing, and deep recursive copy.",
+      "completeness": "Answers both pairs clearly.",
+      "clarity": "Accurate Python semantics."
+    }
+  },
+  {
+    "question_id": "PY-TECH-INT-03",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Testing & Error Handling",
+    "question_text": "How do you structure unit tests with `unittest` or `pytest`, and how do you mock external dependencies?",
+    "reference_answer": "Organize fast, deterministic tests around Arrange-Act-Assert covering normal paths, boundary values, and error cases. Use `unittest.mock.patch` or `pytest` fixtures/`monkeypatch` to replace slow or external dependencies such as network APIs, databases, or large ML models with deterministic fakes so tests verify logic reliably offline.",
+    "expected_concepts": ["unit test", "mock", "patch", "fixtures", "edge cases"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows sound test isolation and mocking practice.",
+      "concept_coverage": "Mentions edge cases, determinism, fixtures/setup, and mocking external I/O.",
+      "completeness": "Covers structure and isolation.",
+      "clarity": "Practical testing habits."
+    }
+  },
+  {
+    "question_id": "PY-TECH-INT-04",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Performance & Hashing",
+    "question_text": "How do Python dictionaries achieve O(1) average lookup, and why must dictionary keys be hashable?",
+    "reference_answer": "Python dicts use open-addressed hash tables that map each key's `__hash__()` integer to a bucket slot, resolving collisions deterministically and comparing keys via `__eq__()`. Keys must be immutable/hashable so their hash value never changes after insertion, which would otherwise make them impossible to locate in the table.",
+    "expected_concepts": ["hash table", "o(1)", "hashable", "immutable", "collision"],
+    "evaluation_rubric": {
+      "technical_correctness": "Explains hash table indexing and why key hashes must remain constant.",
+      "concept_coverage": "Mentions hash function, `__eq__`, immutability/hashability, and collision handling.",
+      "completeness": "Covers both lookup mechanics and key constraint.",
+      "clarity": "Clear internals explanation."
+    }
+  },
+  {
+    "question_id": "PY-TECH-ADV-01",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Concurrency & the GIL",
+    "question_text": "Explain Python's Global Interpreter Lock (GIL) and how to choose between `threading`, `asyncio`, and `multiprocessing`.",
+    "reference_answer": "The GIL is a mutex in CPython ensuring only one thread executes Python bytecode at a time per process, limiting CPU-bound speedups in threads. Use `asyncio` or `threading` for I/O-bound concurrency (network calls, DB queries, file I/O where threads/coroutines release waiting time), and `multiprocessing` (or C/NumPy extensions) for CPU-bound parallelism across cores.",
+    "expected_concepts": ["gil", "i/o-bound", "cpu-bound", "asyncio", "multiprocessing"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly links GIL to CPython bytecode execution and matches concurrency tools to workload types.",
+      "concept_coverage": "Mentions GIL mutex, I/O-bound vs CPU-bound, asyncio/threading, and multiprocessing.",
+      "completeness": "Covers mechanism and practical selection guide.",
+      "clarity": "Well-structured explanation."
+    }
+  },
+  {
+    "question_id": "PY-TECH-ADV-02",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Memory Optimization",
+    "question_text": "How do `__slots__` and generators reduce memory consumption in data-heavy Python applications?",
+    "reference_answer": "By default every Python class instance carries a dynamic `__dict__` hash table, adding significant memory overhead across millions of objects. Defining `__slots__` replaces per-instance `__dict__` with a fixed compact C-struct-like attribute layout. Paired with generators/iterators that stream records lazily instead of building huge intermediate lists, peak RAM drops substantially.",
+    "expected_concepts": ["__slots__", "__dict__", "memory", "generators", "streaming"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately explains `__dict__` overhead elimination and lazy streaming.",
+      "concept_coverage": "Mentions `__slots__`, `__dict__`, fixed attribute layout, and lazy iteration.",
+      "completeness": "Covers both object-level and pipeline-level RAM optimization.",
+      "clarity": "Precise Python internals."
+    }
+  },
+  {
+    "question_id": "PY-TECH-ADV-03",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Async Programming",
+    "question_text": "What happens if you run a synchronous blocking call like `time.sleep()` or heavy CPU work inside an `asyncio` event loop?",
+    "reference_answer": "Running blocking synchronous I/O or heavy CPU computation directly inside an `async def` coroutine stalls the entire single-threaded event loop, preventing all other concurrent tasks from making progress. Fix it by using async libraries (`await asyncio.sleep()`, `httpx`), or offloading blocking/CPU functions to executor pools via `asyncio.to_thread()` or `ProcessPoolExecutor`.",
+    "expected_concepts": ["event loop", "blocking", "asyncio", "to_thread", "concurrency"],
+    "evaluation_rubric": {
+      "technical_correctness": "Identifies single-threaded event loop starvation and proper offloading.",
+      "concept_coverage": "Mentions event loop stalling, awaitable async I/O, and executor/thread offloading.",
+      "completeness": "Covers problem and remediation.",
+      "clarity": "Clear async internals."
+    }
+  },
+  {
+    "question_id": "PY-TECH-ADV-04",
+    "role": "Python Developer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Architecture & Typing",
+    "question_text": "How do Python type hints, `dataclasses`, and `Protocol`s improve maintainability in larger codebases?",
+    "reference_answer": "Type hints enable static analysis (`mypy`/`pyright`) and IDE autocomplete to catch mismatched types before runtime. `dataclasses` eliminate boilerplate (`__init__`, `__repr__`, equality) for structured domain models, while `typing.Protocol` enables structural duck-typing interfaces so modules depend on behavior rather than rigid inheritance hierarchies.",
+    "expected_concepts": ["type hints", "dataclasses", "protocol", "static analysis", "structural typing"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly describes static checking, dataclasses, and structural subtyping via Protocol.",
+      "concept_coverage": "Mentions type checking, dataclasses boilerplate reduction, and Protocol interfaces.",
+      "completeness": "Connects features to maintainability.",
+      "clarity": "Modern Python design."
+    }
+  },
+  {
+    "question_id": "FE-TECH-BEG-01",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "HTML & Semantic Web",
+    "question_text": "Why is semantic HTML (like `<header>`, `<main>`, `<nav>`, `<button>`) important for accessibility and SEO?",
+    "reference_answer": "Semantic HTML tags convey meaning and document structure to browsers, screen readers, and search engine crawlers. Using `<button>` instead of a clickable `<div>` automatically provides keyboard focus, Enter/Space activation, and proper ARIA roles for assistive technologies.",
+    "expected_concepts": ["semantic html", "accessibility", "screen readers", "seo", "keyboard"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly links semantic elements to assistive tech, keyboard support, and SEO.",
+      "concept_coverage": "Mentions accessibility/screen readers, keyboard navigation, and search engines.",
+      "completeness": "Includes concrete example like button vs div.",
+      "clarity": "Clear explanation."
+    }
+  },
+  {
+    "question_id": "FE-TECH-BEG-02",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "CSS Layout",
+    "question_text": "When would you choose CSS Flexbox versus CSS Grid, and what does `box-sizing: border-box` do?",
+    "reference_answer": "Flexbox is designed for one-dimensional layouts (either a row or a column, like navbars or button groups), while CSS Grid excels at two-dimensional layouts controlling rows and columns simultaneously (like page shells or card grids). Setting `box-sizing: border-box` ensures an element's declared `width` and `height` include padding and borders rather than adding them on top.",
+    "expected_concepts": ["flexbox", "css grid", "one-dimensional", "two-dimensional", "border-box"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately distinguishes 1D Flexbox vs 2D Grid and explains border-box sizing.",
+      "concept_coverage": "Mentions 1D vs 2D, Grid, Flexbox, and padding/border inclusion.",
+      "completeness": "Answers both CSS questions.",
+      "clarity": "Concise and practical."
+    }
+  },
+  {
+    "question_id": "FE-TECH-BEG-03",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "JavaScript Fundamentals",
+    "question_text": "Explain the differences between `var`, `let`, and `const`, and between `==` and `===` in JavaScript.",
+    "reference_answer": "`var` is function-scoped and hoisted with `undefined`, which can cause accidental leaks; `let` and `const` are block-scoped (in the Temporal Dead Zone before declaration), with `const` preventing reassignment of the binding. `==` performs type coercion before comparing, whereas `===` checks strict equality of both value and type without coercion.",
+    "expected_concepts": ["block scope", "hoisting", "const", "type coercion", "strict equality"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly states scoping, reassignment, and strict vs loose equality.",
+      "concept_coverage": "Mentions function vs block scope, reassignment, coercion, and `===`.",
+      "completeness": "Covers both pairs thoroughly.",
+      "clarity": "Clear JS fundamentals."
+    }
+  },
+  {
+    "question_id": "FE-TECH-BEG-04",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "React Fundamentals",
+    "question_text": "In React, what is the difference between `props` and `state`, and why do lists need a stable `key` prop?",
+    "reference_answer": "`props` are read-only inputs passed from a parent component to a child, while `state` is mutable data managed internally by a component that triggers re-renders when updated. React requires stable unique `key` props on list items (avoiding array indexes when items reorder) so reconciliation can accurately track which elements were added, moved, or removed.",
+    "expected_concepts": ["props", "state", "re-render", "key", "reconciliation"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately contrasts immutable parent props with internal state and explains key reconciliation.",
+      "concept_coverage": "Mentions read-only props, internal state, re-rendering, and stable keys.",
+      "completeness": "Covers both parts.",
+      "clarity": "Clean React explanation."
+    }
+  },
+  {
+    "question_id": "FE-TECH-INT-01",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "React Hooks",
+    "question_text": "Explain how `useEffect` works in React, including its dependency array and cleanup function.",
+    "reference_answer": "`useEffect` synchronizes a component with external systems (API fetches, event listeners, timers) after render. Passing an empty dependency array `[]` runs it once on mount; passing values `[id]` re-runs it whenever those values change. Returning a cleanup function cancels subscriptions, timers, or `AbortController` requests before the next effect runs or on unmount, preventing memory leaks and race conditions.",
+    "expected_concepts": ["useeffect", "dependency array", "cleanup", "unmount", "race condition"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains dependency tracking and cleanup execution lifecycle.",
+      "concept_coverage": "Mentions dependency array, mount/update behavior, cleanup function, and leak/race prevention.",
+      "completeness": "Covers dependencies and cleanup.",
+      "clarity": "Practical React fluency."
+    }
+  },
+  {
+    "question_id": "FE-TECH-INT-02",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "JavaScript Async & Event Loop",
+    "question_text": "Explain the JavaScript event loop, microtasks (Promises), and macrotasks (`setTimeout`).",
+    "reference_answer": "JavaScript executes synchronous code on a single call stack. When asynchronous callbacks finish, Promise `.then`/`await` callbacks go into the high-priority microtask queue, while `setTimeout` and DOM events go into the macrotask queue. After the call stack empties, the event loop drains the entire microtask queue before picking the next macrotask.",
+    "expected_concepts": ["call stack", "event loop", "microtask", "macrotask", "promise"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly orders call stack, microtask queue draining, and macrotasks.",
+      "concept_coverage": "Mentions single call stack, Promises as microtasks, setTimeout as macrotask, and execution priority.",
+      "completeness": "Explains the execution order clearly.",
+      "clarity": "Structured runtime model."
+    }
+  },
+  {
+    "question_id": "FE-TECH-INT-03",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "UI Performance & UX",
+    "question_text": "How do debouncing and throttling differ, and where would you use each in a frontend application?",
+    "reference_answer": "Debouncing delays invoking a function until a pause of N milliseconds has passed since the last event—ideal for search autocomplete inputs so API calls fire only after the user stops typing. Throttling guarantees a function runs at most once every N milliseconds during continuous activity—ideal for scroll, resize, or mousemove listeners.",
+    "expected_concepts": ["debounce", "throttle", "search input", "scroll", "rate limit"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly differentiates delay-after-idle vs fixed-interval execution.",
+      "concept_coverage": "Mentions debouncing for search/typing and throttling for scroll/resize.",
+      "completeness": "Covers definitions and real UI examples.",
+      "clarity": "Crisp comparison."
+    }
+  },
+  {
+    "question_id": "FE-TECH-INT-04",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Web Security (Frontend)",
+    "question_text": "What is Cross-Site Scripting (XSS), and how do frameworks like React and Content Security Policy (CSP) help mitigate it?",
+    "reference_answer": "XSS occurs when untrusted user input is injected and executed as JavaScript inside a user's browser, potentially stealing tokens or acting as the user. React automatically escapes text interpolated in JSX (avoiding `dangerouslySetInnerHTML` unless sanitized), and a strict Content Security Policy (CSP) restricts which script sources can execute while HTTPOnly cookies protect auth tokens from JS access.",
+    "expected_concepts": ["xss", "escaping", "sanitization", "csp", "httponly"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately defines XSS and effective layered defenses.",
+      "concept_coverage": "Mentions untrusted script execution, JSX escaping/sanitization, CSP, and HTTPOnly cookies.",
+      "completeness": "Covers attack and mitigations.",
+      "clarity": "Clear security-aware frontend answer."
+    }
+  },
+  {
+    "question_id": "FE-TECH-ADV-01",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Core Web Vitals & Performance",
+    "question_text": "How do you diagnose and optimize Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS) in a slow web app?",
+    "reference_answer": "Profile with Lighthouse and Chrome DevTools Performance panel. Improve LCP by optimizing/preloading hero images (WebP/AVIF, `fetchpriority='high'`), reducing render-blocking CSS/JS via code splitting, and speeding up server TTFB/CDN caching. Reduce CLS by reserving explicit `width`/`height` or `aspect-ratio` on images/ads and avoiding dynamic content injection above existing elements.",
+    "expected_concepts": ["lcp", "cls", "code splitting", "aspect-ratio", "render-blocking"],
+    "evaluation_rubric": {
+      "technical_correctness": "Maps real Web Vitals metrics to concrete browser optimizations.",
+      "concept_coverage": "Mentions DevTools/Lighthouse, LCP (images/bundle/TTFB), and CLS (explicit dimensions/layout stability).",
+      "completeness": "Covers measurement plus fixes for both metrics.",
+      "clarity": "Actionable performance tuning."
+    }
+  },
+  {
+    "question_id": "FE-TECH-ADV-02",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "React Rendering Optimization",
+    "question_text": "When does React re-render a component, and when can `useMemo`/`React.memo` actually hurt rather than help?",
+    "reference_answer": "React re-renders when state changes, parent re-renders, or consumed Context value changes. `React.memo`, `useMemo`, and `useCallback` add comparison and memory overhead on every render; if props are new object/function references on every render anyway or the calculation is trivial, memoization adds complexity without skipping renders. Profile first and fix state placement (colocating state or splitting contexts) before memoizing everywhere.",
+    "expected_concepts": ["re-render", "react.memo", "usememo", "reference equality", "context"],
+    "evaluation_rubric": {
+      "technical_correctness": "Identifies parent re-renders/reference equality pitfalls and memoization overhead.",
+      "concept_coverage": "Mentions state/parent/context triggers, shallow prop comparison, and state colocation.",
+      "completeness": "Explains both rendering rules and trade-offs.",
+      "clarity": "Senior React engineering judgment."
+    }
+  },
+  {
+    "question_id": "FE-TECH-ADV-03",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Rendering Architectures",
+    "question_text": "Compare CSR, SSR, SSG, and ISR—how do you choose among them for different pages of an app?",
+    "reference_answer": "CSR renders in the browser (good for authenticated dashboards behind login). SSR generates HTML per request on the server (good for dynamic personalized SEO pages). SSG pre-builds static HTML at deploy time for maximum CDN speed (docs, marketing), and ISR refreshes static pages incrementally in the background on a schedule (e-commerce catalogs or job boards).",
+    "expected_concepts": ["csr", "ssr", "ssg", "isr", "seo"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly maps where and when HTML is generated for all four strategies.",
+      "concept_coverage": "Covers CSR, SSR, SSG, ISR, SEO, and freshness/caching trade-offs.",
+      "completeness": "Gives clear use cases for each.",
+      "clarity": "Well-organized comparison."
+    }
+  },
+  {
+    "question_id": "FE-TECH-ADV-04",
+    "role": "Frontend Developer",
+    "domain": "Web Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Accessibility & Complex Widgets",
+    "question_text": "How would you make an accessible custom modal dialog or combobox from scratch in HTML/CSS/JS?",
+    "reference_answer": "Use `role='dialog'`, `aria-modal='true'`, and `aria-labelledby`, move keyboard focus inside the modal on open, trap `Tab`/`Shift+Tab` focus within it, close on `Escape`, and restore focus to the triggering element on close. For comboboxes, manage `aria-expanded`, `aria-activedescendant`, and arrow-key navigation rather than relying solely on mouse clicks.",
+    "expected_concepts": ["aria", "focus trap", "escape", "restore focus", "keyboard navigation"],
+    "evaluation_rubric": {
+      "technical_correctness": "Covers full keyboard and ARIA focus lifecycle.",
+      "concept_coverage": "Mentions ARIA attributes, focus management/trap, Escape key, and restoring focus.",
+      "completeness": "Demonstrates real accessibility engineering.",
+      "clarity": "Concrete implementation details."
+    }
+  },
+  {
+    "question_id": "BE-TECH-BEG-01",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "REST APIs & HTTP",
+    "question_text": "What are the main HTTP methods (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`), and what does idempotency mean?",
+    "reference_answer": "`GET` retrieves resources, `POST` creates a new resource, `PUT` replaces a resource entirely, `PATCH` partially updates it, and `DELETE` removes it. An operation is idempotent if repeating the exact same request multiple times produces the same server state as calling it once—`GET`, `PUT`, and `DELETE` are idempotent, whereas `POST` is typically not.",
+    "expected_concepts": ["get", "post", "put", "patch", "idempotent"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately defines CRUD HTTP verbs and idempotency.",
+      "concept_coverage": "Covers GET, POST, PUT, PATCH, DELETE and idempotency distinction.",
+      "completeness": "Covers methods and idempotency examples.",
+      "clarity": "Clean API fundamentals."
+    }
+  },
+  {
+    "question_id": "BE-TECH-BEG-02",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "HTTP Status Codes",
+    "question_text": "When should an API return status codes 200, 201, 400, 401, 403, 404, and 500?",
+    "reference_answer": "200 OK for successful reads/updates; 201 Created after creating a new resource; 400 Bad Request for malformed client input/validation errors; 401 Unauthorized when authentication is missing or invalid; 403 Forbidden when authenticated but lacking permission; 404 Not Found when the resource doesn't exist; and 500 Internal Server Error for unexpected server failures.",
+    "expected_concepts": ["201", "400", "401", "403", "500"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly distinguishes 401 (authentication) vs 403 (authorization) and 4xx vs 5xx.",
+      "concept_coverage": "Accurately defines each listed status code.",
+      "completeness": "Covers all requested codes.",
+      "clarity": "Crisp and accurate."
+    }
+  },
+  {
+    "question_id": "BE-TECH-BEG-03",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Relational Databases",
+    "question_text": "What are primary keys, foreign keys, and SQL injection, and how do parameterized queries prevent SQL injection?",
+    "reference_answer": "A primary key uniquely identifies each row in a table, while a foreign key references a primary key in another table to enforce referential integrity. SQL injection happens when untrusted user strings are concatenated into SQL commands, allowing attackers to alter query logic; parameterized queries (prepared statements) bind inputs strictly as data parameters rather than executable SQL syntax.",
+    "expected_concepts": ["primary key", "foreign key", "sql injection", "parameterized query", "prepared statement"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately defines keys and parameter binding.",
+      "concept_coverage": "Covers primary/foreign keys, string concatenation risk, and parameterized queries.",
+      "completeness": "Addresses database structure and security.",
+      "clarity": "Clear and accurate."
+    }
+  },
+  {
+    "question_id": "BE-TECH-BEG-04",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Authentication & Hashing",
+    "question_text": "Why should user passwords be hashed with a slow salted algorithm like bcrypt or Argon2 rather than plain SHA-256 or encryption?",
+    "reference_answer": "Encryption is reversible if the key leaks, and fast hashes like SHA-256 allow attackers with GPUs to brute-force billions of guesses per second. Adaptive salted algorithms like bcrypt or Argon2 add a unique random salt per user (defeating rainbow tables) and configurable computational cost to slow down brute-force attacks.",
+    "expected_concepts": ["hashing", "salt", "bcrypt", "brute force", "rainbow table"],
+    "evaluation_rubric": {
+      "technical_correctness": "Explains one-way hashing, per-user salt, and intentional slowness.",
+      "concept_coverage": "Mentions salt, rainbow tables, work factor/slowness, and encryption vs hashing.",
+      "completeness": "Covers why encryption and fast hashes are wrong.",
+      "clarity": "Strong security fundamentals."
+    }
+  },
+  {
+    "question_id": "BE-TECH-INT-01",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Database Indexing & Transactions",
+    "question_text": "Explain ACID properties in relational databases and the trade-offs of adding B-Tree indexes.",
+    "reference_answer": "ACID stands for Atomicity (all-or-nothing transactions), Consistency (valid state invariants), Isolation (concurrent transactions don't corrupt each other), and Durability (committed data survives crashes). B-Tree indexes speed up `WHERE`, `JOIN`, and `ORDER BY` reads from O(N) to O(log N), at the cost of extra disk storage and slower `INSERT`/`UPDATE`/`DELETE` writes because indexes must also be updated.",
+    "expected_concepts": ["acid", "atomicity", "isolation", "b-tree index", "write overhead"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly defines ACID and read-vs-write index trade-offs.",
+      "concept_coverage": "Covers all four ACID letters and index read speed vs write/storage cost.",
+      "completeness": "Covers transactions and indexing thoroughly.",
+      "clarity": "Well-structured."
+    }
+  },
+  {
+    "question_id": "BE-TECH-INT-02",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "ORM & Query Performance",
+    "question_text": "What is the N+1 query problem in backend ORMs (like Django/SQLAlchemy), and how do you resolve it?",
+    "reference_answer": "The N+1 problem occurs when code runs 1 query to fetch N parent records (e.g., 50 orders) and then executes N separate queries inside a loop to load each parent's related child records (e.g., customer or items). Fix it using eager loading (`JOIN` / `select_related` for single relations, `IN` batching / `prefetch_related` for collections) so data loads in 1–2 queries.",
+    "expected_concepts": ["n+1", "orm", "eager loading", "join", "batching"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly identifies loop-triggered queries and eager-loading fixes.",
+      "concept_coverage": "Mentions 1 parent + N child queries, JOIN/select_related, and batching/prefetch_related.",
+      "completeness": "Explains cause and fix.",
+      "clarity": "Clear backend diagnostic."
+    }
+  },
+  {
+    "question_id": "BE-TECH-INT-03",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Caching Strategies",
+    "question_text": "How does the Cache-Aside pattern work with Redis, and how do you avoid stale data or cache stampedes?",
+    "reference_answer": "In Cache-Aside, the app checks Redis first; on a cache hit it returns immediately, and on a miss it queries the database, writes the result to Redis with a TTL, and returns it. Stale data is managed via short TTLs and explicit invalidation on database writes, while cache stampedes (many concurrent misses on a hot expired key) are mitigated via single-flight locking, jittered TTLs, or early background refresh.",
+    "expected_concepts": ["cache-aside", "redis", "ttl", "invalidation", "cache stampede"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately traces read-through miss/populate flow and invalidation/stampede guards.",
+      "concept_coverage": "Mentions hit/miss flow, TTL/invalidation on writes, and stampede mitigation.",
+      "completeness": "Covers pattern plus failure modes.",
+      "clarity": "Strong systems explanation."
+    }
+  },
+  {
+    "question_id": "BE-TECH-INT-04",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "API Design & Reliability",
+    "question_text": "Why is cursor-based pagination preferred over offset-based pagination (`OFFSET/LIMIT`) for large live feeds?",
+    "reference_answer": "Offset pagination forces the database to scan and discard `OFFSET` rows on deep pages (O(N) cost) and causes duplicate or skipped items if new rows are inserted while the user paginates. Cursor pagination uses an indexed tie-broken key (`WHERE created_at < cursor LIMIT 20`), giving consistent O(log N) performance and stable results under concurrent inserts.",
+    "expected_concepts": ["offset", "cursor", "pagination", "duplicates", "index"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains deep-offset scan cost and drift under inserts.",
+      "concept_coverage": "Mentions OFFSET scan performance, duplicate/skipped items, and indexed cursor filtering.",
+      "completeness": "Compares both cleanly.",
+      "clarity": "Practical API design."
+    }
+  },
+  {
+    "question_id": "BE-TECH-ADV-01",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Distributed Systems & Reliability",
+    "question_text": "How would you design a distributed rate limiter and ensure idempotent payment or webhook processing?",
+    "reference_answer": "For distributed rate limiting, use Redis atomic Lua scripts or sliding-window/token-bucket counters keyed by user/IP so limits stay consistent across stateless API replicas. For idempotent payment/webhook handling, require an `Idempotency-Key` header stored in a unique DB constraint or atomic transaction alongside the response state, ensuring retries return the stored result rather than charging twice.",
+    "expected_concepts": ["rate limiter", "token bucket", "redis", "idempotency key", "atomic"],
+    "evaluation_rubric": {
+      "technical_correctness": "Uses atomic shared state for rate limits and unique idempotency keys for retries.",
+      "concept_coverage": "Mentions token bucket/sliding window, atomic Redis, idempotency key, and DB uniqueness.",
+      "completeness": "Covers both distributed problems thoroughly.",
+      "clarity": "Production backend rigor."
+    }
+  },
+  {
+    "question_id": "BE-TECH-ADV-02",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Async Queues & Background Jobs",
+    "question_text": "When should work be moved to an asynchronous message queue (e.g., Celery/RabbitMQ/Kafka), and how do you handle poison-pill messages?",
+    "reference_answer": "Move slow, spiky, or third-party-dependent work—like sending emails, video/PDF processing, or webhooks—to a queue so HTTP requests return quickly and workers scale independently. Configure exponential backoff retries with a maximum retry count, and route persistently failing 'poison-pill' messages to a Dead-Letter Queue (DLQ) with alerts for inspection rather than blocking the main queue.",
+    "expected_concepts": ["message queue", "decoupling", "exponential backoff", "dead-letter queue", "retries"],
+    "evaluation_rubric": {
+      "technical_correctness": "Explains HTTP decoupling and safe failure isolation via DLQs.",
+      "concept_coverage": "Mentions async workers, retries with backoff, max attempts, and Dead-Letter Queue.",
+      "completeness": "Addresses scaling and error handling.",
+      "clarity": "Clear architecture reasoning."
+    }
+  },
+  {
+    "question_id": "BE-TECH-ADV-03",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Concurrency Control",
+    "question_text": "Compare optimistic locking versus pessimistic locking for preventing race conditions like double-booking inventory.",
+    "reference_answer": "Pessimistic locking acquires a database row lock (`SELECT ... FOR UPDATE`) upfront, blocking concurrent writers until commit—best under high contention where conflicts are frequent. Optimistic locking reads a `version` column without holding locks and updates with `WHERE version = old_version`, retrying if 0 rows changed—best for low-contention workloads needing high read throughput.",
+    "expected_concepts": ["pessimistic locking", "optimistic locking", "select for update", "version", "contention"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately describes lock acquisition vs version-checked CAS updates.",
+      "concept_coverage": "Mentions `FOR UPDATE`, version column, retries, and low vs high contention.",
+      "completeness": "Covers mechanisms and trade-offs.",
+      "clarity": "Precise concurrency design."
+    }
+  },
+  {
+    "question_id": "BE-TECH-ADV-04",
+    "role": "Backend Developer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Observability & Microservices",
+    "question_text": "How do structured logging, distributed tracing (correlation IDs), and circuit breakers help debug and protect microservices?",
+    "reference_answer": "Structured JSON logs allow fast filtering by fields like `user_id` or `status_code`. Propagating a trace/correlation ID across HTTP headers and queues links all logs and spans for a single request across services. Circuit breakers monitor downstream error rates/timeouts and fail fast once tripped, preventing cascading thread exhaustion across upstream services.",
+    "expected_concepts": ["correlation id", "distributed tracing", "circuit breaker", "cascading failure", "structured logs"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly connects trace propagation and fail-fast circuit breaking.",
+      "concept_coverage": "Mentions structured logs, trace/correlation IDs, and circuit breaker fail-fast.",
+      "completeness": "Covers observability and fault isolation.",
+      "clarity": "Strong distributed systems awareness."
+    }
+  },
+  {
+    "question_id": "FS-TECH-BEG-01",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Web Request Lifecycle",
+    "question_text": "Walk through what happens from the moment a React frontend submits a login form to a backend server returning a response.",
+    "reference_answer": "The React form prevents default reload, validates inputs, and sends an HTTPS `POST` JSON request via `fetch` or `axios`. The backend routes the request, validates credentials against hashed passwords in the database, creates a session or signed JWT token, and returns JSON with status 200 (or 401 on failure), which the frontend uses to update UI state and navigate.",
+    "expected_concepts": ["https", "post", "json", "database", "token"],
+    "evaluation_rubric": {
+      "technical_correctness": "Traces client, network, backend handler, DB verification, and response handling accurately.",
+      "concept_coverage": "Mentions form submit, HTTP POST/JSON, server validation/DB check, and UI update.",
+      "completeness": "Covers end-to-end full stack flow.",
+      "clarity": "Clear sequential narrative."
+    }
+  },
+  {
+    "question_id": "FS-TECH-BEG-02",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "CORS & Browser Networking",
+    "question_text": "What is CORS (Cross-Origin Resource Sharing), why do browsers enforce it, and how do you fix a CORS error properly?",
+    "reference_answer": "CORS is a browser security mechanism enforcing the Same-Origin Policy when frontend JavaScript on one origin (scheme + domain + port) calls an API on a different origin. It is fixed on the backend server by returning explicit `Access-Control-Allow-Origin`, `Allow-Methods`, and `Allow-Headers` headers for trusted origins (never using wildcard `*` with credentials).",
+    "expected_concepts": ["cors", "same-origin policy", "access-control-allow-origin", "preflight", "backend"],
+    "evaluation_rubric": {
+      "technical_correctness": "Recognizes CORS is enforced by browsers and configured on the server.",
+      "concept_coverage": "Mentions origin (protocol/host/port), browser enforcement, server headers, and trusted origins.",
+      "completeness": "Explains cause and proper fix.",
+      "clarity": "Clear and accurate."
+    }
+  },
+  {
+    "question_id": "FS-TECH-BEG-03",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Full Stack Validation",
+    "question_text": "If you already validate forms in the frontend UI, why must you still validate inputs on the backend?",
+    "reference_answer": "Frontend validation improves user experience with instant feedback, but anyone can bypass browser code using `curl`, Postman, or DevTools and send arbitrary payloads directly to the API. Backend validation is the true security and data-integrity boundary enforcing types, permissions, and business rules.",
+    "expected_concepts": ["bypass", "curl", "security boundary", "data integrity", "ux"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly treats frontend validation as UX and backend validation as security.",
+      "concept_coverage": "Mentions UX vs security, bypassing client via curl/API tools, and server-side checks.",
+      "completeness": "Explains why both layers exist.",
+      "clarity": "Concise and accurate."
+    }
+  },
+  {
+    "question_id": "FS-TECH-BEG-04",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Environment Configuration",
+    "question_text": "How should secrets like database URLs and API keys be managed across local development and production in a full-stack app?",
+    "reference_answer": "Never commit secrets to Git or expose private server keys in frontend client bundles (which anyone can inspect in the browser). Store server secrets in environment variables (`.env` locally, excluded via `.gitignore`, and managed secrets/env settings in cloud hosts in production).",
+    "expected_concepts": ["environment variables", ".gitignore", "client bundle", "secrets", "production"],
+    "evaluation_rubric": {
+      "technical_correctness": "Distinguishes public client code from private server env vars.",
+      "concept_coverage": "Mentions `.env` + `.gitignore`, avoiding client-side exposure, and cloud env config.",
+      "completeness": "Covers local and production safety.",
+      "clarity": "Clear security hygiene."
+    }
+  },
+  {
+    "question_id": "FS-TECH-INT-01",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Authentication Tokens & Sessions",
+    "question_text": "Compare cookie-based server sessions vs JWTs stored in `localStorage` vs `HttpOnly` cookies.",
+    "reference_answer": "Server sessions store state in Redis/DB with an opaque `HttpOnly` session cookie, making instant logout/revocation easy. Stateless JWTs avoid DB lookups per request, but storing them in `localStorage` exposes them to XSS attacks; placing short-lived JWTs or session IDs in `HttpOnly`, `Secure`, `SameSite` cookies prevents JS access while requiring CSRF protection.",
+    "expected_concepts": ["httponly", "jwt", "localstorage", "xss", "csrf"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly links localStorage to XSS exposure and cookies to HttpOnly/SameSite/CSRF.",
+      "concept_coverage": "Mentions revocation, XSS risk in localStorage, HttpOnly/SameSite cookies, and CSRF.",
+      "completeness": "Covers security and scalability trade-offs.",
+      "clarity": "Balanced engineering analysis."
+    }
+  },
+  {
+    "question_id": "FS-TECH-INT-02",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Database Schema & Migrations",
+    "question_text": "How do database migrations work, and how would you roll out a breaking column rename without downtime?",
+    "reference_answer": "Database migrations track incremental, version-controlled schema changes so all environments stay in sync. For a zero-downtime rename, use expand-and-contract: add the new column, backfill existing rows, deploy app code that writes to both and reads from the new column, and only drop the old column in a later migration after all old app instances are gone.",
+    "expected_concepts": ["migrations", "expand and contract", "zero downtime", "backfill", "dual write"],
+    "evaluation_rubric": {
+      "technical_correctness": "Uses multi-step expand-and-contract rather than immediate destructive rename.",
+      "concept_coverage": "Mentions versioned migrations, adding new column, dual-write/backfill, and delayed drop.",
+      "completeness": "Covers both concept and safe deployment sequence.",
+      "clarity": "Clear production practice."
+    }
+  },
+  {
+    "question_id": "FS-TECH-INT-03",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "File Uploads & Storage",
+    "question_text": "How would you design secure resume or image uploads in a full-stack web application?",
+    "reference_answer": "Validate file extension, MIME type/magic bytes, and strict maximum size limits on the backend. Never trust user-supplied filenames directly (use UUIDs to avoid path traversal). For persistent storage, stream directly to object storage like S3 via pre-signed URLs rather than storing files on ephemeral app servers—or process purely in memory if no retention is needed.",
+    "expected_concepts": ["file size", "mime type", "path traversal", "object storage", "pre-signed url"],
+    "evaluation_rubric": {
+      "technical_correctness": "Covers server validation, safe filenames, and decoupled storage.",
+      "concept_coverage": "Mentions size/type checks, magic bytes or path traversal, and S3/in-memory handling.",
+      "completeness": "Addresses security and scalability.",
+      "clarity": "Practical full-stack design."
+    }
+  },
+  {
+    "question_id": "FS-TECH-INT-04",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "API Caching & State Sync",
+    "question_text": "Explain optimistic UI updates on the frontend and what you must do if the backend request fails.",
+    "reference_answer": "Optimistic UI updates update local client state immediately when the user performs an action (e.g., liking a post or saving an item) before the server confirms, making the app feel instant. You must snapshot the previous state so if the API request fails or times out, the UI cleanly rolls back and displays an actionable error message.",
+    "expected_concepts": ["optimistic update", "rollback", "snapshot", "error handling", "perceived latency"],
+    "evaluation_rubric": {
+      "technical_correctness": "Explains immediate UI update plus rollback on failure.",
+      "concept_coverage": "Mentions perceived speed, previous state snapshot, rollback, and user error notification.",
+      "completeness": "Covers happy path and failure path.",
+      "clarity": "Clear UX and state reasoning."
+    }
+  },
+  {
+    "question_id": "FS-TECH-ADV-01",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Real-Time Communication",
+    "question_text": "Compare WebSockets, Server-Sent Events (SSE), and HTTP polling—when would you pick each?",
+    "reference_answer": "Short/long polling repeatedly asks the server for updates via standard HTTP—simple for rare updates but inefficient at scale. SSE keeps a lightweight unidirectional HTTP stream from server to browser with automatic reconnection, ideal for live AI token streaming or notifications. WebSockets provide full-duplex bidirectional low-latency messaging needed for chat apps, collaborative editors, or multiplayer games.",
+    "expected_concepts": ["websockets", "sse", "polling", "bidirectional", "unidirectional"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly differentiates transport directionality, overhead, and use cases.",
+      "concept_coverage": "Covers polling, SSE (server-to-client streaming), and WebSockets (full-duplex).",
+      "completeness": "Provides clear selection criteria for all three.",
+      "clarity": "Concise architectural comparison."
+    }
+  },
+  {
+    "question_id": "FS-TECH-ADV-02",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "End-to-End Architecture",
+    "question_text": "How would you architect a scalable URL shortener or job-board search platform end to end?",
+    "reference_answer": "Use a stateless REST/API tier behind a load balancer, relational DB (PostgreSQL) with proper indexes for primary records, full-text or vector search for filtering, and Redis caching for hot reads/redirects. Offload heavy analytics or email alerts to background workers, serve static frontend assets via a CDN, and enforce rate limiting and monitoring.",
+    "expected_concepts": ["load balancer", "postgresql", "redis", "cdn", "stateless"],
+    "evaluation_rubric": {
+      "technical_correctness": "Presents a coherent multi-tier scalable architecture.",
+      "concept_coverage": "Mentions stateless API/LB, indexed DB, caching, CDN/search, and async jobs.",
+      "completeness": "Connects frontend, backend, data, and caching.",
+      "clarity": "Clean system design summary."
+    }
+  },
+  {
+    "question_id": "FS-TECH-ADV-03",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Testing Pyramid & CI/CD",
+    "question_text": "How do you balance unit, integration, and end-to-end (Playwright/Cypress) tests in a full-stack CI pipeline?",
+    "reference_answer": "Follow the testing pyramid: keep most tests as fast unit tests (business logic, components), add integration tests for API endpoints against a test database, and reserve a focused suite of E2E browser tests for critical user journeys (login, core workflow, checkout) so CI stays fast and non-flaky.",
+    "expected_concepts": ["testing pyramid", "unit tests", "integration tests", "e2e", "ci"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly balances speed, confidence, and flakiness across layers.",
+      "concept_coverage": "Mentions unit, integration/API, E2E critical flows, and CI speed/flakiness.",
+      "completeness": "Explains rationale for each layer.",
+      "clarity": "Practical engineering workflow."
+    }
+  },
+  {
+    "question_id": "FS-TECH-ADV-04",
+    "role": "Full Stack Developer",
+    "domain": "Web Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Containerization & Deployment",
+    "question_text": "How do multi-stage Docker builds improve production full-stack container images?",
+    "reference_answer": "Multi-stage Dockerfiles use a larger builder stage (with Node/compilers/build tools) to compile frontend bundles or Python wheels, then copy only the compiled artifacts and runtime dependencies into a minimal slim or distroless final image. This shrinks image size dramatically, speeds up deployments, and reduces the attack surface by omitting build tools.",
+    "expected_concepts": ["multi-stage", "docker", "image size", "attack surface", "runtime"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately explains separating build-time tools from the minimal runtime image.",
+      "concept_coverage": "Mentions builder vs runtime stage, smaller image size, faster deploys, and smaller attack surface.",
+      "completeness": "Covers mechanism and benefits.",
+      "clarity": "Clear DevOps/full-stack explanation."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-BEG-01",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Data Structures & Complexity",
+    "question_text": "Compare the time complexities of searching and inserting in a sorted array vs a hash map vs a binary search tree.",
+    "reference_answer": "A sorted array gives O(log N) search via binary search but O(N) insertion due to element shifting. A hash map gives O(1) average search and insertion (O(N) worst case) with no ordering. A balanced binary search tree (like AVL or Red-Black) maintains sorted order with O(log N) search, insert, and delete.",
+    "expected_concepts": ["o(log n)", "o(1)", "o(n)", "binary search", "balanced bst"],
+    "evaluation_rubric": {
+      "technical_correctness": "States accurate Big-O complexities for all three structures.",
+      "concept_coverage": "Mentions sorted array binary search/shift, hash map O(1), and balanced BST O(log N).",
+      "completeness": "Compares both search and insert across all three.",
+      "clarity": "Clean complexity summary."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-BEG-02",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Object-Oriented Programming",
+    "question_text": "Explain the four pillars of Object-Oriented Programming (Encapsulation, Abstraction, Inheritance, Polymorphism) with brief examples.",
+    "reference_answer": "Encapsulation bundles data and methods together while hiding internal state behind controlled interfaces. Abstraction exposes essential behavior while hiding implementation complexity. Inheritance lets subclasses reuse/extend parent behavior, and Polymorphism lets different classes respond to the same method or interface (e.g., `draw()` on Circle vs Square) interchangeably.",
+    "expected_concepts": ["encapsulation", "abstraction", "inheritance", "polymorphism", "interface"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly defines all four OOP concepts without confusing encapsulation and abstraction.",
+      "concept_coverage": "Covers all four pillars with brief examples.",
+      "completeness": "Addresses every pillar.",
+      "clarity": "Clear and structured."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-BEG-03",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Stacks, Queues & Graphs",
+    "question_text": "Explain Breadth-First Search (BFS) vs Depth-First Search (DFS) and the data structures each uses.",
+    "reference_answer": "BFS explores a graph or tree level by level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs. DFS explores as deep as possible along each branch before backtracking using a LIFO Stack or recursion, commonly used for cycle detection, topological sorting, and connected components.",
+    "expected_concepts": ["bfs", "dfs", "queue", "stack", "shortest path"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly pairs BFS with Queue/shortest-path and DFS with Stack/recursion.",
+      "concept_coverage": "Mentions Queue, Stack/recursion, level-by-level vs backtracking, and unweighted shortest path.",
+      "completeness": "Covers structures and classic uses.",
+      "clarity": "Crisp DSA explanation."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-BEG-04",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Git & Version Control",
+    "question_text": "What is the difference between `git merge` and `git rebase`, and why shouldn't you rebase a shared public branch?",
+    "reference_answer": "`git merge` joins two branches by creating a new merge commit, preserving exact branch history. `git rebase` replays local commits sequentially on top of another branch, creating a cleaner linear history by rewriting commit hashes. Rebasing a shared public branch rewrites commits others already pulled, causing painful divergence and conflicts.",
+    "expected_concepts": ["git merge", "git rebase", "merge commit", "rewrite history", "linear"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly contrasts history preservation vs rewriting commit hashes.",
+      "concept_coverage": "Mentions merge commit, replaying commits, hash rewriting, and shared-branch hazard.",
+      "completeness": "Answers both parts.",
+      "clarity": "Practical Git fluency."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-INT-01",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Algorithms & Problem Solving",
+    "question_text": "Explain how the Two Pointers and Sliding Window techniques reduce O(N^2) nested loops to O(N).",
+    "reference_answer": "Both techniques avoid re-scanning elements from scratch for every starting index. Two Pointers moves left/right indexes monotonically (e.g., sorted pair sum or palindrome check), while Sliding Window dynamically expands the right boundary and shrinks the left boundary as needed to track valid contiguous subarrays in linear O(N) time since each index is visited at most twice.",
+    "expected_concepts": ["two pointers", "sliding window", "o(n)", "monotonic", "subarray"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains amortized O(N) via monotonic pointer movement.",
+      "concept_coverage": "Mentions nested loop elimination, monotonic pointers, contiguous window, and O(N) complexity.",
+      "completeness": "Covers both techniques with intuition.",
+      "clarity": "Clear algorithmic reasoning."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-INT-02",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Design Principles & Architecture",
+    "question_text": "Explain Composition over Inheritance and the Dependency Inversion Principle with a practical example.",
+    "reference_answer": "Composition builds complex behavior by holding references to small focused components (e.g., an Engine or PaymentGateway object) rather than deep fragile class inheritance trees. Dependency Inversion means high-level business logic depends on abstract interfaces rather than concrete implementations—for example, injecting a `NotificationSender` interface so email can be swapped for SMS or a mock in tests.",
+    "expected_concepts": ["composition", "inheritance", "dependency inversion", "interface", "mock"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately explains has-a flexibility and abstract dependency injection.",
+      "concept_coverage": "Mentions composition vs deep hierarchy, abstract interfaces, and testability/swappability.",
+      "completeness": "Provides a concrete example.",
+      "clarity": "Clean software design."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-INT-03",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Operating Systems",
+    "question_text": "What is the difference between a process and a thread, and what causes a deadlock?",
+    "reference_answer": "A process has its own isolated virtual memory space and OS resources, whereas threads within the same process share heap memory and address space while keeping separate stacks and registers, making context switching lighter. A deadlock occurs when threads block forever waiting on each other's locks, requiring mutual exclusion, hold-and-wait, no preemption, and circular wait.",
+    "expected_concepts": ["process", "thread", "shared memory", "deadlock", "circular wait"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly states memory isolation vs sharing and deadlock conditions.",
+      "concept_coverage": "Mentions isolated vs shared memory, lighter context switch, and Coffman deadlock conditions.",
+      "completeness": "Covers both OS concepts.",
+      "clarity": "Clear and accurate."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-INT-04",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Dynamic Programming & Memoization",
+    "question_text": "How do you recognize a Dynamic Programming problem, and how does top-down memoization compare to bottom-up tabulation?",
+    "reference_answer": "Dynamic Programming applies when a problem has overlapping subproblems and optimal substructure. Top-down memoization writes recursive logic and caches subproblem results in a dictionary/table on demand, whereas bottom-up tabulation iteratively fills a DP table from base cases upward, avoiding recursion stack limits and often enabling space optimization.",
+    "expected_concepts": ["overlapping subproblems", "optimal substructure", "memoization", "tabulation", "recursion"],
+    "evaluation_rubric": {
+      "technical_correctness": "Identifies both DP criteria and contrasts top-down vs bottom-up.",
+      "concept_coverage": "Mentions overlapping subproblems, optimal substructure, memoization cache, and iterative table.",
+      "completeness": "Covers recognition and both implementations.",
+      "clarity": "Structured DSA answer."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-ADV-01",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Data Structures Design",
+    "question_text": "How would you design an LRU (Least Recently Used) Cache with O(1) `get` and `put` operations?",
+    "reference_answer": "Combine a Hash Map and a Doubly Linked List. The hash map maps keys directly to list nodes for O(1) lookup, while the doubly linked list maintains access order—moving accessed/inserted nodes to the head in O(1) and evicting the tail node in O(1) when capacity is exceeded (in Python, `OrderedDict` encapsulates this).",
+    "expected_concepts": ["lru cache", "hash map", "doubly linked list", "o(1)", "eviction"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly pairs hash map with doubly linked list for O(1) unlink/move.",
+      "concept_coverage": "Mentions hash map, doubly linked list, head/tail promotion/eviction, and O(1) complexity.",
+      "completeness": "Explains why both structures are needed.",
+      "clarity": "Crisp interview classic."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-ADV-02",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "System Design & Trade-offs",
+    "question_text": "Explain the CAP theorem and what consistency vs availability trade-offs look like during a network partition.",
+    "reference_answer": "The CAP theorem states that during a network partition (P) between distributed nodes, a system must choose between strict Consistency (CP—rejecting or blocking writes/reads on partitioned nodes so no stale data is served) and high Availability (AP—serving every non-failing node even if replicas temporarily return stale data that reconciles later).",
+    "expected_concepts": ["cap theorem", "network partition", "consistency", "availability", "stale data"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly frames C vs A specifically under network partition P.",
+      "concept_coverage": "Mentions partition tolerance, CP rejecting stale reads vs AP serving potentially stale data.",
+      "completeness": "Explains real-world trade-off accurately.",
+      "clarity": "Clear distributed systems theory."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-ADV-03",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Memory & Garbage Collection",
+    "question_text": "Compare manual memory management (C++ RAII/smart pointers) with tracing garbage collection (Java/Python), and explain memory leaks in GC languages.",
+    "reference_answer": "C++ uses deterministic RAII and smart pointers (`unique_ptr`, `shared_ptr`) freeing resources immediately when scope ends, with zero GC pauses unless cyclic `shared_ptr` references occur. Tracing GC languages periodically mark-and-sweep unreachable objects, trading predictability for safety; memory leaks still happen in GC languages when forgotten global caches, listeners, or closures retain unintended references.",
+    "expected_concepts": ["raii", "smart pointers", "garbage collection", "unreachable", "memory leak"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains deterministic RAII vs tracing GC and unintended reference retention.",
+      "concept_coverage": "Mentions RAII/smart pointers, GC pauses/mark-sweep, and reference-retained leaks.",
+      "completeness": "Covers both paradigms and leak mechanisms.",
+      "clarity": "Strong systems depth."
+    }
+  },
+  {
+    "question_id": "SWE-TECH-ADV-04",
+    "role": "Software Engineer",
+    "domain": "Software Development",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Graph Algorithms",
+    "question_text": "When would you use Dijkstra's algorithm versus Topological Sort (Kahn's algorithm) on a directed graph?",
+    "reference_answer": "Use Dijkstra's algorithm with a min-heap (`O((V+E) log V)`) to find shortest weighted paths from a source when all edge weights are non-negative. Use Topological Sort (Kahn's BFS with in-degrees) on a Directed Acyclic Graph (DAG) to order dependent tasks (such as build pipelines or course prerequisites) and detect cycles.",
+    "expected_concepts": ["dijkstra", "non-negative weights", "topological sort", "dag", "cycle detection"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly notes non-negative weights for Dijkstra and DAG requirement for topological sort.",
+      "concept_coverage": "Mentions min-heap/non-negative edges, DAG/in-degrees, and dependency ordering.",
+      "completeness": "Covers both algorithms and preconditions.",
+      "clarity": "Precise algorithmic contrast."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-BEG-01",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Security Fundamentals",
+    "question_text": "Explain the CIA Triad (Confidentiality, Integrity, Availability) with one practical technical control for each.",
+    "reference_answer": "Confidentiality ensures only authorized parties access data (enforced via TLS/AES encryption and access controls). Integrity guarantees data is not altered in transit or at rest without detection (enforced via cryptographic hashes, HMACs, and digital signatures). Availability ensures systems remain accessible when needed (enforced via redundancy, backups, and DDoS rate limiting).",
+    "expected_concepts": ["confidentiality", "integrity", "availability", "encryption", "hashing"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly defines C, I, A and assigns valid controls to each.",
+      "concept_coverage": "Covers Confidentiality, Integrity, Availability, encryption, hashes/signatures, and backups/redundancy.",
+      "completeness": "Covers all three pillars with controls.",
+      "clarity": "Well-structured."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-BEG-02",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Networking & Protocols",
+    "question_text": "Explain the TCP three-way handshake and how TCP differs from UDP.",
+    "reference_answer": "TCP establishes a reliable connection via SYN (client), SYN-ACK (server), and ACK (client), guaranteeing ordered, error-checked delivery with congestion control. UDP is connectionless without a handshake or retransmission, offering lower latency for real-time audio/video streaming, gaming, and DNS lookups.",
+    "expected_concepts": ["syn", "syn-ack", "ack", "reliable", "udp"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately states SYN/SYN-ACK/ACK and reliability vs speed trade-offs.",
+      "concept_coverage": "Mentions 3-way handshake, ordered delivery, and connectionless UDP.",
+      "completeness": "Covers both handshake and protocol comparison.",
+      "clarity": "Clear networking basics."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-BEG-03",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Linux & Access Control",
+    "question_text": "What is the Principle of Least Privilege, and how do Linux file permissions (`rwx` / `chmod`) enforce access control?",
+    "reference_answer": "The Principle of Least Privilege states that users and processes should receive only the minimum permissions necessary to perform their job, limiting blast radius if compromised. In Linux, permissions (`r=4, w=2, x=1`) control read, write, and execute rights separately for owner, group, and others (e.g., `chmod 600` restricts private keys strictly to the owner).",
+    "expected_concepts": ["least privilege", "blast radius", "linux permissions", "owner group others", "chmod"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains least privilege and Linux permission scopes.",
+      "concept_coverage": "Mentions minimal access, blast radius, owner/group/other, and rwx/chmod.",
+      "completeness": "Connects policy concept to practical Linux control.",
+      "clarity": "Practical and clear."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-BEG-04",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Beginner",
+    "question_type": "Technical",
+    "topic": "Authentication & Phishing",
+    "question_text": "Distinguish between authentication and authorization, and explain why Multi-Factor Authentication (MFA) blocks most credential-stuffing attacks.",
+    "reference_answer": "Authentication verifies who a user is (identity via password, token, or biometrics), while authorization verifies what an authenticated user is permitted to access. MFA requires at least two independent factors (something you know, have, or are), so leaked or reused passwords alone cannot grant access during credential stuffing.",
+    "expected_concepts": ["authentication", "authorization", "mfa", "credential stuffing", "factors"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately separates identity verification from permission checks and explains MFA factors.",
+      "concept_coverage": "Covers authentication vs authorization, MFA factors, and credential reuse defense.",
+      "completeness": "Answers both parts cleanly.",
+      "clarity": "Clear security terminology."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-INT-01",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Web Application Vulnerabilities",
+    "question_text": "Compare SQL Injection, Cross-Site Scripting (XSS), and Cross-Site Request Forgery (CSRF), and summarize one defense for each.",
+    "reference_answer": "SQL Injection exploits unescaped input to manipulate backend database queries (prevented via parameterized queries). XSS injects malicious client-side scripts into pages viewed by victims (prevented via contextual output escaping and CSP). CSRF tricks an authenticated browser into submitting unauthorized state-changing requests (prevented via anti-CSRF tokens and `SameSite` cookies).",
+    "expected_concepts": ["sql injection", "xss", "csrf", "parameterized", "samesite"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly differentiates attack targets and assigns accurate defenses.",
+      "concept_coverage": "Covers all three vulnerabilities and their primary mitigations.",
+      "completeness": "Complete OWASP-aligned comparison.",
+      "clarity": "Crisp and structured."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-INT-02",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Cryptography & TLS",
+    "question_text": "Why does HTTPS/TLS use both asymmetric (public-key) cryptography and symmetric cryptography together?",
+    "reference_answer": "Asymmetric cryptography (RSA/ECDH + X.509 certificates) enables secure key exchange and server identity verification over an untrusted network without pre-shared secrets, but it is computationally slow for bulk data. Once the TLS handshake establishes a shared session key, fast symmetric encryption (AES-GCM/ChaCha20) encrypts all application traffic efficiently.",
+    "expected_concepts": ["asymmetric", "symmetric", "tls handshake", "certificates", "session key"],
+    "evaluation_rubric": {
+      "technical_correctness": "Explains key exchange/authentication via asymmetric crypto and bulk encryption via symmetric crypto.",
+      "concept_coverage": "Mentions public/private keys, certificates, performance difference, and session key.",
+      "completeness": "Covers both handshake and bulk data phases.",
+      "clarity": "Accurate cryptographic intuition."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-INT-03",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "Network Defense & Monitoring",
+    "question_text": "What is the difference between a firewall, an IDS (Intrusion Detection System), and an IPS (Intrusion Prevention System)?",
+    "reference_answer": "A firewall filters network traffic based on IP addresses, ports, protocols, and stateful connection rules. An IDS passively inspects traffic or host logs for known signatures or anomalies and raises alerts without blocking packets. An IPS sits inline in the traffic path and can actively drop malicious packets or reset suspicious connections in real time.",
+    "expected_concepts": ["firewall", "ids", "ips", "inline", "signatures"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly distinguishes rule-based filtering, passive alerting, and inline blocking.",
+      "concept_coverage": "Covers firewall rules, passive IDS, inline IPS, and signature/anomaly detection.",
+      "completeness": "Covers all three components clearly.",
+      "clarity": "Clear network security distinction."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-INT-04",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Intermediate",
+    "question_type": "Technical",
+    "topic": "SOC & Incident Response",
+    "question_text": "Outline the core phases of Incident Response (NIST) when a workstation shows signs of malware infection.",
+    "reference_answer": "Follow Preparation, Detection & Analysis, Containment, Eradication & Recovery, and Post-Incident Lessons Learned. Immediately isolate/contain the affected host from the network (without wiping volatile memory if forensics are needed), analyze process/network/auth logs for scope and lateral movement, eradicate persistence, restore from clean verified backups, and update detections.",
+    "expected_concepts": ["containment", "detection", "eradication", "recovery", "lateral movement"],
+    "evaluation_rubric": {
+      "technical_correctness": "Follows standard IR lifecycle and prioritizes containment before wiping evidence.",
+      "concept_coverage": "Mentions analysis, host isolation/containment, eradication, clean recovery, and lessons learned.",
+      "completeness": "Covers full incident lifecycle.",
+      "clarity": "Structured SOC response."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-ADV-01",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Threat Hunting & Log Analysis",
+    "question_text": "If you spot repeated failed SSH logins followed by one success from an external IP in SIEM logs, what are your next investigation steps?",
+    "reference_answer": "Check whether the login came from an expected user/VPN or an anomalous geolocation/ASN, inspect subsequent shell commands, `sudo` escalations, newly created users/SSH keys (`authorized_keys`), cron jobs, and outbound network connections. Check for lateral movement to internal hosts, rotate compromised credentials/keys, block the indicator if malicious, and disable password SSH in favor of keys + MFA.",
+    "expected_concepts": ["siem", "privilege escalation", "lateral movement", "persistence", "rotate credentials"],
+    "evaluation_rubric": {
+      "technical_correctness": "Investigates post-login activity, persistence, and lateral movement rather than stopping at the login alert.",
+      "concept_coverage": "Mentions command/sudo audit, persistence checks, lateral movement, and containment/hardening.",
+      "completeness": "Thorough triage and remediation workflow.",
+      "clarity": "Strong practical SOC thinking."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-ADV-02",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Zero Trust Architecture",
+    "question_text": "Explain Zero Trust Architecture and why traditional perimeter VPN security is no longer sufficient.",
+    "reference_answer": "Perimeter security implicitly trusts everything inside the corporate network once past a VPN or firewall, allowing attackers who phish one endpoint to move laterally freely. Zero Trust operates on 'never trust, always verify': every user, device, and service must continuously authenticate and authorize per request based on identity, device posture, and least privilege across micro-segmented resources.",
+    "expected_concepts": ["zero trust", "lateral movement", "micro-segmentation", "continuous verification", "device posture"],
+    "evaluation_rubric": {
+      "technical_correctness": "Explains failure of implicit perimeter trust and continuous per-request verification.",
+      "concept_coverage": "Mentions never trust always verify, lateral movement, identity/device posture, and micro-segmentation.",
+      "completeness": "Covers problem and Zero Trust principles.",
+      "clarity": "Clear architectural explanation."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-ADV-03",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "SSRF & Cloud Security",
+    "question_text": "What is Server-Side Request Forgery (SSRF), why is it especially dangerous in cloud environments, and how do you mitigate it?",
+    "reference_answer": "SSRF tricks a server into making HTTP requests to unintended internal targets on the attacker's behalf. In cloud environments, attackers can target internal metadata endpoints (like `169.254.169.254`) to steal IAM role credentials. Mitigate by enforcing strict URL/domain allowlists, blocking private/link-local IP ranges after DNS resolution, disabling unnecessary redirects, and enforcing IMDSv2 (session tokens) in AWS.",
+    "expected_concepts": ["ssrf", "metadata service", "allowlist", "private ip", "imdsv2"],
+    "evaluation_rubric": {
+      "technical_correctness": "Correctly explains internal pivoting to cloud metadata endpoints and DNS/IP validation.",
+      "concept_coverage": "Mentions metadata endpoint credential theft, allowlists, private IP blocking, and IMDSv2.",
+      "completeness": "Covers mechanism, cloud impact, and layered defenses.",
+      "clarity": "High-depth AppSec/CloudSec answer."
+    }
+  },
+  {
+    "question_id": "CYB-TECH-ADV-04",
+    "role": "Cybersecurity Analyst",
+    "domain": "Cybersecurity / Networking",
+    "difficulty": "Advanced",
+    "question_type": "Technical",
+    "topic": "Vulnerability Prioritization",
+    "question_text": "Why isn't CVSS score alone enough to prioritize patching vulnerabilities across an organization's assets?",
+    "reference_answer": "CVSS measures theoretical base severity without business or environmental context. A CVSS 9.8 vulnerability on an isolated, non-internet-facing lab machine may carry lower real risk than a CVSS 7.5 vulnerability actively exploited in the wild on an internet-facing authentication server. Effective prioritization combines CVSS with exploit availability (EPSS / CISA KEV), internet exposure, asset criticality, and compensating controls.",
+    "expected_concepts": ["cvss", "exploitability", "asset criticality", "exposure", "compensating controls"],
+    "evaluation_rubric": {
+      "technical_correctness": "Recognizes base CVSS lacks exposure, threat intel, and asset context.",
+      "concept_coverage": "Mentions exploit activity (KEV/EPSS), exposure, asset criticality, and compensating controls.",
+      "completeness": "Provides a risk-based prioritization model.",
+      "clarity": "Mature security operations perspective."
+    }
+  },
+  {
+    "question_id": "GEN-HR-BEG-01",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "HR",
+    "topic": "Self Introduction & Motivation",
+    "question_text": "Tell me about yourself and what motivated you to apply for this technical internship role.",
+    "reference_answer": "A strong answer concisely summarizes current academic background and core technical skills, highlights 1–2 relevant hands-on projects with measurable outcomes, explains specific interest in the target role and domain, and connects personal learning goals to how the student can contribute to the team.",
+    "expected_concepts": ["academic background", "technical skills", "project", "motivation", "contribute"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately aligns stated background and skills with the chosen internship role.",
+      "concept_coverage": "Includes background, relevant projects/skills, role motivation, and contribution.",
+      "completeness": "Covers past, present projects, and future goal.",
+      "clarity": "Structured 60-90 second pitch."
+    }
+  },
+  {
+    "question_id": "GEN-HR-BEG-02",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "HR",
+    "topic": "Strengths & Growth Areas",
+    "question_text": "What is your biggest technical strength, and what is one skill area you are currently working to improve?",
+    "reference_answer": "State one concrete strength backed by a real project example (e.g., debugging Python pipelines or building clean UIs), paired with an honest, non-disqualifying growth area (e.g., scaling cloud deployments or writing deeper integration tests) along with specific steps currently taken to improve it.",
+    "expected_concepts": ["strength", "example", "weakness", "improvement steps", "learning"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows realistic self-awareness without cliché fake weaknesses.",
+      "concept_coverage": "Includes evidence-backed strength, genuine growth area, and active improvement plan.",
+      "completeness": "Addresses both strength and growth area constructively.",
+      "clarity": "Honest, concise, and positive."
+    }
+  },
+  {
+    "question_id": "GEN-HR-BEG-03",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "HR",
+    "topic": "Career Goals",
+    "question_text": "Where do you see yourself growing during this internship, and what do you hope to learn by the end of it?",
+    "reference_answer": "Express clear goals around writing production-quality code, participating in code reviews, understanding team workflows and testing standards, and shipping a real feature or model end to end while learning from senior engineers.",
+    "expected_concepts": ["production code", "code review", "team workflow", "learning", "ownership"],
+    "evaluation_rubric": {
+      "technical_correctness": "Goals align realistically with an engineering internship.",
+      "concept_coverage": "Mentions engineering practices, collaboration, mentorship, and concrete deliverables.",
+      "completeness": "Covers both skill growth and team contribution.",
+      "clarity": "Enthusiastic and grounded."
+    }
+  },
+  {
+    "question_id": "GEN-HR-BEG-04",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "HR",
+    "topic": "Work Style & Time Management",
+    "question_text": "How do you balance college coursework, exams, and hands-on technical projects or internship responsibilities?",
+    "reference_answer": "Explain a concrete prioritization habit—such as time-blocking weekly schedules, breaking large deliverables into smaller milestones, communicating deadlines early, and keeping consistent daily focus blocks without letting one commitment derail another.",
+    "expected_concepts": ["prioritization", "schedule", "milestones", "deadlines", "communication"],
+    "evaluation_rubric": {
+      "technical_correctness": "Demonstrates practical, repeatable planning habits.",
+      "concept_coverage": "Mentions planning/time-blocking, breaking tasks down, and proactive communication.",
+      "completeness": "Explains how competing priorities are managed.",
+      "clarity": "Clear and dependable tone."
+    }
+  },
+  {
+    "question_id": "GEN-HR-BEG-05",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "HR",
+    "topic": "Company & Role Fit",
+    "question_text": "Why do you prefer working in this specific technical domain rather than another area of software?",
+    "reference_answer": "Connect genuine curiosity and past hands-on experience (projects, coursework, or problem-solving enjoyment) to what excites you about the domain—whether building user-facing interfaces, data-driven models, reliable backends, or securing systems.",
+    "expected_concepts": ["curiosity", "experience", "impact", "domain", "projects"],
+    "evaluation_rubric": {
+      "technical_correctness": "Gives specific domain-relevant reasons rather than generic statements.",
+      "concept_coverage": "Links personal projects/experience to domain impact.",
+      "completeness": "Clear rationale for domain fit.",
+      "clarity": "Authentic and focused."
+    }
+  },
+  {
+    "question_id": "GEN-HR-BEG-06",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "HR",
+    "topic": "Learning Agility",
+    "question_text": "How do you usually go about learning a new programming language, library, or tool you have never used before?",
+    "reference_answer": "Read the official quickstart documentation first to understand core concepts, build a small working prototype or minimal example immediately, test edge cases while consulting docs/error traces, and consolidate understanding by integrating it into a real mini-project.",
+    "expected_concepts": ["documentation", "prototype", "hands-on", "debugging", "project"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows structured hands-on learning rather than passive tutorial loops.",
+      "concept_coverage": "Mentions official docs, small prototype, experimentation, and real application.",
+      "completeness": "Clear step-by-step learning method.",
+      "clarity": "Concise and practical."
+    }
+  },
+  {
+    "question_id": "GEN-HR-BEG-07",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "HR",
+    "topic": "Work Environment",
+    "question_text": "Do you prefer working independently or collaboratively in a team, and why?",
+    "reference_answer": "Explain valuing a balance of both: collaborating early with teammates to align on architecture, requirements, and code reviews, then taking focused ownership to implement and test tasks independently while asking targeted questions when blocked.",
+    "expected_concepts": ["collaboration", "ownership", "code review", "alignment", "communication"],
+    "evaluation_rubric": {
+      "technical_correctness": "Recognizes both independent execution and team alignment matter.",
+      "concept_coverage": "Mentions collaboration/alignment, independent ownership, and asking timely questions.",
+      "completeness": "Balanced perspective.",
+      "clarity": "Professional and mature."
+    }
+  },
+  {
+    "question_id": "GEN-HR-BEG-08",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "HR",
+    "topic": "Project Pride",
+    "question_text": "Which technical project on your resume are you most proud of, and what was your exact personal contribution?",
+    "reference_answer": "Describe the problem the project solved, the tech stack used, your specific individual responsibilities (design, implementation, testing, or data pipeline), one challenge you overcame, and the final verified outcome.",
+    "expected_concepts": ["problem", "contribution", "tech stack", "challenge", "outcome"],
+    "evaluation_rubric": {
+      "technical_correctness": "Clearly distinguishes personal ownership from team work.",
+      "concept_coverage": "Covers problem, stack, personal role, challenge, and result.",
+      "completeness": "Concrete project narrative.",
+      "clarity": "Easy for an interviewer to follow."
+    }
+  },
+  {
+    "question_id": "GEN-HR-INT-01",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "HR",
+    "topic": "Feedback & Code Reviews",
+    "question_text": "How do you respond when a mentor or senior engineer gives critical feedback on your code or approach?",
+    "reference_answer": "Listen objectively without defensiveness, view code review as shared quality improvement rather than personal criticism, ask clarifying questions to understand the underlying reasoning (performance, maintainability, edge cases), apply the fix promptly, and carry the lesson forward to future work.",
+    "expected_concepts": ["feedback", "non-defensive", "clarifying questions", "maintainability", "growth"],
+    "evaluation_rubric": {
+      "technical_correctness": "Demonstrates emotional maturity and engineering openness.",
+      "concept_coverage": "Mentions objectivity, understanding the why, implementing improvements, and learning.",
+      "completeness": "Addresses mindset and action.",
+      "clarity": "Constructive and collaborative."
+    }
+  },
+  {
+    "question_id": "GEN-HR-INT-02",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "HR",
+    "topic": "Asking for Help",
+    "question_text": "When you get stuck on a tough technical bug during an internship, how long do you debug alone before asking a teammate for help?",
+    "reference_answer": "Spend a focused time-boxed window (e.g., 30–60 minutes) reading logs, isolating a minimal reproduction, checking docs, and testing hypotheses. If still blocked, reach out with full context: what was expected, what actually happened, error logs, and what approaches have already been tried.",
+    "expected_concepts": ["time-box", "reproduction", "logs", "hypotheses", "context"],
+    "evaluation_rubric": {
+      "technical_correctness": "Balances independent effort against wasting team time.",
+      "concept_coverage": "Mentions time-boxing, debugging/reproducing first, and sharing attempted steps when asking.",
+      "completeness": "Shows structured troubleshooting etiquette.",
+      "clarity": "Clear and thoughtful."
+    }
+  },
+  {
+    "question_id": "GEN-HR-INT-03",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "HR",
+    "topic": "Culture & Values",
+    "question_text": "What qualities do you look for in an engineering team and mentorship environment?",
+    "reference_answer": "Look for clear communication, constructive code reviews, psychological safety to ask thoughtful questions, high standards for testing and documentation, and opportunities to take ownership of real tasks with regular feedback.",
+    "expected_concepts": ["mentorship", "code review", "feedback", "ownership", "documentation"],
+    "evaluation_rubric": {
+      "technical_correctness": "Reflects healthy modern engineering culture.",
+      "concept_coverage": "Mentions feedback, learning, engineering rigor, and ownership.",
+      "completeness": "Specific rather than vague.",
+      "clarity": "Professional tone."
+    }
+  },
+  {
+    "question_id": "GEN-HR-INT-04",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "HR",
+    "topic": "Remote & Hybrid Readiness",
+    "question_text": "How do you stay accountable, communicative, and productive in a remote or hybrid internship?",
+    "reference_answer": "Maintain consistent daily working hours, share clear async status updates (what is done, next steps, any blockers), keep tasks tracked in tickets/PRs, over-communicate design questions early in writing, and verify expectations during check-ins.",
+    "expected_concepts": ["async communication", "blockers", "status updates", "documentation", "accountability"],
+    "evaluation_rubric": {
+      "technical_correctness": "Addresses real remote-work pitfalls like silent blocking.",
+      "concept_coverage": "Mentions proactive updates, flagging blockers, written clarity, and tracking progress.",
+      "completeness": "Practical remote collaboration habits.",
+      "clarity": "Clear and organized."
+    }
+  },
+  {
+    "question_id": "GEN-HR-INT-05",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "HR",
+    "topic": "Handling Rejection & Setbacks",
+    "question_text": "How do you stay motivated when a project experiment fails or your solution isn't chosen by the team?",
+    "reference_answer": "Separate personal worth from technical outcomes: analyze why the experiment or proposal fell short, extract reusable findings, support the team's chosen direction whole-heartedly, and iterate on the next problem with better constraints.",
+    "expected_concepts": ["resilience", "post-mortem", "learnings", "team alignment", "iteration"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows adaptability and lack of ego.",
+      "concept_coverage": "Mentions learning from failure, objective evaluation, and supporting team decisions.",
+      "completeness": "Covers mindset and follow-through.",
+      "clarity": "Mature reflection."
+    }
+  },
+  {
+    "question_id": "GEN-HR-INT-06",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "HR",
+    "topic": "Decision Making",
+    "question_text": "If you are given two tasks that both seem urgent from different stakeholders, how do you decide what to work on first?",
+    "reference_answer": "Clarify the business impact, deadlines, and dependencies of each task, propose a priority order to my manager/mentor transparently, confirm trade-offs so expectations are aligned, and execute the highest-impact item first.",
+    "expected_concepts": ["impact", "dependencies", "deadlines", "manager alignment", "trade-offs"],
+    "evaluation_rubric": {
+      "technical_correctness": "Prioritizes by impact/dependencies and escalates misalignment rather than guessing silently.",
+      "concept_coverage": "Mentions impact, deadlines, stakeholder/manager alignment, and clear communication.",
+      "completeness": "Covers assessment and communication.",
+      "clarity": "Structured prioritization."
+    }
+  },
+  {
+    "question_id": "GEN-HR-INT-07",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "HR",
+    "topic": "Ethics & Integrity",
+    "question_text": "In ML or software projects, why is it important to report limitations and negative results honestly rather than overstating metrics?",
+    "reference_answer": "Reporting inflated or unvalidated metrics misleads stakeholders, causes failures in production, and breaks trust. Documenting limitations, dataset constraints, and edge cases honestly lets teams make sound decisions and build genuinely reliable systems.",
+    "expected_concepts": ["honesty", "limitations", "trust", "validation", "reliability"],
+    "evaluation_rubric": {
+      "technical_correctness": "Connects honest evaluation to engineering reliability and trust.",
+      "concept_coverage": "Mentions avoiding fabricated metrics, stating limitations, and stakeholder trust.",
+      "completeness": "Strong academic and professional ethics.",
+      "clarity": "Clear and principled."
+    }
+  },
+  {
+    "question_id": "GEN-HR-INT-08",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "HR",
+    "topic": "Career Trajectory",
+    "question_text": "What makes you excited to transition from academic coursework projects into real-world production software?",
+    "reference_answer": "Coursework teaches foundational theory, while production software involves real users, messy data, latency/reliability constraints, automated tests, and team collaboration over long-lived codebases—seeing real people benefit from reliable tools is deeply motivating.",
+    "expected_concepts": ["real users", "reliability", "scale", "testing", "collaboration"],
+    "evaluation_rubric": {
+      "technical_correctness": "Accurately distinguishes classroom assignments from production engineering.",
+      "concept_coverage": "Mentions real users, maintainability/testing, constraints, and teamwork.",
+      "completeness": "Clear motivation bridge.",
+      "clarity": "Thoughtful and grounded."
+    }
+  },
+  {
+    "question_id": "GEN-HR-ADV-01",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "HR",
+    "topic": "Trade-offs & Product Thinking",
+    "question_text": "How do you decide when a technical solution is 'good enough to ship' versus needing more engineering refinement?",
+    "reference_answer": "Evaluate against correctness, security, and user impact: never compromise on data safety, security, or core correctness, but avoid over-engineering speculative abstractions before validating user value. Ship a clean, tested MVP behind clear boundaries and iterate based on real metrics.",
+    "expected_concepts": ["mvp", "correctness", "over-engineering", "user impact", "iteration"],
+    "evaluation_rubric": {
+      "technical_correctness": "Separates non-negotiable quality/security from premature optimization.",
+      "concept_coverage": "Mentions correctness/security baseline, avoiding over-engineering, and iterative delivery.",
+      "completeness": "Balanced engineering judgment.",
+      "clarity": "Senior product awareness."
+    }
+  },
+  {
+    "question_id": "GEN-HR-ADV-02",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "HR",
+    "topic": "Leadership & Ownership",
+    "question_text": "What does 'taking ownership' as an intern look like to you beyond completing assigned Jira tickets?",
+    "reference_answer": "Ownership means understanding the user problem behind a ticket, writing thorough tests and clear documentation, flagging edge cases or risks early, verifying changes after deployment, and following through until the feature works reliably end to end.",
+    "expected_concepts": ["user problem", "testing", "documentation", "proactive", "end-to-end"],
+    "evaluation_rubric": {
+      "technical_correctness": "Defines ownership through quality, foresight, and follow-through.",
+      "concept_coverage": "Mentions understanding context, tests/docs, flagging risks, and post-ship verification.",
+      "completeness": "Goes beyond bare coding.",
+      "clarity": "Mature engineering attitude."
+    }
+  },
+  {
+    "question_id": "GEN-HR-ADV-03",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "HR",
+    "topic": "Communication Across Roles",
+    "question_text": "How would you explain a complex ML limitation or technical delay to a non-technical product manager?",
+    "reference_answer": "Avoid jargon and focus on user impact, concrete risks, and options: state clearly what works, what constraint or uncertainty was discovered, how it affects timeline or feature behavior, and propose 2 clear alternatives with trade-offs so the PM can decide.",
+    "expected_concepts": ["avoid jargon", "user impact", "trade-offs", "options", "timeline"],
+    "evaluation_rubric": {
+      "technical_correctness": "Translates technical constraints into product choices and impact.",
+      "concept_coverage": "Mentions plain language, impact/risks, and actionable options.",
+      "completeness": "Covers clarity and solution framing.",
+      "clarity": "Strong cross-functional communication."
+    }
+  },
+  {
+    "question_id": "GEN-HR-ADV-04",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "HR",
+    "topic": "Technical Debt",
+    "question_text": "When is taking on technical debt justified, and how do you keep it from silently slowing down the team?",
+    "reference_answer": "Deliberate short-term debt is justified to meet a critical launch deadline or test a product hypothesis, provided core security and data integrity remain intact. Keep it visible by documenting TODOs/tickets with impact, isolating messy code behind clean interfaces, and scheduling paydown alongside feature work.",
+    "expected_concepts": ["technical debt", "deliberate", "isolation", "documentation", "paydown"],
+    "evaluation_rubric": {
+      "technical_correctness": "Treats tech debt as a managed trade-off rather than carelessness.",
+      "concept_coverage": "Mentions strategic trade-off, tracking tickets, interface isolation, and repayment.",
+      "completeness": "Covers justification and governance.",
+      "clarity": "Practical architectural maturity."
+    }
+  },
+  {
+    "question_id": "GEN-HR-ADV-05",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "HR",
+    "topic": "Privacy & Data Ethics",
+    "question_text": "What responsibilities do engineers have when handling personal user data such as uploaded resumes or student profiles?",
+    "reference_answer": "Minimize data collection to what is strictly necessary, process sensitive files in memory without unencrypted leaks where possible, enforce access controls and retention limits, exclude PII/credentials from logs and Git repositories, and never misrepresent synthetic/demo data as real user profiles.",
+    "expected_concepts": ["data minimization", "pii", "access control", "in-memory", "logs"],
+    "evaluation_rubric": {
+      "technical_correctness": "Addresses real privacy engineering controls.",
+      "concept_coverage": "Mentions minimization, PII protection, secure storage/in-memory, and clean logs.",
+      "completeness": "Comprehensive privacy awareness.",
+      "clarity": "Principled and concrete."
+    }
+  },
+  {
+    "question_id": "GEN-HR-ADV-06",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "HR",
+    "topic": "Evaluation & Self-Reflection",
+    "question_text": "If you were converting this internship into a full-time offer, what measurable impact would you aim to demonstrate?",
+    "reference_answer": "Aim to deliver at least one well-tested production feature or pipeline improvement that measurably improves reliability, latency, or user experience, earn trust through consistent code quality and proactive collaboration, and document work so the team benefits long after the internship.",
+    "expected_concepts": ["measurable impact", "reliability", "code quality", "collaboration", "documentation"],
+    "evaluation_rubric": {
+      "technical_correctness": "Focuses on durable team value and measurable outcomes.",
+      "concept_coverage": "Mentions shipped feature/improvement, metrics, teamwork, and documentation.",
+      "completeness": "Clear outcome-oriented vision.",
+      "clarity": "Concise and compelling."
+    }
+  },
+  {
+    "question_id": "GEN-HR-ADV-07",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "HR",
+    "topic": "Adaptability",
+    "question_text": "How would you approach onboarding onto an unfamiliar legacy codebase with sparse documentation in your first two weeks?",
+    "reference_answer": "Start by getting the project and test suite running locally, trace a single end-to-end request or entry point through the code, inspect recent Git commits/PRs to see active patterns, ask targeted questions to clarify hidden assumptions, and contribute small clean fixes while improving setup docs as I learn.",
+    "expected_concepts": ["run locally", "trace request", "git history", "tests", "documentation"],
+    "evaluation_rubric": {
+      "technical_correctness": "Uses practical codebase exploration tactics.",
+      "concept_coverage": "Mentions local setup, tracing flows, reading tests/git log, and updating docs.",
+      "completeness": "Structured 2-week onboarding plan.",
+      "clarity": "Resourceful and methodical."
+    }
+  },
+  {
+    "question_id": "GEN-HR-ADV-08",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "HR",
+    "topic": "Engineering Philosophy",
+    "question_text": "What separates clean, maintainable code from code that merely 'works once' during a hackathon?",
+    "reference_answer": "Maintainable code has clear modular boundaries, descriptive naming, explicit error handling for edge cases, automated tests guarding regressions, reproducible dependencies, and concise documentation explaining why non-obvious decisions were made—making it safe for teammates to modify months later.",
+    "expected_concepts": ["modularity", "error handling", "automated tests", "readability", "edge cases"],
+    "evaluation_rubric": {
+      "technical_correctness": "Identifies concrete traits that enable long-term collaboration.",
+      "concept_coverage": "Mentions modularity, error handling, tests, naming/docs, and edge cases.",
+      "completeness": "Contrasts prototype hacks vs production maintainability.",
+      "clarity": "Clear engineering values."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-BEG-01",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "Behavioral",
+    "topic": "Problem Solving & Debugging",
+    "question_text": "Tell me about a time you faced a stubborn technical bug or error. How did you systematically isolate and fix it?",
+    "reference_answer": "Using the STAR format: describe the situation and symptom, the task to restore expected behavior, the systematic actions taken (reproducing consistently, checking logs/stack traces, isolating variables via binary search or print/debugger checks, verifying root cause), and the final fix plus test added to prevent recurrence.",
+    "expected_concepts": ["situation", "reproduce", "logs", "root cause", "result"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows systematic debugging rather than random trial-and-error.",
+      "concept_coverage": "Follows STAR structure: context, systematic isolation/logs, root-cause fix, and verification.",
+      "completeness": "Includes concrete action and outcome.",
+      "clarity": "Structured STAR narrative."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-BEG-02",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "Behavioral",
+    "topic": "Teamwork & Collaboration",
+    "question_text": "Describe a group or college project where teammates had different skill levels. How did you collaborate effectively?",
+    "reference_answer": "Explain the project context, how tasks were divided based on strengths while pairing or sharing clear API contracts/interfaces, how progress was synced via Git/branches, and how helping or learning from teammates led to a successful integrated deliverable.",
+    "expected_concepts": ["task division", "interfaces", "git", "communication", "outcome"],
+    "evaluation_rubric": {
+      "technical_correctness": "Highlights constructive collaboration and clear boundaries.",
+      "concept_coverage": "Mentions context, splitting work cleanly, syncing/supporting teammates, and result.",
+      "completeness": "Shows empathy and execution.",
+      "clarity": "Clear STAR flow."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-BEG-03",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "Behavioral",
+    "topic": "Learning Under Deadline",
+    "question_text": "Tell me about a time you had to learn a new tool or framework quickly to finish a project on time.",
+    "reference_answer": "State the project deadline and missing skill, explain how you focused strictly on core documentation and a working minimal prototype rather than perfection, integrated it step by step, verified functionality with tests, and met the deadline.",
+    "expected_concepts": ["deadline", "documentation", "prototype", "focus", "delivered"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows pragmatic fast learning under constraints.",
+      "concept_coverage": "Mentions tight timeline, targeted learning steps, implementation, and timely delivery.",
+      "completeness": "Full STAR story.",
+      "clarity": "Focused and concrete."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-BEG-04",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "Behavioral",
+    "topic": "Attention to Detail",
+    "question_text": "Describe a time when you caught an edge case or mistake before submitting or demoing a project.",
+    "reference_answer": "Describe what you were building, how testing realistic edge cases (such as empty inputs, invalid file formats, or unexpected data types) exposed the flaw, how you fixed it and added validation, and how that prevented failure during the demo or grading.",
+    "expected_concepts": ["edge case", "testing", "validation", "prevented failure", "fix"],
+    "evaluation_rubric": {
+      "technical_correctness": "Demonstrates proactive testing of boundary conditions.",
+      "concept_coverage": "Mentions specific edge case discovered, fix implemented, and positive impact.",
+      "completeness": "Covers cause, catch, fix, and result.",
+      "clarity": "Clear example."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-BEG-05",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "Behavioral",
+    "topic": "Initiative",
+    "question_text": "Tell me about a time you went beyond the basic assignment requirements to improve a project.",
+    "reference_answer": "Explain the baseline requirement, why you spotted an opportunity to add meaningful value (such as automated tests, better error messages, data visualizations, or cleaner UX), how you implemented it without missing the deadline, and the measurable or positive feedback received.",
+    "expected_concepts": ["initiative", "improvement", "user experience", "testing", "outcome"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows purposeful improvement rather than scope creep.",
+      "concept_coverage": "Mentions baseline, proactive improvement, execution, and result/feedback.",
+      "completeness": "Full STAR arc.",
+      "clarity": "Engaging and concise."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-BEG-06",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "Behavioral",
+    "topic": "Mistakes & Accountability",
+    "question_text": "Tell me about a mistake you made in code or data handling and what you did to fix it.",
+    "reference_answer": "Own the mistake candidly (e.g., forgetting to split before scaling, pushing wrong config, or breaking a feature), describe how you diagnosed the impact, corrected it promptly, communicated transparently with teammates, and put a safeguard (test or checklist) in place.",
+    "expected_concepts": ["ownership", "mistake", "fix", "safeguard", "lesson"],
+    "evaluation_rubric": {
+      "technical_correctness": "Takes direct responsibility without blaming others.",
+      "concept_coverage": "Mentions honest admission, remediation, preventive safeguard, and takeaway.",
+      "completeness": "Covers mistake through prevention.",
+      "clarity": "Accountable and reflective."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-BEG-07",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "Behavioral",
+    "topic": "Communication",
+    "question_text": "Describe a time you had to explain a technical concept or project result to someone with a non-technical background.",
+    "reference_answer": "Explain the audience and topic, how you replaced technical jargon with relatable analogies and visual examples, checked for understanding, and achieved clear alignment or approval.",
+    "expected_concepts": ["audience", "analogy", "plain language", "visual", "alignment"],
+    "evaluation_rubric": {
+      "technical_correctness": "Simplifies accurately without distorting truth.",
+      "concept_coverage": "Mentions tailoring to audience, avoiding jargon, examples/visuals, and outcome.",
+      "completeness": "Clear communication story.",
+      "clarity": "Easy to follow."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-BEG-08",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "Behavioral",
+    "topic": "Time Pressure",
+    "question_text": "Tell me about a tight deadline where you had to cut scope or simplify a solution to deliver on time.",
+    "reference_answer": "Describe the competing constraints, how you separated must-have core features from nice-to-have extras, communicated the trade-off clearly, delivered a reliable working core on schedule, and documented future enhancements.",
+    "expected_concepts": ["prioritize", "core features", "trade-off", "deadline", "reliable"],
+    "evaluation_rubric": {
+      "technical_correctness": "Demonstrates pragmatic scoping under pressure.",
+      "concept_coverage": "Mentions deadline, separating must-have vs nice-to-have, communication, and delivery.",
+      "completeness": "Full STAR story.",
+      "clarity": "Structured and decisive."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-BEG-09",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Beginner",
+    "question_type": "Behavioral",
+    "topic": "Persistence",
+    "question_text": "Describe a time when your first technical approach didn't work at all. How did you pivot?",
+    "reference_answer": "Explain the initial approach and why it failed (performance, library limitation, or poor accuracy), how you gathered diagnostic evidence, researched alternatives, tested a new design, and achieved a working outcome.",
+    "expected_concepts": ["initial approach", "evidence", "pivot", "alternative", "result"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows analytical pivoting based on evidence.",
+      "concept_coverage": "Mentions why approach 1 failed, evaluation of alternative, pivot, and outcome.",
+      "completeness": "Covers failure and recovery.",
+      "clarity": "Clear narrative."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-INT-01",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "Behavioral",
+    "topic": "Conflict Resolution",
+    "question_text": "Tell me about a technical disagreement with a teammate over architecture or implementation. How did you resolve it?",
+    "reference_answer": "Describe the two competing approaches objectively, focus the discussion on measurable criteria (performance, complexity, timeline, maintainability) rather than personal preference, prototype or benchmark if needed, agree on a shared decision, and move forward collaboratively.",
+    "expected_concepts": ["disagreement", "criteria", "benchmark", "compromise", "teamwork"],
+    "evaluation_rubric": {
+      "technical_correctness": "Resolves conflict via objective engineering criteria.",
+      "concept_coverage": "Mentions listening to other view, objective criteria/trade-offs, resolution, and outcome.",
+      "completeness": "Respectful and analytical.",
+      "clarity": "Well-structured STAR response."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-INT-02",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "Behavioral",
+    "topic": "Handling Ambiguity",
+    "question_text": "Describe a time you were given an open-ended or vague project goal. How did you turn it into concrete engineering tasks?",
+    "reference_answer": "Clarify success criteria and constraints with stakeholders, break the ambiguous goal into small concrete milestones and user stories, build a quick prototype to validate assumptions early, and iterate with regular feedback.",
+    "expected_concepts": ["ambiguity", "requirements", "milestones", "prototype", "feedback"],
+    "evaluation_rubric": {
+      "technical_correctness": "Demonstrates structured problem decomposition.",
+      "concept_coverage": "Mentions clarifying goals, breaking into milestones, prototyping, and feedback loop.",
+      "completeness": "Shows self-direction.",
+      "clarity": "Clear step-by-step progression."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-INT-03",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "Behavioral",
+    "topic": "Performance & Optimization",
+    "question_text": "Tell me about a time a script, query, or app you wrote was too slow. How did you profile and speed it up?",
+    "reference_answer": "Explain the bottleneck symptom, how you profiled or timed execution before guessing, identified the root cause (redundant computation, uncached model loading, N+1 calls, or O(N^2) loops), applied a targeted optimization (caching, vectorization, indexing), and measured the speedup.",
+    "expected_concepts": ["profile", "bottleneck", "caching", "complexity", "measured"],
+    "evaluation_rubric": {
+      "technical_correctness": "Measures before and after rather than guessing optimizations.",
+      "concept_coverage": "Mentions profiling/measurement, root cause, specific optimization, and verified improvement.",
+      "completeness": "Concrete engineering story.",
+      "clarity": "Quantified and clear."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-INT-04",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "Behavioral",
+    "topic": "Data Integrity & Skepticism",
+    "question_text": "Describe a time your metrics or outputs looked surprisingly good—or suspicious—and you investigated the data instead of accepting them.",
+    "reference_answer": "Explain the suspicious metric (such as unexpectedly high accuracy or duplicate records), how you audited the pipeline for data leakage, duplicates, or evaluation bugs, fixed the underlying issue, and reported honest, verified results.",
+    "expected_concepts": ["suspicious", "audit", "leakage", "duplicates", "honest"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows scientific skepticism and rigor.",
+      "concept_coverage": "Mentions catching anomaly, root-cause investigation, fixing pipeline, and honest reporting.",
+      "completeness": "Strong data/ML discipline.",
+      "clarity": "Clear and credible."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-INT-05",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "Behavioral",
+    "topic": "Mentoring & Helping Others",
+    "question_text": "Tell me about a time you helped a teammate debug a problem or get unstuck without simply taking over their keyboard.",
+    "reference_answer": "Describe how you walked through the error together, asked guiding questions about assumptions and logs, helped them locate the issue themselves, and shared documentation or tips so they felt empowered going forward.",
+    "expected_concepts": ["guiding questions", "collaboration", "debugging", "empowered", "documentation"],
+    "evaluation_rubric": {
+      "technical_correctness": "Focuses on enabling teammates rather than taking over.",
+      "concept_coverage": "Mentions listening, collaborative debugging, teaching/guiding, and positive outcome.",
+      "completeness": "Good leadership signal.",
+      "clarity": "Warm and structured."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-INT-06",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "Behavioral",
+    "topic": "Handling Shifting Requirements",
+    "question_text": "Describe a situation where project requirements changed midway through implementation. How did you adapt?",
+    "reference_answer": "Assess what existing code/design could be reused vs what needed updating, communicate timeline or scope impacts early, refactor modularly to absorb the change cleanly, and verify both old and new requirements with tests.",
+    "expected_concepts": ["requirements changed", "impact", "modular", "communication", "tests"],
+    "evaluation_rubric": {
+      "technical_correctness": "Handles change calmly with modular adaptation.",
+      "concept_coverage": "Mentions assessing impact, communicating early, adapting cleanly, and re-testing.",
+      "completeness": "Full STAR example.",
+      "clarity": "Composed and adaptable."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-INT-07",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "Behavioral",
+    "topic": "Code Quality & Refactoring",
+    "question_text": "Tell me about a time you refactored messy or duplicated code. What motivated it and how did you avoid breaking existing features?",
+    "reference_answer": "Identify why the duplication or complexity caused bugs or slowed changes, write or run existing regression tests first as a safety net, extract shared clean helpers incrementally in small commits, and re-verify all behavior afterwards.",
+    "expected_concepts": ["refactor", "duplication", "regression tests", "incremental", "helpers"],
+    "evaluation_rubric": {
+      "technical_correctness": "Uses tests as a safety net before refactoring.",
+      "concept_coverage": "Mentions motivation, test coverage first, incremental cleanup, and verification.",
+      "completeness": "Sound engineering discipline.",
+      "clarity": "Clear and structured."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-INT-08",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "Behavioral",
+    "topic": "Receiving Tough Feedback",
+    "question_text": "Tell me about a piece of constructive criticism you received on a project or presentation and how it changed your work.",
+    "reference_answer": "Share the specific critique openly, explain why it initially felt challenging yet valid upon reflection, detail concrete adjustments made in that project and subsequent ones, and highlight the improved result.",
+    "expected_concepts": ["criticism", "reflection", "adjustment", "improvement", "result"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows genuine growth from concrete feedback.",
+      "concept_coverage": "Mentions specific critique, open reflection, concrete change, and lasting habit.",
+      "completeness": "Avoids generic answers.",
+      "clarity": "Authentic STAR story."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-INT-09",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Intermediate",
+    "question_type": "Behavioral",
+    "topic": "Cross-Team Coordination",
+    "question_text": "Describe a project where your work depended on someone else's component or API that wasn't ready yet. How did you keep moving?",
+    "reference_answer": "Agree early on an explicit schema/API contract together, build against mock data or stub interfaces locally so frontend/ML work didn't stall, write contract validation tests, and integrate smoothly once the dependency landed.",
+    "expected_concepts": ["api contract", "mock data", "interface", "parallel work", "integration"],
+    "evaluation_rubric": {
+      "technical_correctness": "Uses contracts and mocks to unblock parallel progress.",
+      "concept_coverage": "Mentions defining contract, mocking/stubbing, unblocking progress, and smooth integration.",
+      "completeness": "Strong engineering coordination.",
+      "clarity": "Clear and actionable."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-ADV-01",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "Behavioral",
+    "topic": "Incident & Crisis Ownership",
+    "question_text": "Tell me about a time something broke right before a major demo, release, or submission. How did you handle the pressure?",
+    "reference_answer": "Stay calm and triage impact immediately: check recent diffs/environment changes, either roll back to the last known-good state or apply a minimal verified fix, communicate status clearly to teammates/stakeholders, verify the fix end to end, and document a post-mortem fix afterwards.",
+    "expected_concepts": ["triage", "rollback", "recent changes", "communication", "post-mortem"],
+    "evaluation_rubric": {
+      "technical_correctness": "Prioritizes stability and quick triage over panic.",
+      "concept_coverage": "Mentions calm triage, checking diffs/logs, rollback or minimal fix, and follow-up.",
+      "completeness": "Covers immediate response and prevention.",
+      "clarity": "Composed crisis narrative."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-ADV-02",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "Behavioral",
+    "topic": "Architectural Decision Making",
+    "question_text": "Describe a tough technical trade-off you had to make (e.g., speed vs accuracy, simplicity vs flexibility). How did you justify it?",
+    "reference_answer": "Frame the constraints (compute, time, dataset size, user needs), compare the candidate options with concrete pros/cons, explain why the chosen option best satisfied current constraints while preserving a clean path to evolve later, and describe how it performed.",
+    "expected_concepts": ["constraints", "pros and cons", "trade-off", "justification", "extensibility"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows nuanced architectural reasoning.",
+      "concept_coverage": "Mentions constraints, alternatives evaluated, rationale, and outcome.",
+      "completeness": "Demonstrates engineering judgment.",
+      "clarity": "Structured and persuasive."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-ADV-03",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "Behavioral",
+    "topic": "Unpopular Stand / Quality Advocacy",
+    "question_text": "Tell me about a time you pushed back on a shortcut or rushed decision because of quality, privacy, or security concerns.",
+    "reference_answer": "Explain the proposed shortcut and the concrete risk (such as leaking user data, skipping validation, or fabricating metrics), present evidence and a practical low-cost safer alternative rather than just saying 'no', and achieve a safer outcome without derailing the project.",
+    "expected_concepts": ["risk", "security", "alternative", "evidence", "compromise"],
+    "evaluation_rubric": {
+      "technical_correctness": "Balances principled pushback with constructive solutions.",
+      "concept_coverage": "Mentions specific risk, presenting evidence, proposing a practical alternative, and result.",
+      "completeness": "Strong integrity and influence.",
+      "clarity": "Mature and constructive."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-ADV-04",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "Behavioral",
+    "topic": "Leading Without Authority",
+    "question_text": "Describe a time you took the lead in organizing a team or project when no formal leader was assigned.",
+    "reference_answer": "Step in to facilitate clear goals, help set up shared repo structure/standards and task tracking, check in with teammates to unblock dependencies, respect everyone's input during decisions, and ensure smooth integration to completion.",
+    "expected_concepts": ["facilitate", "task tracking", "unblock", "consensus", "integration"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows servant leadership rather than micromanagement.",
+      "concept_coverage": "Mentions creating alignment, organizing workflow, unblocking others, and shared success.",
+      "completeness": "Clear leadership story.",
+      "clarity": "Collaborative tone."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-ADV-05",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "Behavioral",
+    "topic": "User-Centric Engineering",
+    "question_text": "Tell me about a time user feedback forced you to rethink an assumption you made when building an interface or model.",
+    "reference_answer": "Describe the initial engineering assumption, how watching real users or reviewing feedback exposed confusion or friction, how you set aside ego and redesigned the flow or output clarity, and how user experience improved afterward.",
+    "expected_concepts": ["assumption", "user feedback", "friction", "redesign", "usability"],
+    "evaluation_rubric": {
+      "technical_correctness": "Shows user-centered iteration.",
+      "concept_coverage": "Mentions assumption challenged, real feedback, concrete UX/model change, and result.",
+      "completeness": "Connects engineering to user value.",
+      "clarity": "Clear and empathetic."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-ADV-06",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "Behavioral",
+    "topic": "System Reliability",
+    "question_text": "Tell me about a time an external library, model, or API failed unexpectedly in your project, and how you built resilience around it.",
+    "reference_answer": "Explain the external failure (network timeout, unavailable model, or malformed input), how you avoided crashing the application by adding graceful fallbacks, clear user notifications, timeouts, and automated tests covering the failure mode.",
+    "expected_concepts": ["fallback", "graceful degradation", "timeout", "error handling", "testing"],
+    "evaluation_rubric": {
+      "technical_correctness": "Demonstrates defensive engineering and fallback design.",
+      "concept_coverage": "Mentions failure mode, graceful fallback, user messaging, and failure-path testing.",
+      "completeness": "Strong reliability mindset.",
+      "clarity": "Practical and concrete."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-ADV-07",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "Behavioral",
+    "topic": "Continuous Improvement",
+    "question_text": "Looking back at a project you completed a few months ago, what is the biggest architectural improvement you would make today?",
+    "reference_answer": "Identify a real design limitation (such as tight coupling, missing automated tests, slow synchronous loading, or unclear state boundaries), explain how it caused friction as features grew, and describe the specific modular refactor or caching pattern you would apply now.",
+    "expected_concepts": ["coupling", "testing", "modularity", "scalability", "refactor"],
+    "evaluation_rubric": {
+      "technical_correctness": "Reflects critically on past architecture with concrete improvements.",
+      "concept_coverage": "Mentions specific past limitation, why it mattered, and concrete architectural upgrade.",
+      "completeness": "Demonstrates technical growth over time.",
+      "clarity": "Thoughtful self-critique."
+    }
+  },
+  {
+    "question_id": "GEN-BEH-ADV-08",
+    "role": "General",
+    "domain": "General",
+    "difficulty": "Advanced",
+    "question_type": "Behavioral",
+    "topic": "Cross-Domain Integration",
+    "question_text": "Tell me about a time you had to connect two very different components—such as an ML model and a live UI or API—and overcome integration challenges.",
+    "reference_answer": "Explain both sides of the boundary (e.g., model cold-start latency or schema mismatch vs interactive UI expectations), how you introduced lazy loading/caching, standardized input/output contracts, handled edge cases cleanly, and verified end-to-end integration.",
+    "expected_concepts": ["integration", "caching", "latency", "contract", "end-to-end"],
+    "evaluation_rubric": {
+      "technical_correctness": "Addresses real ML-to-product boundary challenges.",
+      "concept_coverage": "Mentions performance/caching, schema alignment, edge cases, and E2E testing.",
+      "completeness": "Full STAR story.",
+      "clarity": "Clear systems thinking."
+    }
+  }
+]

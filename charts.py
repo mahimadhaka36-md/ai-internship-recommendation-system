@@ -509,3 +509,151 @@ def plot_knn_neighbors_chart(all_ranked: List[Dict[str, Any]], k: int, metric: s
     ax.tick_params(colors="#334155", labelsize=8.8)
     plt.tight_layout()
     return fig
+
+
+def plot_interview_question_scores_chart(question_rows: List[Dict[str, Any]]) -> plt.Figure:
+    """
+    AI Mock Interview: Bar chart of question-wise practice scores (0-100),
+    marking skipped questions distinctly.
+    """
+    if not question_rows:
+        fig, ax = plt.subplots(figsize=(7.5, 2.5), dpi=130)
+        ax.text(0.5, 0.5, "No interview questions recorded yet.", ha="center", va="center", color="#64748b")
+        ax.axis("off")
+        return fig
+
+    labels = [f"Q{r['index']}" for r in question_rows]
+    scores = [float(r["score"]) if r["score"] is not None else 0.0 for r in question_rows]
+    colors = []
+    for r in question_rows:
+        if r["score"] is None:
+            colors.append("#cbd5e1")
+        elif r["score"] >= 75:
+            colors.append("#0d9488")
+        elif r["score"] >= 50:
+            colors.append("#2563eb")
+        else:
+            colors.append("#f59e0b")
+
+    fig, ax = plt.subplots(figsize=(max(6.8, len(labels) * 0.65), 3.6), dpi=130)
+    fig.patch.set_facecolor("#ffffff")
+    ax.set_facecolor("#ffffff")
+
+    bars = ax.bar(labels, scores, color=colors, width=0.55)
+    ax.set_ylim(0, 112)
+    ax.set_ylabel("Practice Score (/100)", fontsize=9.5, color="#334155")
+
+    attempted = [r["score"] for r in question_rows if r["score"] is not None]
+    if attempted:
+        avg_val = float(np.mean(attempted))
+        ax.axhline(avg_val, color="#1e293b", linestyle="--", linewidth=1.2, label=f"Attempted Avg ({avg_val:.1f})")
+        ax.legend(loc="upper right", frameon=True, facecolor="#ffffff", edgecolor="#e2e8f0", fontsize=8.5)
+
+    for bar, r in zip(bars, question_rows):
+        txt = "Skip" if r["score"] is None else f"{r['score']:.0f}"
+        y_pos = 4 if r["score"] is None else bar.get_height() + 2.2
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            y_pos,
+            txt,
+            ha="center",
+            va="bottom",
+            fontsize=8.5,
+            fontweight="600",
+            color="#475569" if r["score"] is None else "#0f172a",
+        )
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_color("#cbd5e1")
+    ax.spines["bottom"].set_color("#cbd5e1")
+    ax.grid(axis="y", linestyle="--", alpha=0.45, color="#e2e8f0")
+    ax.tick_params(colors="#334155", labelsize=9)
+    plt.tight_layout()
+    return fig
+
+
+def plot_interview_rubric_dimensions_chart(dimension_averages: Dict[str, float]) -> plt.Figure:
+    """
+    AI Mock Interview: Horizontal bar chart of average scores across the 5 evaluation dimensions.
+    """
+    if not dimension_averages:
+        fig, ax = plt.subplots(figsize=(7.5, 2.5), dpi=130)
+        ax.text(0.5, 0.5, "Attempt at least one question to view dimension breakdown.", ha="center", va="center", color="#64748b")
+        ax.axis("off")
+        return fig
+
+    order = [
+        ("answer_clarity", "Answer Clarity (10%)"),
+        ("completeness", "Completeness (10%)"),
+        ("technical_correctness", "Technical Correctness (15%)"),
+        ("concept_coverage", "Concept Coverage (30%)"),
+        ("semantic_relevance", "Semantic Relevance (35%)"),
+    ]
+    labels = [label for key, label in order if key in dimension_averages]
+    vals = [float(dimension_averages[key]) for key, _ in order if key in dimension_averages]
+
+    fig, ax = plt.subplots(figsize=(7.2, 3.4), dpi=130)
+    fig.patch.set_facecolor("#ffffff")
+    ax.set_facecolor("#ffffff")
+
+    bars = ax.barh(labels, vals, color="#2563eb", height=0.52)
+    ax.set_xlim(0, 114)
+    ax.set_xlabel("Average Dimension Score (/100)", fontsize=9.5, color="#334155")
+
+    for bar, v in zip(bars, vals):
+        ax.text(bar.get_width() + 1.8, bar.get_y() + bar.get_height() / 2, f"{v:.1f}", va="center", ha="left", fontsize=9, fontweight="600", color="#0f172a")
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_color("#cbd5e1")
+    ax.spines["bottom"].set_color("#cbd5e1")
+    ax.grid(axis="x", linestyle="--", alpha=0.45, color="#e2e8f0")
+    ax.tick_params(colors="#334155", labelsize=9)
+    plt.tight_layout()
+    return fig
+
+
+def plot_interview_topic_performance_chart(topic_averages: List[Dict[str, Any]]) -> plt.Figure:
+    """
+    AI Mock Interview: Horizontal bar chart showing average score per interview topic.
+    """
+    if not topic_averages:
+        fig, ax = plt.subplots(figsize=(7.5, 2.5), dpi=130)
+        ax.text(0.5, 0.5, "No topic metrics available.", ha="center", va="center", color="#64748b")
+        ax.axis("off")
+        return fig
+
+    topics_rev = list(reversed(topic_averages))
+    labels = [t["topic"] if len(t["topic"]) <= 28 else t["topic"][:25] + "..." for t in topics_rev]
+    scores = [float(t["avg_score"]) for t in topics_rev]
+    colors = ["#0d9488" if s >= 70 else ("#3b82f6" if s >= 50 else "#f59e0b") for s in scores]
+
+    fig, ax = plt.subplots(figsize=(8.0, max(2.8, len(topics_rev) * 0.48)), dpi=130)
+    fig.patch.set_facecolor("#ffffff")
+    ax.set_facecolor("#ffffff")
+
+    bars = ax.barh(labels, scores, color=colors, height=0.54)
+    ax.set_xlim(0, 114)
+    ax.set_xlabel("Topic Average Score (/100)", fontsize=9.5, color="#334155")
+
+    for bar, t in zip(bars, topics_rev):
+        ax.text(
+            bar.get_width() + 1.5,
+            bar.get_y() + bar.get_height() / 2,
+            f"{t['avg_score']:.1f} (n={t['count']})",
+            va="center",
+            ha="left",
+            fontsize=8.8,
+            fontweight="600",
+            color="#0f172a",
+        )
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_color("#cbd5e1")
+    ax.spines["bottom"].set_color("#cbd5e1")
+    ax.grid(axis="x", linestyle="--", alpha=0.45, color="#e2e8f0")
+    ax.tick_params(colors="#334155", labelsize=9)
+    plt.tight_layout()
+    return fig

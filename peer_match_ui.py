@@ -19,6 +19,7 @@ import pandas as pd
 import streamlit as st
 
 import charts
+import mock_interview_ui
 from peer_match import canonicalize_peer_skill
 from skill_extractor import get_skill_vocab
 
@@ -567,6 +568,16 @@ def render_peer_match_page(engine, peer_engine, navigate_to: Callable[[Any], Non
                 </div>
             </div>
             """, unsafe_allow_html=True)
+            _, pm_launch_col = st.columns([2.6, 1.1])
+            with pm_launch_col:
+                if st.button(
+                    "🎤 Practice Mock Interview",
+                    key=f"btn_peer_rec_interview_{idx}",
+                    use_container_width=True,
+                ):
+                    mock_interview_ui.launch_interview_from_internship(
+                        item["title"], item["required_skills"], navigate_to
+                    )
 
         if st.session_state.get("is_authenticated", False):
             if st.button("🎯 Open Full Resume & ML Analysis Dashboard (Page 3) →", key="btn_peer_to_p3"):

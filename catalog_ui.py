@@ -18,6 +18,7 @@ import streamlit as st
 import pandas as pd
 from typing import Callable, List
 from skill_extractor import normalize_skill_name
+import mock_interview_ui
 
 PAGE_SIZE = 12
 
@@ -144,7 +145,7 @@ def render_explore_page(engine, navigate_to: Callable[[any], None]):
     # -------------------------------------------------------------------------
     # Page Header with Prominent Recommendation CTA
     # -------------------------------------------------------------------------
-    header_col1, header_col2 = st.columns([1.7, 1.1], gap="large")
+    header_col1, header_col2 = st.columns([1.45, 1.35], gap="large")
 
     with header_col1:
         st.markdown("""
@@ -161,7 +162,7 @@ def render_explore_page(engine, navigate_to: Callable[[any], None]):
     with header_col2:
         st.markdown("<div style='height: 8px;'></div>", unsafe_allow_html=True)
         # Visually prominent CTA buttons in the top-right corner
-        cta_c1, cta_c2 = st.columns(2, gap="small")
+        cta_c1, cta_c2, cta_c3 = st.columns([1.15, 0.95, 0.95], gap="small")
         with cta_c1:
             if st.button("Get Personalized Matches →", type="primary", use_container_width=True, key="btn_cta_matches"):
                 if not st.session_state.is_authenticated:
@@ -171,7 +172,10 @@ def render_explore_page(engine, navigate_to: Callable[[any], None]):
         with cta_c2:
             if st.button("👥 Explore Profiles", use_container_width=True, key="btn_cta_peer_match"):
                 navigate_to("peer_match")
-        st.caption("Upload your resume for internship matches or use KNN to compare with similar student peers.")
+        with cta_c3:
+            if st.button("🎤 Mock Interview", use_container_width=True, key="btn_cta_mock_interview"):
+                navigate_to("mock_interview")
+        st.caption("Upload your resume for matches, explore peer profiles with KNN, or practice AI mock interviews.")
 
     st.markdown("<hr style='margin: 18px 0 20px 0; border: none; border-top: 1px solid #e2e8f0;'>", unsafe_allow_html=True)
 
@@ -409,7 +413,7 @@ def render_explore_page(engine, navigate_to: Callable[[any], None]):
                 - **Maximum Salary:** {max_sal_str}
                 - **Required Skills:** {skills}
                 """)
-                exp_c1, exp_c2 = st.columns(2)
+                exp_c1, exp_c2, exp_c3 = st.columns(3)
                 with exp_c1:
                     if st.button("🎯 Get ML Recommendations", key=f"btn_match_{start_idx + i}", use_container_width=True):
                         if not st.session_state.is_authenticated:
@@ -417,6 +421,9 @@ def render_explore_page(engine, navigate_to: Callable[[any], None]):
                         else:
                             navigate_to(1)
                 with exp_c2:
+                    if st.button("🎤 Mock Interview", key=f"btn_exp_interview_{start_idx + i}", use_container_width=True):
+                        mock_interview_ui.launch_interview_from_internship(title, skills, navigate_to)
+                with exp_c3:
                     if st.button("📄 Apply for Role", key=f"btn_apply_{start_idx + i}", type="primary", use_container_width=True):
                         if not st.session_state.is_authenticated:
                             render_login_modal("company", title)
